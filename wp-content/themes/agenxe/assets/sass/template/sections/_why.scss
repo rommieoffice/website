@@ -1,0 +1,74 @@
+/* Why 1 ---------------------------------- */ 
+.wcu-wrap {
+    display: flex;
+    gap: 30px;
+    max-width: 480px;
+    &:not(:last-child) {
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+        transition: 0.4s;
+        border-bottom: 1px solid #16161A;
+        position: relative;
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background: $theme-color;
+            transition: 0.4s;
+        }
+    }
+    &_icon {
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        background: transparent;
+        border: 1px solid $border-color;
+        border-radius: 50%;
+        color: $white-color;
+        text-align: center;
+        font-size: 18px;
+        flex: none;
+        transition: 0.4s;
+    }
+    .box-title {
+        margin-bottom: 12px;
+    }
+    &_text {
+        color: $gray-color;
+        margin-bottom: -0.4em;
+    }
+    .link-btn {
+        display: inline-block;
+        margin-bottom: -0.4em;
+        margin-top: 30px;
+        color: $title-color;
+        i {
+            color: $theme-color;
+        }
+    }
+    &:hover {
+        .wcu-wrap_icon {
+            background: $theme-color;
+            border-color: $theme-color;
+        }
+        
+        &:not(:last-child) {
+            &:after {
+                width: 100%;
+            }
+        }
+        .link-btn {
+            color: $theme-color;
+        }
+    }
+}
+@include lg {
+    .wcu-wrap2 {
+        .wcu-wrap {
+            max-width: none;
+        }
+    }
+}

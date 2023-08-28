@@ -1,0 +1,49 @@
+
+---Downloaded files---
+The import files for: Agenxe Demo were successfully downloaded!
+Initial max execution time = 180
+Files info:
+Site URL = https://themehause.com/wordpress/agenxe
+Data file = /home/u895769811/domains/themehause.com/public_html/wordpress/agenxe/wp-content/themes/agenxe/inc/demo-data/agenxe-demo.xml
+Widget file = /home/u895769811/domains/themehause.com/public_html/wordpress/agenxe/wp-content/themes/agenxe/inc/demo-data/agenxe-widgets-demo.json
+Customizer file = not defined!
+Redux files:
+agenxe_opt -> /home/u895769811/domains/themehause.com/public_html/wordpress/agenxe/wp-content/themes/agenxe/inc/demo-data/redux_options_demo.json 
+
+
+---Importing widgets---
+Blog Sidebar : 
+
+Agenxe :: Search Form - No Title - Imported
+Agenxe :: Category List - Category - Imported
+Agenxe :: Recent Posts - Recent Posts - Imported
+Block - No Title - Imported
+
+Page Sidebar : 
+
+Block - No Title - Widget already exists
+Block - No Title - Widget already exists
+
+Footer Widgets Area 1 : 
+
+Agenxe :: About Us Widget - About Us - Imported
+
+Footer Widgets Area 2 : 
+
+Navigation Menu - Explore - Imported
+
+Footer Widgets Area 3 : 
+
+Block - No Title - Imported
+
+Footer Widgets Area 4 : 
+
+Block - No Title - Imported
+
+
+
+---Importing Redux settings---
+Redux settings import for: agenxe_opt finished successfully!
+
+---ocdi/after_import---
+

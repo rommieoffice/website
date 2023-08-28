@@ -1,0 +1,2751 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Agenxe\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-25 17:21+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.2; wp-5.7.2\n"
+"X-Domain: agenxe"
+
+#: inc/hooks/hooks-functions.php:369
+msgid " Comment"
+msgstr ""
+
+#: inc/hooks/hooks-functions.php:371
+msgid " Comments"
+msgstr ""
+
+#: comments.php:69 woocommerce/single-product-reviews.php:118
+msgid ""
+" Save my name, email, and website in this browser for the next time I "
+"comment."
+msgstr ""
+
+#: woocommerce/cart/cart.php:149
+msgid " Update cart"
+msgstr ""
+
+#: inc/hooks/hooks-functions.php:362
+msgid " Views"
+msgstr ""
+
+#: inc/agenxe-functions.php:239
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: inc/woo-hooks/agenxe-woo-hooks-functions.php:485
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#. %s: Quantity.
+#: woocommerce/global/quantity-input.php:28
+#, php-format
+msgid "%s quantity"
+msgstr ""
+
+#: inc/wp_bootstrap_pagination.php:21
+msgid "&laquo;"
+msgstr ""
+
+#: inc/wp_bootstrap_pagination.php:22
+msgid "&raquo;"
+msgstr ""
+
+#. %s location.
+#: woocommerce/cart/cart-totals.php:72
+#, php-format
+msgid "(estimated for %s)"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:598 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:717 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:966 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1115 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1181
+msgid "1 Column"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:602 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:721 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:970 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1119 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1185
+msgid "2 Column Left"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:606 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:725 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:974 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1123 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1189
+msgid "2 Column Right"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1138 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1248 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1294 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1340
+msgid "2 Columns"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1142 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1252 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1298 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1344
+msgid "3 Columns"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1146 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1256 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1302 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1348
+msgid "4 Columns"
+msgstr ""
+
+#: 404.php:25 inc/agenxe-framework/agenxe-options/agenxe-options.php:1391
+msgid "404"
+msgstr ""
+
+#: templates/header-menu-bottom.php:188
+msgid "404 PAGE"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1368
+msgid "404 Page"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1150 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1158
+msgid "5 Columns"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1154 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1162 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1260 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1306 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1352
+msgid "6 Columns"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1755
+msgid ""
+"<p class=\"description\">This is a section created by adding a filter to the "
+"sections array. Can be used by child themes to add/remove sections from the "
+"options.</p>"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:209
+msgid "<p>This is the sidebar content, HTML is allowed.</p>"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:198 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:203
+msgid "<p>This is the tab content, HTML is allowed.</p>"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:107
+msgid "A password will be sent to your email address."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:364
+msgid "achievement"
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:84
+msgid "Add"
+msgstr ""
+
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:317
+#, php-format
+msgid "Add %s"
+msgstr ""
+
+#. %s is product title
+#: woocommerce/single-product-reviews.php:68
+msgid "Add a review"
+msgstr ""
+
+#: inc/agenxe-widgets-reg.php:28
+msgid "Add Blog Sidebar Widgets Here."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1602
+msgid "Add Copyright Text"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1079
+msgid "Add Gallery Image"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1080
+msgid "Add gallery Image and url."
+msgstr ""
+
+#: inc/agenxe-widgets-reg.php:39
+msgid "Add Page Sidebar Widgets Here."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1488
+msgid "Add social icon and url."
+msgstr ""
+
+#: woocommerce/wishlist-view.php:85
+msgid "Add To Cart"
+msgstr ""
+
+#: woocommerce/wishlist-view.php:182
+#, php-format
+msgid "Added on: %s"
+msgstr ""
+
+#: woocommerce/checkout/form-shipping.php:61
+msgid "Additional information"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:363
+msgid "Admin Label"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:369
+msgid "Admin Login Logo"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:376
+msgid "Any CSS your write here will run in admin."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:242
+msgid "API Key"
+msgstr ""
+
+#: woocommerce/cart/cart.php:141 woocommerce/checkout/form-coupon.php:32 
+#: woocommerce/checkout/form-coupon.php:32
+msgid "Apply coupon"
+msgstr ""
+
+#: woocommerce/wishlist-view.php:90
+msgid "Arrange"
+msgstr ""
+
+#: inc/woo-hooks/agenxe-woo-hooks-functions.php:416 
+#: inc/woo-hooks/agenxe-woo-hooks-functions.php:429
+msgid "Availability:"
+msgstr ""
+
+#: woocommerce/cart/cart.php:66
+msgid "Available on backorder"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:99 
+#: woocommerce/single-product-reviews.php:110
+msgid "Average"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:366
+msgid "award"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:250
+msgid "Back To Top"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:257
+msgid "Back To Top Button"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:284
+msgid "Back To Top Button Background Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:316
+msgid "Back To Top Button Border Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:292
+msgid "Back To Top Button Hover Background Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:324
+msgid "Back To Top Button Hover Border Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:308
+msgid "Back To Top Hover Icon Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:300
+msgid "Back To Top Icon Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1022 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1375
+msgid "Background"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:381
+msgid "basket"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:68
+#, php-format
+msgid "Be the first to review &ldquo;%s&rdquo;"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:738 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1202
+msgid "Below Thumbnail"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:24
+msgid "Billing &amp; Shipping"
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:26 
+#: woocommerce/myaccount/my-address.php:35 
+#: woocommerce/myaccount/form-edit-address.php:20 
+#: woocommerce/order/order-details-customer.php:29
+msgid "Billing address"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:28
+msgid "Billing details"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:771
+msgid "Biography Info"
+msgstr ""
+
+#: templates/header-menu-bottom.php:162 templates/header-menu-bottom.php:171 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:564
+msgid "Blog"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:637
+msgid "Blog Custom Title"
+msgstr ""
+
+#: templates/header-menu-bottom.php:216
+msgid "Blog Details"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:746
+msgid "Blog Details Custom Title"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:619
+msgid "Blog Page Title"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:625
+msgid "Blog Page Title Setting"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:691
+msgid "Blog Pagination Active Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:684
+msgid "Blog Pagination Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:698
+msgid "Blog Pagination Hover Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:789
+msgid "Blog Post nav Middle Icon Link"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:740
+msgid "Blog Post Title Position"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:644
+msgid "Blog Posts Excerpt"
+msgstr ""
+
+#: inc/agenxe-widgets-reg.php:26 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:989
+msgid "Blog Sidebar"
+msgstr ""
+
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:285
+msgid "Blur"
+msgstr ""
+
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:283
+msgid "Blur Radius"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:123
+msgid "Breadcrumb"
+msgstr ""
+
+#: inc/woo-hooks/agenxe-woo-hooks-functions.php:30
+msgctxt "breadcrumb"
+msgid "Home"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1054
+msgid "Breadcrumb Active Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1046
+msgid "Breadcrumb Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1063
+msgid "Breadcrumb Divider Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1037
+msgid "Breadcrumb Hide/Show"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:370
+msgid "bubbles"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:383
+msgid "building"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1410
+msgid "Button Text"
+msgstr ""
+
+#: woocommerce/cart/shipping-calculator.php:24
+msgid "Calculate shipping"
+msgstr ""
+
+#: inc/hooks/hooks-functions.php:38 inc/hooks/hooks-functions.php:51
+msgid "Cancel Preloader"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:26
+msgid "Cart Totals"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:840
+msgid "Category"
+msgstr ""
+
+#: inc/woo-hooks/agenxe-woo-hooks-functions.php:453
+msgid "Category:"
+msgid_plural "Categories:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/cart/cart-shipping.php:76
+msgid "Change address"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:71
+msgid "check to display page breadcrumb area."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:95
+msgid "check to display Page Title."
+msgstr ""
+
+#: inc/woo-hooks/agenxe-woo-hooks-functions.php:526
+msgid "Checkout"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:371
+msgid "chemical-reaction"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:573
+msgid ""
+"Choose blog layout from here. If you use this option then you will able to "
+"change three type of blog layout ( Default Left Sidebar Layour ). "
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:714
+msgid ""
+"Choose blog single page layout from here. If you use this option then you "
+"will able to change three type of blog single page layout ( Default Left "
+"Sidebar Layour ). "
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1064
+msgid "Choose breadcrumb divider color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1030
+msgid ""
+"Choose overlay background color. If you user this option then you will able "
+"to choose overlay background color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1055
+msgid ""
+"Choose page header breadcrumb text active color here.If you user this option "
+"then you will able to set page breadcrumb active color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1047
+msgid ""
+"Choose page header breadcrumb text color here.If you user this option then "
+"you will able to set page breadcrumb color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1177
+msgid "Choose product single page sidebar."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1111
+msgid "Choose shop page sidebar"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:962
+msgid ""
+"Choose your page layout. If you use this option then you will able to choose "
+"three type of page layout ( Default no sidebar ). "
+msgstr ""
+
+#: woocommerce/cart/shipping-calculator.php:76
+msgid "City"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:356
+msgid "cleaning"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:376
+msgid "cleaning-1"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:377
+msgid "cleaning-2"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:392
+msgid "cleaning-3"
+msgstr ""
+
+#. Name of the theme
+msgid "Agenxe"
+msgstr ""
+
+#: inc/agenxe-framework/plugins-activation/agenxe-active-plugins.php:39
+msgid "Agenxe Core"
+msgstr ""
+
+#: inc/demo-data/demo-import.php:20
+msgid "Agenxe Demo"
+msgstr ""
+
+#: inc/demo-data/demo-import.php:71
+msgid "Agenxe Demo Import"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1518
+msgid "agenxe Footer"
+msgstr ""
+
+#. Description of the theme
+msgid "Agenxe is a Best Spa Beauty Salon WordPress Theme"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:85 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:86
+msgid "Agenxe Options"
+msgstr ""
+
+#: inc/hooks/hooks-functions.php:296 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1603
+msgid "agenxe."
+msgstr ""
+
+#: woocommerce/checkout/form-coupon.php:26
+msgid "Click here to enter your code"
+msgstr ""
+
+#: inc/agenxe-framework/plugins-activation/agenxe-active-plugins.php:81
+msgid "CMB2"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:831
+msgid "Comment Count"
+msgstr ""
+
+#: inc/hooks/hooks-functions.php:474
+msgid "Comments are closed"
+msgstr ""
+
+#: comments.php:25
+#, php-format
+msgctxt "comments title"
+msgid "1 Comment"
+msgid_plural "%1$s Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/woo-hooks/agenxe-woo-hooks.php:146 
+#: inc/woo-hooks/agenxe-woo-hooks.php:197 
+#: inc/woo-hooks/agenxe-woo-hooks.php:270 
+#: inc/woo-hooks/agenxe-woo-hooks.php:339
+msgid "Company name (optional)"
+msgstr ""
+
+#: inc/agenxe-framework/plugins-activation/agenxe-active-plugins.php:87
+msgid "Contact Form 7"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:255
+msgid "Contact Information"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:144
+msgid "Container"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:145
+msgid "Container Fluid"
+msgstr ""
+
+#: woocommerce/cart/cart.php:148
+msgid "Continue Shopping"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:772
+msgid ""
+"Control biography info from here. If you use this option then you will able "
+"to show or hide biography info ( Default setting Show )."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:626
+msgid ""
+"Control blog page title setting. If you use this option then you can able to "
+"show default or custom blog page title ( Default Blog )."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:620
+msgid ""
+"Control blog page title show / hide. If you use this option then you will "
+"able to show / hide your blog page title ( Default Setting Show )."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:660
+msgid ""
+"Control blog post show / hide. If you use this option then you will able to "
+"show / hide your blog Author ( Default Setting Show )."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:741
+msgid "Control blog post title position from here."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:781
+msgid ""
+"Control post navigation from here. If you use this option then you will able "
+"to show or hide post navigation ( Default setting Show )."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:763
+msgid ""
+"Control post share options from here. If you use this option then you will "
+"able to show or hide post share options."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1205
+msgid "Control product details title position from here."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:666
+msgid "Control read more text from here."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:797
+msgid ""
+"Control related post from here. If you use this option then you will able to "
+"show or hide related post ( Default setting Show )."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:645
+msgid ""
+"Control the number of characters you want to show in the blog page for each "
+"post.. If you use this option then you can able to control your blog post "
+"characters from here ( Default show 10 )."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1601
+msgid "Copyright Text"
+msgstr ""
+
+#: woocommerce/checkout/form-coupon.php:31
+msgid "Coupon code"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:54
+msgid "Create an account?"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1334
+msgid "Cross sell Product Column"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1316
+msgid "Cross sell product Hide/Show"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1325
+msgid "Cross sell products number"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1646
+msgid "CSS Code"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:394
+msgid "cupboard"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:629 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:669
+msgid "Custom"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:266
+msgid "Custom Back To Top Button"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:276
+msgid "Custom Back To Top Button Icon"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1639
+msgid "Custom Css"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:375
+msgid "Custom CSS For admin"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:117
+msgid "Custom Page Title"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:111
+msgid "Custom Title"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:628 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:668
+msgid "Default"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:110
+msgid "Default Title"
+msgstr ""
+
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:221 
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:314
+msgid "Delete"
+msgstr ""
+
+#: inc/demo-data/demo-import.php:16
+msgid "Demo Preview Imgae"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:209
+msgid "Department"
+msgstr ""
+
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:203 
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:298
+msgid "Description"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1443
+msgid "Description Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1403
+msgid "Description Text"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:217
+msgid "Designation"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:368
+msgid "diamond"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1547 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1557 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1588
+msgid "Disable"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:261 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:270 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:344 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:757 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:817 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:826 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:835 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:844 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1001
+msgid "Disabled"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:34
+msgid "Display Name"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1661
+msgid "Documentation"
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:84
+msgid "Edit"
+msgstr ""
+
+#: inc/agenxe-functions.php:244
+msgid "edit"
+msgstr ""
+
+#: inc/agenxe-framework/plugins-activation/agenxe-active-plugins.php:60
+msgid "Elementor"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:99 
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:261
+msgid "Email"
+msgstr ""
+
+#: inc/woo-hooks/agenxe-woo-hooks.php:156 
+#: inc/woo-hooks/agenxe-woo-hooks.php:207 
+#: inc/woo-hooks/agenxe-woo-hooks.php:282 
+#: inc/woo-hooks/agenxe-woo-hooks.php:351
+msgid "Email address"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:260 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:269 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:343 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:756 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:816 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:825 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:834 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:843 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1000 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1546 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1556 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1587
+msgid "Enabled"
+msgstr ""
+
+#: woocommerce/cart/cart-shipping.php:91
+msgid "Enter a different address"
+msgstr ""
+
+#: woocommerce/cart/cart.php:140
+msgid "Enter Coupon Code"
+msgstr ""
+
+#: woocommerce/cart/cart-shipping.php:85
+msgid "Enter your address to view shipping options."
+msgstr ""
+
+#: comments.php:63
+msgid "Enter Your Name *"
+msgstr ""
+
+#: inc/agenxe-breadcrumbs.php:130
+msgid "Error Page"
+msgstr ""
+
+#: 404.php:24
+msgid "Error Page"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1384
+msgid "Error page"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:241
+msgid "Extra Thumbnail"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:274
+msgid "Facebook URL"
+msgstr ""
+
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:199
+msgid "Facts Number"
+msgstr ""
+
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:294
+msgid "Facts number"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:27 
+#: inc/woo-hooks/agenxe-woo-hooks.php:136 
+#: inc/woo-hooks/agenxe-woo-hooks.php:187 
+#: inc/woo-hooks/agenxe-woo-hooks.php:258 
+#: inc/woo-hooks/agenxe-woo-hooks.php:327
+msgid "First Name"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:173 
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:342
+msgid "Flat Icon"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1516
+msgid "Footer"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1563
+msgid "Footer Background"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1594
+msgid "Footer Bottom Background Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1585
+msgid "Footer Bottom?"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1533 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1536
+msgid "Footer Builder"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1618
+msgid "Footer Copyright Ancor Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1626
+msgid "Footer Copyright Ancor Hover Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1609
+msgid "Footer Copyright Text Color"
+msgstr ""
+
+#: inc/agenxe-widgets-reg.php:48
+msgid "Footer One"
+msgstr ""
+
+#: inc/agenxe-widgets-reg.php:64
+msgid "Footer Three"
+msgstr ""
+
+#: inc/agenxe-widgets-reg.php:56
+msgid "Footer Two"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1554
+msgid "Footer Widget"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1578
+msgid "Footer Widget Text Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1571
+msgid "Footer Widget Title Color"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:73
+msgid "Forgot Your Password?"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:369
+msgid "four-stars"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:146
+msgid "Fullwidth"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1072
+msgid "Gallery"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:203
+msgid "Genaral Information"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:228
+msgid "General"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:380
+msgid "glass-cleaner"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:88
+msgid "Global Settings"
+msgstr ""
+
+#: 404.php:27
+msgid "Go Back Home"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1412
+msgid "Go Back To Home"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:98 
+#: woocommerce/single-product-reviews.php:109
+msgid "Good"
+msgstr ""
+
+#: inc/agenxe-framework/plugins-activation/agenxe-active-plugins.php:74
+msgid "Goolge Translate"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:388
+msgid "group"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:389
+msgid "group-1"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:892 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1007
+msgid "H1"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:893 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1008
+msgid "H2"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:894 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1009
+msgid "H3"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:895 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1010
+msgid "H4"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:896 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1011
+msgid "H5"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:897 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1012
+msgid "H6"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:358
+msgid "hand-washing"
+msgstr ""
+
+#: woocommerce/checkout/form-coupon.php:26
+msgid "Have a coupon?"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:388 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:411
+msgid "Header"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:399
+msgid "Header Builder"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:419
+msgid "Header Logo"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:467
+msgid "Header Menu"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:401
+msgid "Header Options"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:618 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:658 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:765 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:774 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:783 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:799 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1228 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1274 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1320 
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:77 
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:101
+msgid "Hide"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1038
+msgid ""
+"Hide / Show breadcrumb from all pages and posts ( Default settings hide )."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1317
+msgid "Hide / Show cross sell product in single page (Default Settings Show)"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1225
+msgid "Hide / Show related product in single page (Default Settings Show)"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1271
+msgid "Hide / Show upsell product in single page (Default Settings Show)"
+msgstr ""
+
+#: inc/agenxe-breadcrumbs.php:43
+msgid "Home"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:382
+msgid "hotel"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:375
+msgid "house"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:385
+msgid "house-1"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:226
+msgid "How many years you are doing ths kind of job"
+msgstr ""
+
+#. Author URI of the theme
+msgid "http://angfuzsoft.com/"
+msgstr ""
+
+#. URI of the theme
+msgid "http://angfuzsoft.com/products/wordpress/agenxe/"
+msgstr ""
+
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:186 
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:282
+msgid "Icon"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1505
+msgid "Icon (example: fa fa-facebook) "
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:267
+msgid ""
+"If you select \"Disabled\", it will show default design for \"back to top\" "
+"button."
+msgstr ""
+
+#: woocommerce/cart/cart.php:28
+msgid "Image"
+msgstr ""
+
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:127 
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:234
+msgid "image"
+msgstr ""
+
+#: inc/demo-data/demo-import.php:72
+msgid "Import Demo Data"
+msgstr ""
+
+#: woocommerce/wishlist-view.php:146 
+#: inc/woo-hooks/agenxe-woo-hooks-functions.php:420
+msgid "In Stock"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:298
+msgid "Instagram URL"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:370
+msgid "It belongs to the back-end of your website to log-in to admin panel."
+msgstr ""
+
+#: templates/content-none.php:34
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:395
+msgid "kitchen"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:30 
+#: inc/woo-hooks/agenxe-woo-hooks.php:141 
+#: inc/woo-hooks/agenxe-woo-hooks.php:192 
+#: inc/woo-hooks/agenxe-woo-hooks.php:264 
+#: inc/woo-hooks/agenxe-woo-hooks.php:333
+msgid "Last Name"
+msgstr ""
+
+#: inc/agenxe-framework/plugins-activation/agenxe-active-plugins.php:47
+msgid "LayerSlider WP"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:572 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:713
+msgid "Layout"
+msgstr ""
+
+#: comments.php:78
+msgid "Leave A Comment"
+msgstr ""
+
+#. %s is product title
+#: woocommerce/single-product-reviews.php:70
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:290
+msgid "Linkedin URL"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:363
+msgid "liquid-soap"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:31
+msgid "Log In"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:70
+msgid "Log in"
+msgstr ""
+
+#: comments.php:82
+#, php-format
+msgid ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
+"this account\">Log out?</a>"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:70 
+#: woocommerce/global/form-login.php:40 woocommerce/global/form-login.php:40
+msgid "Login"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:427
+msgid "Logo"
+msgstr ""
+
+#: inc/agenxe-functions.php:60
+msgid "logo"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:435
+msgid "Logo Dimensions (Width/Height)."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:446
+msgid "Logo Top and Bottom Margin."
+msgstr ""
+
+#: woocommerce/global/form-login.php:53
+msgid "Lost your password?"
+msgstr ""
+
+#: woocommerce/myaccount/form-lost-password.php:27
+msgid ""
+"Lost your password? Please enter your username or email address. You will "
+"receive a link to create a new password via email."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1462
+msgid "Mailchimp API Key"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1468
+msgid "Mailchimp List ID"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:181
+msgid "Mention here the charge for this service "
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:474
+msgid "Menu Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:481
+msgid "Menu Hover Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:806
+msgid "Meta Data"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:361
+msgid "mission"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:357
+msgid "mop"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:359
+msgid "mountain"
+msgstr ""
+
+#: woocommerce/wishlist-view.php:195
+msgid "Move"
+msgstr ""
+
+#: woocommerce/wishlist-view.php:214
+msgid "Move to another list &rsaquo;"
+msgstr ""
+
+#: woocommerce/order/order-details-customer.php:31 
+#: woocommerce/order/order-details-customer.php:48
+msgid "N/A"
+msgstr ""
+
+#: woocommerce/cart/cart.php:70
+msgid "Name"
+msgstr ""
+
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:77 
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:228
+#, php-format
+msgid "New %s"
+msgstr ""
+
+#: inc/hooks/hooks-functions.php:532
+msgid "Next Post"
+msgstr ""
+
+#: woocommerce/wishlist-view.php:242
+msgid "No products added to the wishlist"
+msgstr ""
+
+#. $s shipping destination.
+#: woocommerce/cart/cart-shipping.php:90
+#, php-format
+msgid "No shipping options were found for %s."
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:100 
+#: woocommerce/single-product-reviews.php:111
+msgid "Not that bad"
+msgstr ""
+
+#: templates/content-none.php:17
+msgid "Nothing Found"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:547
+msgid "Offcanvas Ancor Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:554
+msgid "Offcanvas Ancor Hover Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:519
+msgid "Offcanvas Menu"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:526
+msgid "Offcanvas Panel Background"
+msgstr ""
+
+#: inc/agenxe-widgets-reg.php:72
+msgid "Offcanvas Sidebar"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:540
+msgid "Offcanvas Text Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:533
+msgid "Offcanvas Title Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:367
+msgid "offer"
+msgstr ""
+
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:243
+msgid "Offset X"
+msgstr ""
+
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:263
+msgid "Offset Y"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:737 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1201
+msgid "On Header"
+msgstr ""
+
+#: inc/agenxe-framework/plugins-activation/agenxe-active-plugins.php:55
+msgid "One Click Demo Importer"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:124
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1398
+msgid "Oops!"
+msgstr ""
+
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:326
+msgid "Opacity"
+msgstr ""
+
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:324
+msgid "Opacity .1 - 1"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:99
+msgid "Order Total"
+msgstr ""
+
+#: inc/woo-hooks/agenxe-woo-hooks-functions.php:430
+msgid "Out Of Stock"
+msgstr ""
+
+#: woocommerce/wishlist-view.php:144
+msgid "Out of Stock"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1029
+msgid "Overlay Background"
+msgstr ""
+
+#: inc/agenxe-functions.php:124 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:954
+msgid "Page"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:70
+msgid "Page Breadcrumb Area"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:83
+msgid "Page Breadcrumb Settings"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:132
+msgid "Page Layout"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:64
+msgid "Page Meta"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:89
+msgid "Page Settings"
+msgstr ""
+
+#: inc/agenxe-widgets-reg.php:37 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:988
+msgid "Page Sidebar"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1396
+msgid "Page Subtitle"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1382 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1389 
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:94
+msgid "Page Title"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:106
+msgid "Page Title Settings"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1405
+msgid "Pages Not Found"
+msgstr ""
+
+#: inc/agenxe-functions.php:120
+msgid "Pages:"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:55 
+#: woocommerce/myaccount/form-login.php:103 
+#: woocommerce/global/form-login.php:33
+msgid "Password"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:42
+msgid "Password Change"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1647
+msgid "Paste your CSS code here."
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:97 
+#: woocommerce/single-product-reviews.php:108
+msgid "Perfect"
+msgstr ""
+
+#: inc/woo-hooks/agenxe-woo-hooks.php:151 
+#: inc/woo-hooks/agenxe-woo-hooks.php:202 
+#: inc/woo-hooks/agenxe-woo-hooks.php:276 
+#: inc/woo-hooks/agenxe-woo-hooks.php:345 
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:267
+msgid "Phone"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1444
+msgid "Pick a Description Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1420
+msgid "Pick a heading color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1436
+msgid "Pick a subtitle color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1428
+msgid "Pick a title color"
+msgstr ""
+
+#: woocommerce/checkout/payment.php:33
+msgid "Please fill in your details above to see available payment methods."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:659
+msgid "Post Author?"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:594
+msgid "Post Column"
+msgstr ""
+
+#: comments.php:55 comments.php:85
+msgid "Post Comment"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:813
+msgid "Post Date"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:50
+msgid "Post Format Audio"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:44
+msgid "Post Format Video"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:780
+msgid "Post Navigation"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:76
+msgid "Post Review"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:39
+msgid "Post Thumb Controller"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:56
+msgid "Post Thumbnail For Slider"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:822
+msgid "Post Views"
+msgstr ""
+
+#: inc/woo-hooks/agenxe-woo-hooks.php:182 
+#: inc/woo-hooks/agenxe-woo-hooks.php:233 
+#: inc/woo-hooks/agenxe-woo-hooks.php:313 
+#: inc/woo-hooks/agenxe-woo-hooks.php:382
+msgid "Postcode"
+msgstr ""
+
+#: woocommerce/cart/shipping-calculator.php:82
+msgid "Postcode / ZIP"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1534
+msgid "Pre-built Footer"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1524
+msgid "Pre-built Footer / Footer Builder"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:398
+msgid "Prebuilt"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:333 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:340
+msgid "Preloader"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:350
+msgid "Preloader Image"
+msgstr ""
+
+#: inc/hooks/hooks-functions.php:521
+msgid "Prev Post"
+msgstr ""
+
+#: woocommerce/cart/cart.php:79
+msgid "Price"
+msgstr ""
+
+#: woocommerce/wishlist-view.php:74 woocommerce/cart/cart.php:30
+msgid "Price/Unit"
+msgstr ""
+
+#: inc/theme-setup.php:35
+msgid "Primary Menu"
+msgstr ""
+
+#: inc/woo-hooks/agenxe-woo-hooks-functions.php:504
+msgid "Proceed to checkout"
+msgstr ""
+
+#: woocommerce/cart/cart.php:49 woocommerce/checkout/review-order.php:23
+msgid "Product"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1133
+msgid "Product Column"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1210 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1217
+msgid "Product Details Title"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1204
+msgid "Product Details Title Position"
+msgstr ""
+
+#: woocommerce/cart/cart.php:29
+msgid "Product Name"
+msgstr ""
+
+#: woocommerce/wishlist-view.php:63
+msgid "Product name"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1170
+msgid "Product Per Page"
+msgstr ""
+
+#: woocommerce/global/quantity-input.php:43
+msgctxt "Product quantity input tooltip"
+msgid "Qty"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:30
+msgid "Product Review"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1176
+msgid "Product Single Page sidebar"
+msgstr ""
+
+#: 404.php:28
+msgid ""
+"Professionally extend world-class manufactured products vis-a-vis cross "
+"platform communities. Compellingly fabricate market positioning."
+msgstr ""
+
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:168
+msgid "Progress"
+msgstr ""
+
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:263
+msgid "progress"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:328
+msgid "Project Custom Metabox"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:373
+msgid "project-management"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:233
+msgid "Qoute Text"
+msgstr ""
+
+#: woocommerce/wishlist-view.php:80 woocommerce/global/quantity-input.php:28 
+#: woocommerce/cart/cart.php:31 woocommerce/cart/cart.php:85
+msgid "Quantity"
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/variation-add-to-cart-button.php:21 
+#: woocommerce/single-product/add-to-cart/simple.php:43
+msgid "Quantity:"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:96 
+#: woocommerce/single-product-reviews.php:107
+msgid "Rate&hellip;"
+msgstr ""
+
+#: inc/hooks/hooks-functions.php:768 inc/hooks/hooks-functions.php:771
+msgid "Read More"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:676
+msgid "Read More Text"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:665
+msgid "Read More Text Setting"
+msgstr ""
+
+#: templates/content-none.php:21
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: inc/agenxe-framework/plugins-activation/agenxe-active-plugins.php:67
+msgid "Redux Framework"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:35 
+#: woocommerce/myaccount/form-login.php:115 
+#: woocommerce/myaccount/form-login.php:115
+msgid "Register"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:796
+msgid "Related Post"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1242
+msgid "Related Product Column"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1224
+msgid "Related product Hide/Show"
+msgstr ""
+
+#: woocommerce/single-product/related.php:29
+msgid "Related products"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1233
+msgid "Related products number"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:63 woocommerce/global/form-login.php:46
+msgid "Remember me"
+msgstr ""
+
+#: woocommerce/cart/cart.php:33 woocommerce/cart/cart.php:112 
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:146 
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:244
+msgid "Remove"
+msgstr ""
+
+#: woocommerce/cart/cart.php:120
+msgid "Remove this item"
+msgstr ""
+
+#: woocommerce/wishlist-view.php:221 woocommerce/wishlist-view.php:224
+msgid "Remove this product"
+msgstr ""
+
+#: inc/agenxe-functions.php:243
+msgid "Reply"
+msgstr ""
+
+#: woocommerce/myaccount/form-lost-password.php:39
+msgid "Reset password"
+msgstr ""
+
+#: woocommerce/cart/cart-empty.php:33
+msgid "Return to shop"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-address.php:46
+msgid "Save address"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:59
+msgid "Save changes"
+msgstr ""
+
+#: inc/woo-hooks/agenxe-woo-hooks-functions.php:595
+msgid "Search"
+msgstr ""
+
+#: inc/woo-hooks/agenxe-woo-hooks-functions.php:594
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:17
+msgid "Search Here..."
+msgstr ""
+
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:189 
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:285
+msgid "Search icon..."
+msgstr ""
+
+#: templates/header-menu-bottom.php:180
+msgid "Search Result"
+msgstr ""
+
+#: inc/agenxe-breadcrumbs.php:128
+msgid "Search results for: "
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1754
+msgid "Section via hook"
+msgstr ""
+
+#: woocommerce/cart/shipping-calculator.php:31
+msgid "Select a country / region&hellip"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:174 
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:343
+msgid "Select an icon name form the dropdown menu"
+msgstr ""
+
+#: woocommerce/cart/shipping-calculator.php:56
+msgid "Select an option&hellip;"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:277
+msgid "Select Back To Top Button icon."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1548
+msgid "Select Footer"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:402
+msgid "Select header options."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:412
+msgid "Select header."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:961
+msgid "Select layout"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1016
+msgid ""
+"Select page title tag. If you use this option then you can able to change "
+"title tag H1 - H6 ( Default tag H1 )"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:124
+msgid "Select Show to display breadcrumb area"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:595
+msgid ""
+"Select your blog post column from here. If you use this option then you will "
+"able to select three type of blog post layout ( Default Two Column )."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:180
+msgid "Service Charge"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:167
+msgid "Service Custom Metabox"
+msgstr ""
+
+#: inc/agenxe-widgets-reg.php:80
+msgid "Service Sidebar"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:285
+msgid "Set Back to top button Background Color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:317
+msgid "Set Back to top button border Color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:293
+msgid "Set Back to top button Hover Background Color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:325
+msgid "Set Back to top button Hover border Color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:309
+msgid "Set Back to top Hover Icon Color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:301
+msgid "Set Back to top Icon Color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:638
+msgid ""
+"Set blog page custom title form here. If you use this option then you will "
+"able to set your won title text."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:692
+msgid "Set Blog Pagination Active Color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:685
+msgid "Set Blog Pagination Color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:699
+msgid "Set Blog Pagination Hover Color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:790
+msgid "Set Blog Post nav Middle Icon Link"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1411
+msgid "Set Button Text "
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1404
+msgid "Set Description Text"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1564
+msgid "Set footer background."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1619
+msgid "Set footer copyright ancor color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1627
+msgid "Set footer copyright ancor Hover color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1610
+msgid "Set footer copyright text color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1326
+msgid ""
+"Set how many cross sell products you want to show in single product page."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1234
+msgid "Set how many related products you want to show in single product page."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1280
+msgid "Set how many upsells products you want to show in single product page."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:437
+msgid "Set logo dimensions to choose width, height, and unit."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:449
+msgid "Set logo top and bottom margin."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1463
+msgid "Set mailchimp api key."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1469
+msgid "Set mailchimp list id."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:475
+msgid "Set Menu Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:482
+msgid "Set Menu Hover Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:548
+msgid "Set Offcanvas Ancor color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:555
+msgid "Set Offcanvas Ancor Hover color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:528
+msgid "Set Offcanvas Panel Background Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:541
+msgid "Set Offcanvas Text color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:534
+msgid "Set Offcanvas Title color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:140
+msgid ""
+"Set page layout container,container fluid,fullwidth or both. It's work only "
+"in template builder page."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:985
+msgid ""
+"Set page sidebar. If you use this option then you will able to set three "
+"type of sidebar ( Default no sidebar )."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1397
+msgid "Set Page Subtitle "
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1383 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1390
+msgid "Set Page Title"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:677
+msgid ""
+"Set read moer text here. If you use this option then you will able to set "
+"your won text."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1110
+msgid "Set Shop Page Sidebar."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:503
+msgid "Set Submenu Background Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:510
+msgid "Set Submenu Border Top Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:489
+msgid "Set Submenu Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:496
+msgid "Set Submenu Hover Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:237
+msgid "Set Theme Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:937
+msgid "Set Widget Anchor Color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:944
+msgid "Set Widget Anchor Hover Color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:930
+msgid "Set Widget Text Color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:923
+msgid "Set Widget Title Color."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:243
+msgid "Set your google map api key"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1335
+msgid "Set your woocommerce cross sell product column."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1134
+msgid "Set your woocommerce product column."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1243
+msgid "Set your woocommerce related product column."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1289
+msgid "Set your woocommerce upsell product column."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1024 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1377
+msgid ""
+"Setting page header background. If you use this option then you will able to "
+"set Background Color, Background Image, Background Repeat, Background Size, "
+"Background Attachment, Background Position."
+msgstr ""
+
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:370
+#:  
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:371
+msgid "Shadow Color"
+msgstr ""
+
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:417
+msgid "Shadow Preview"
+msgstr ""
+
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:388
+#:  
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:389
+#:  
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:390
+msgid "Shadow Type"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:762
+msgid "Share Options"
+msgstr ""
+
+#: woocommerce/checkout/form-shipping.php:28
+msgid "Ship to a different address?"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:52 woocommerce/cart/cart-totals.php:53
+msgid "Shipping"
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:27 
+#: woocommerce/myaccount/form-edit-address.php:20 
+#: woocommerce/order/order-details-customer.php:46
+msgid "Shipping address"
+msgstr ""
+
+#: woocommerce/cart/cart-shipping.php:78
+msgid "Shipping options will be updated during checkout."
+msgstr ""
+
+#. $s shipping destination.
+#: woocommerce/cart/cart-shipping.php:75
+#, php-format
+msgid "Shipping to %s."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1211 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1218
+msgid "Shop Details"
+msgstr ""
+
+#: woocommerce/loop/orderby.php:24
+msgid "Shop order"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:334
+msgid "Short Description"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:617 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:657 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:764 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:773 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:782 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:798 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1227 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1273 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1319 
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:76 
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:100
+msgid "Show"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:851
+msgid "Sidebar Options"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:984
+msgid "Sidebar Settings"
+msgstr ""
+
+#. $1 and $2 opening and closing emphasis tags respectively
+#: woocommerce/checkout/payment.php:42
+#, php-format
+msgid ""
+"Since your browser does not support JavaScript, or it is disabled, please "
+"ensure you click the %1$sUpdate Totals%2$s button before placing your order. "
+"You may be charged more than the amount stated above if you fail to do so."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:705
+msgid "Single Blog Page"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:580
+msgid "Single Column Left Sidebar"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:576
+msgid "Single Column No Sidebar"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:584
+msgid "Single Column Right Sidebar"
+msgstr ""
+
+#: inc/woo-hooks/agenxe-woo-hooks-functions.php:451
+msgid "SKU:"
+msgstr ""
+
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:72
+msgid "Slide"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:372
+msgid "smile"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:379
+msgid "soap"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1479 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1482
+msgid "Social"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1487
+msgid "Social Profile Links"
+msgstr ""
+
+#: inc/hooks/hooks-functions.php:402
+msgid "Social Share"
+msgstr ""
+
+#: 404.php:26
+msgid "Sorry! Page Was Not Found"
+msgstr ""
+
+#: templates/content-none.php:25
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: woocommerce/checkout/payment.php:33
+msgid ""
+"Sorry, it seems that there are no available payment methods for your state. "
+"Please contact us if you require assistance or wish to make alternate "
+"arrangements."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:378
+msgid "spray"
+msgstr ""
+
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:305
+msgid "Spread"
+msgstr ""
+
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:303
+msgid "Spread Radius"
+msgstr ""
+
+#: woocommerce/cart/shipping-calculator.php:50 
+#: woocommerce/cart/shipping-calculator.php:55 
+#: woocommerce/cart/shipping-calculator.php:67
+msgid "State / County"
+msgstr ""
+
+#: woocommerce/wishlist-view.php:68
+msgid "Stock status"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:502
+msgid "Submenu Background Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:509
+msgid "Submenu Border Top Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:488
+msgid "Submenu Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:495
+msgid "Submenu Hover Color"
+msgstr ""
+
+#: woocommerce/cart/cart.php:141
+msgid "Submit"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1454
+msgid "Subscribe"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1435
+msgid "Subtitle Color"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:30 woocommerce/cart/cart-totals.php:31 
+#: woocommerce/checkout/review-order.php:24 
+#: woocommerce/checkout/review-order.php:56
+msgid "Subtotal"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:998
+msgid ""
+"Switch enabled to display page title. Fot this option you will able to show "
+"/ hide page title.  Default setting Enabled"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:341
+msgid "Switch Enabled to Display Preloader."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:258
+msgid "Switch On to Display back to top button."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:841
+msgid "Switch On to Display Category."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:832
+msgid "Switch On to Display Comment Count."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:814
+msgid "Switch On to Display Post Date."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:823
+msgid "Switch On to Display Post Views."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:754
+msgid "Switch On to Display Tags."
+msgstr ""
+
+#: templates/content-single.php:89 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:753
+msgid "Tags"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:360
+msgid "target"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:362
+msgid "target-1"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:387
+msgid "teamwork"
+msgstr ""
+
+#. Name of the template
+msgid "Template Builder"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:458
+msgid "Text Logo"
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:46
+msgid "The following addresses will be used on the checkout page by default."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:236
+msgid "Theme Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:197
+msgid "Theme Information 1"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:202
+msgid "Theme Information 2"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:55
+msgid "There are no reviews yet."
+msgstr ""
+
+#: woocommerce/cart/cart-shipping.php:87
+msgid ""
+"There are no shipping options available. Please ensure that your address has "
+"been entered correctly, or contact us if you need any help."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:747
+msgid "This title will show in Breadcrumb title."
+msgstr ""
+
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:158 
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:254 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:997
+msgid "Title"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1419 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1427
+msgid "Title Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1015
+msgid "Title Tag"
+msgstr ""
+
+#: woocommerce/cart/cart.php:32 woocommerce/cart/cart.php:107 
+#: woocommerce/cart/cart-totals.php:100 
+#: woocommerce/checkout/review-order.php:103
+msgid "Total"
+msgstr ""
+
+#: inc/woo-hooks/agenxe-woo-hooks.php:177 
+#: inc/woo-hooks/agenxe-woo-hooks.php:228 
+#: inc/woo-hooks/agenxe-woo-hooks.php:307 
+#: inc/woo-hooks/agenxe-woo-hooks.php:376
+msgid "Town / City"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:365
+msgid "trophy"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:282
+msgid "Twitter URL"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:210
+msgid "Type your Department "
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:218
+msgid "Type your Designation "
+msgstr ""
+
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:339
+#:  
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:340
+#:  
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:341
+#:  
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:341
+msgid "Units"
+msgstr ""
+
+#: woocommerce/cart/shipping-calculator.php:86
+msgid "Update"
+msgstr ""
+
+#: woocommerce/cart/cart.php:149
+msgid "Update cart"
+msgstr ""
+
+#: woocommerce/checkout/payment.php:44
+msgid "Update totals"
+msgstr ""
+
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:139 
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:242
+msgid "Upload"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:242
+msgid "Upload an extra thumbnail for this member."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:352
+msgid "Upload Preloader Image"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:429
+msgid "Upload your site logo for header ( recommendation png format )."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1270
+msgid "Upsell product Hide/Show"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1288
+msgid "Upsells Product Column"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1279
+msgid "Upsells products number"
+msgstr ""
+
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:207 
+#: inc/redux-custom-field/agenxe-option-slide-add-field.php:301
+msgid "URL"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:51
+msgid "Use This Field When Post Format Audio"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:45
+msgid "Use This Field When Post Format Video"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:57
+msgid "Use This Field When You Want A Slider In Post Thumbnail"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:374
+msgid "user"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:52 
+#: woocommerce/myaccount/form-login.php:93
+msgid "User Name"
+msgstr ""
+
+#: woocommerce/myaccount/form-lost-password.php:30 
+#: woocommerce/global/form-login.php:31
+msgid "Username or email"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:391
+msgid "vacuum-cleaner"
+msgstr ""
+
+#: inc/hooks/hooks-functions.php:296 
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1603
+msgid "Vecuro"
+msgstr ""
+
+#. Author of the theme
+msgid "Themeholy"
+msgstr ""
+
+#: inc/woo-hooks/agenxe-woo-hooks-functions.php:491
+msgid "verified owner"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:101 
+#: woocommerce/single-product-reviews.php:112
+msgid "Very poor"
+msgstr ""
+
+#: inc/woo-hooks/agenxe-woo-hooks-functions.php:519
+msgid "View cart"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:390
+msgid "washing-machine"
+msgstr ""
+
+#: inc/agenxe-functions.php:366
+msgid "What are you looking for?"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:936
+msgid "Widget Anchor Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:882
+msgid "Widget Border"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:943
+msgid "Widget Hover Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:864
+msgid "Widget Margin"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:873
+msgid "Widget Padding"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:929
+msgid "Widget Text Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:922
+msgid "Widget Title Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:905
+msgid "Widget Title Margin"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:913
+msgid "Widget Title Padding"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:900
+msgid "Widget Title Tag"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:858
+msgid "Widgets Background Color"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:384
+msgid "window"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:393
+msgid "window-1"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:355
+msgid "wipe"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:386
+msgid "wiping-swip"
+msgstr ""
+
+#: inc/agenxe-framework/plugins-activation/agenxe-active-plugins.php:94
+msgid "WooCommerce"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:1103
+msgid "Woocommerce Page"
+msgstr ""
+
+#: inc/agenxe-widgets-reg.php:88
+msgid "WooCommerce Sidebar"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:225
+msgid "Working Experience"
+msgstr ""
+
+#: inc/agenxe-framework/plugins-activation/agenxe-active-plugins.php:108
+msgid "WPC Smart Compare for WooCommerce"
+msgstr ""
+
+#: inc/agenxe-framework/plugins-activation/agenxe-active-plugins.php:115
+msgid "WPC Smart Quick View for WooCommerce"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:335
+msgid "Write a short description here"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:117
+msgid "Write your comments"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-options/agenxe-options.php:459
+msgid ""
+"Write your logo text use as logo ( You can use span tag for text color )."
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:234
+msgid "Write your qoute text here"
+msgstr ""
+
+#: inc/hooks/hooks-functions.php:444
+msgid "Written by"
+msgstr ""
+
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:245
+msgid "X"
+msgstr ""
+
+#: inc/redux-custom-field/extensions/box_shadow/box_shadow/field_box_shadow.php:265
+msgid "Y"
+msgstr ""
+
+#: inc/agenxe-framework/plugins-activation/agenxe-active-plugins.php:101
+msgid "YITH WooCommerce Wishlist"
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:80
+msgid "You have not set up this type of address yet."
+msgstr ""
+
+#: woocommerce/single-product/up-sells.php:28
+msgid "You may also like"
+msgstr ""
+
+#: woocommerce/cart/cross-sells.php:26
+msgid "You may be interested in"
+msgstr ""
+
+#. %s opening and closing link tags respectively
+#: woocommerce/single-product-reviews.php:91
+#, php-format
+msgid "You must be %1$slogged in%2$s to post a review."
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:26
+msgid "You must be logged in to checkout."
+msgstr ""
+
+#: woocommerce/cart/cart-empty.php:30 
+#: inc/woo-hooks/agenxe-woo-hooks-functions.php:606
+msgid "Your cart is currently empty."
+msgstr ""
+
+#: inc/agenxe-functions.php:253
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:86
+msgid "Your E-mail"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:37
+msgid "Your Email"
+msgstr ""
+
+#: comments.php:66
+msgid "Your Email *"
+msgstr ""
+
+#: comments.php:81
+msgid "Your email address will not be published. Required fields are marked *"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:85
+msgid "Your Name"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:95 
+#: woocommerce/single-product-reviews.php:106
+msgid "Your Rating"
+msgstr ""
+
+#: inc/woo-hooks/agenxe-woo-hooks-functions.php:480
+msgid "Your review is awaiting approval"
+msgstr ""
+
+#: inc/agenxe-framework/agenxe-meta/agenxe-config.php:306
+msgid "Youtube URL"
+msgstr ""

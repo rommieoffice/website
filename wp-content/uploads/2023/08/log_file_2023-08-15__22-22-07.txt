@@ -1,0 +1,85 @@
+
+---Downloaded files---
+The import files for: Agenxe Demo were successfully downloaded!
+Initial max execution time = 1000
+Files info:
+Site URL = http://romework/rommieoffice
+Data file = C:\wamp64\www\romework\clientes\rommieoffice/wp-content/themes/agenxe/inc/demo-data/agenxe-demo.xml
+Widget file = C:\wamp64\www\romework\clientes\rommieoffice/wp-content/themes/agenxe/inc/demo-data/agenxe-widgets-demo.json
+Customizer file = not defined!
+Redux files:
+agenxe_opt -> C:\wamp64\www\romework\clientes\rommieoffice/wp-content/themes/agenxe/inc/demo-data/redux_options_demo.json 
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+---Importing widgets---
+Blog Sidebar : 
+
+Agenxe :: Search Form - No Title - Imported
+Agenxe :: Category List - Category - Imported
+Agenxe :: Recent Posts - Recent Posts - Imported
+Bloco - No Title - Imported
+
+Page Sidebar : 
+
+Bloco - No Title - Imported
+Bloco - No Title - Imported
+
+Footer Widgets Area 1 : 
+
+Agenxe :: About Us Widget - About Us - Imported
+
+Footer Widgets Area 2 : 
+
+Menu - Explore - Imported
+
+Footer Widgets Area 3 : 
+
+Bloco - No Title - Imported
+
+Footer Widgets Area 4 : 
+
+Bloco - No Title - Imported
+
+
+
+---Importing Redux settings---
+Redux settings import for: agenxe_opt finished successfully!
+
+---ocdi/after_import---
+

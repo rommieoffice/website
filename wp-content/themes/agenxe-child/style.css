@@ -1,0 +1,44 @@
+/*
+ Theme Name:   Agenxe Child  
+ Theme URI:    https://themeholy.com/wordpress/agenxe
+ Description:  This is a child theme for Agenxe - WordPress Theme
+ Author:       Themeholy
+ Author URI:   https://themeforest.net/user/themeholy
+ Template:     agenxe
+ Version:      1.0
+ Tags:         two-columns, three-columns, left-sidebar, right-sidebar, flexible-header, custom-background, custom-colors, custom-header, custom-menu, theme-options, editor-style, featured-images, microformats, post-formats,  sticky-post, threaded-comments, translation-ready
+ Text Domain:  agenxe-child
+*/
+
+/*  [ Add your custom css below ]
+- - - - - - - - - - - - - - - - - - - - */ 
+
+
+/*  [ GERAL ]
+- - - - - - - - - - - - - - - - - - - - */ 
+body { font-family: 'Red Hat Display', sans-serif; }
+body.dark-theme { background: #030717; }
+
+.h1, h1, .h2, h2, .h3, h3, .h4, h4, .h5, h5, .h6, h6, p { font-family: 'Red Hat Display', sans-serif; }
+
+.sub-title { color:#66A8FF; }
+
+
+/*  [ MENU ]
+- - - - - - - - - - - - - - - - - - - - */ 
+.header-layout1 .sticky-wrapper.sticky { background: #091B40; }
+
+.feature-item .box-title { font-size: 18px; }
+
+.sub-title img {
+    margin: 0px 10px 3px 0;
+}
+
+.hero-style3 .hero-title {
+    font-size: 65px;
+    line-height: 80px;
+    margin-bottom: -0.25em;
+}
+
+
+#bnn-principal .th-hero-wrapper { background-position: bottom; }

@@ -1,0 +1,129 @@
+# Translation of Plugins - Extendify — Gutenberg Patterns and Templates - Stable (latest release) in Portuguese (Brazil)
+# This file is distributed under the same license as the Plugins - Extendify — Gutenberg Patterns and Templates - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-08-04 21:31:07+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/4.0.0-alpha.7\n"
+"Language: pt_BR\n"
+"Project-Id-Version: Plugins - Extendify — Gutenberg Patterns and Templates - Stable (latest release)\n"
+
+#: app/Assist/Controllers/SupportArticlesController.php:135
+msgid "Page not found"
+msgstr "Página não econtrada"
+
+#: app/Assist/Admin.php:82 app/Library/Admin.php:303
+msgid "Partner logo"
+msgstr "Logo de parceiro(s)"
+
+#. translators: %s: The name of the plugin, Extendify
+#: app/Library/AdminPage.php:82
+msgid "%s Banner"
+msgstr "%s Banner"
+
+#: app/AdminPageRouter.php:151 public/build/extendify-assist.js:1
+#: src/Assist/tours/site-assistant.js:16 src/Assist/tours/site-assistant.js:187
+#: src/Assist/tours/welcome.js:73
+msgid "Site Assistant"
+msgstr "Assistente do Site"
+
+#. translators: %s: The name of the plugin, Extendify
+#: app/Library/AdminPage.php:94
+msgid "Welcome to %s"
+msgstr "Bem-vindo ao %s"
+
+#. translators: %s: Extendify Library term
+#: app/Library/AdminPage.php:116
+msgid "1. Open the %s"
+msgstr "1. Abra as %s"
+
+#: app/Library/AdminPage.php:74 public/build/extendify-assist.js:1
+#: src/Assist/tours/welcome.js:30
+msgid "View Site"
+msgstr "Visualização do Site"
+
+#: app/Onboarding/Controllers/WPController.php:26
+msgid "Invalid Theme.json file"
+msgstr "Arquivo Theme.json inválido"
+
+#: app/Library/AdminPage.php:177
+msgid "You'll find beautiful high fidelity Gutenberg content to add to your pages in no time!"
+msgstr "Você encontrará um belo conteúdo de alta fidelidade dos grupos Gutenberg para adicionar às suas páginas em pouco tempo!"
+
+#. translators: %s: The name of the plugin, Extendify
+#: app/Library/AdminPage.php:171
+msgid "Search by industry, contents, and design attributes. %s has thousands of best-in-class block patterns. Find what you love and add it to the page - done!"
+msgstr "Persquisar por indústria, conteúdos e atributos de design. %s tem milhares dos melhores padrões de bloco. Encontre o que você ama e adicione à página - feito!"
+
+#: app/Library/AdminPage.php:165
+msgid "3. Browse Patterns & Layouts."
+msgstr "3. Procurar Padrões e Layouts."
+
+#. translators: %s: The name of the plugin, Extendify
+#: app/Library/AdminPage.php:155
+msgid "%s supports over sixty types with new industries added regularly."
+msgstr "%s suporta mais de sessenta tipos, com novas indústrias adicionadas regularmente."
+
+#: app/Library/AdminPage.php:149
+msgid "With the library open, you can set your site industry - or type - which will surface the perfect industry-specific patterns and full page layouts to drop onto your website."
+msgstr "Com a biblioteca aberta, você pode configurar o nicho do seu site — ou digitar — que irá emergir os perfeitos padrões específicos da nicho e layouts de página completos para serem aplicados em seu site."
+
+#: app/Library/AdminPage.php:146
+msgid "2. Choose a site industry"
+msgstr "2. Escolha o nicho do site"
+
+#. translators: %1$s = URL.
+#: app/Library/AdminPage.php:133
+msgid "clicking here"
+msgstr "clicando aqui"
+
+#. translators: %1$s = URL.
+#: app/Library/AdminPage.php:133
+msgid "You may also add a new page with the library opened for you by %1$s."
+msgstr "Você também pode adicionar uma nova página com a biblioteca aberta para você por %1$s."
+
+#. translators: %s: Extendify Library term
+#: app/Library/AdminPage.php:125
+msgid "When editing a page or post within the block editor, you'll see the %s button within the editor's header"
+msgstr "Ao editar a página ou postagem com o editor de blocos, você verá o botão %s no o cabeçalho do editor"
+
+#. translators: %s: The name of the plugin, Extendify
+#: app/Library/AdminPage.php:103
+msgid "%s is a massive library of drop-in block patterns easily customized to your liking. Each pattern is meticulously designed to work with your existing WordPress theme."
+msgstr "%s é uma enorme livraria de padrões de bloco aplicáveis, facilmente customizáveis conforme a sua preferência. Cada padrão é meticulosamente desenhado para funcionar com o seu já existente tema WordPress."
+
+#: app/Library/Plugin.php:80
+msgid "An unknown error occurred during installation"
+msgstr "Ocorreu um erro desconhecido durante a instalação"
+
+#: app/Library/Plugin.php:74
+msgid "There was an error installing your plugin"
+msgstr "Houve um erro ao instalar seu plugin"
+
+#: app/Library/Plugin.php:58
+msgid "You are not allowed to install plugins on this site."
+msgstr "Você não está autorizado a instalar plugins neste site."
+
+#: app/Library/Controllers/PluginController.php:53 app/Library/Plugin.php:36
+msgid "You are not allowed to activate plugins on this site."
+msgstr "Você não está autorizado a ativar plugins neste site."
+
+#. Author URI of the plugin
+msgid "https://extendify.com/?utm_source=wp-plugins&utm_campaign=author-uri&utm_medium=wp-dash"
+msgstr "https://extendify.com/?utm_source=wp-plugins&utm_campaign=author-uri&utm_medium=wp-dash"
+
+#. Description of the plugin
+msgid "Extendify is the platform of site design and creation tools for people that want to build a beautiful WordPress website with a library of patterns and full page layouts for the Gutenberg block editor."
+msgstr "Extendify é uma plataforma de ferramentas de design e criação de sites, para pessoas que querem construir um site WordPress com um belo visual e com uma biblioteca de patterns e layouts de páginas inteiras para o editor de blocos Gutenberg."
+
+#. Plugin URI of the plugin
+msgid "https://extendify.com/?utm_source=wp-plugins&utm_campaign=plugin-uri&utm_medium=wp-dash"
+msgstr "https://extendify.com/?utm_source=wp-plugins&utm_campaign=plugin-uri&utm_medium=wp-dash"
+
+#. Plugin Name of the plugin
+#. Author of the plugin
+msgid "Extendify"
+msgstr "Extendify"

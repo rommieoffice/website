@@ -1,0 +1,173 @@
+.cmb-type-icon ul.icon-scroll {
+    max-height: 150px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+body #side-sortables .cmb2-wrap>.cmb-field-list>.cmb-type-icon {
+    /* no more fields */
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.cmb-type-icon ul li {
+    border: 1px solid Transparent;
+}
+
+.cmb-type-icon ul.icon-scroll li {
+    padding: 2px;
+    float: left;
+    white-space: nowrap;
+}
+
+.cmb-type-icon div ul li.selected {
+    opacity: 1.0;
+    border: 1px dashed #9999dd;
+}
+
+.cmb-type-icon div ul li.unselected:hover {
+    opacity: 1.0;
+}
+
+.cmb-type-icon div ul.icon-scroll li.unselected:hover {
+    border: 1px dashed #dddddd;
+}
+
+.cmb-type-icon div ul li.unselected {
+    opacity: 0.4;
+}
+
+.cmb-type-icon ul.icon-scroll li input {
+    display: none;
+}
+
+.cmb-type-icon ul.icon-scroll li img {
+    height: 48px;
+}
+
+.cmb-type-icon div ul li.custom_icon {
+    border: none;
+    clear: both;
+}
+
+.cmb-type-icon .custom_icon {
+    display: inline;
+}
+
+.el-license-container {
+    margin: 20px;
+    padding: 35px;
+    background: #fff;
+    border-radius: 4px
+}
+
+.el-license-container .el-license-field {
+    display: block;
+    margin-bottom: 15px
+}
+
+.el-license-container .el-license-field input {
+    font-size: 200%;
+    padding: 8px 10px 10px
+}
+
+.el-license-container .notice-error, .el-license-container div.error {
+    background: rgba(220, 50, 50, 0.11);
+    margin: 0
+}
+
+.el-license-container .el-license-title {
+    margin-top: 0;
+    font-size: 30px
+}
+
+.el-license-container .el-license-info li {
+    list-style: none;
+    padding: 0
+}
+
+.el-license-container .el-license-info-title {
+    width: 150px;
+    display: inline-block;
+    position: relative;
+    padding-right: 5px
+}
+
+.el-license-container .el-license-info-title:after {
+    content: ":";
+    position: absolute;
+    right: 2px
+}
+
+.el-license-container .el-license-valid, .el-license-container .el-license-invalid {
+    padding: 0 5px 2px;
+    color: #fff;
+    background-color: #8fcc77;
+    border-radius: 3px
+}
+
+.el-license-container .el-license-invalid {
+    background-color: #f44336
+}
+
+.el-license-container .el-license-key {
+    font-weight: 700;
+    opacity: .8
+}
+
+.el-license-container .el-green-btn {
+    padding: 0 5px 2px;
+    color: #fff;
+    background-color: #8fcc77;
+    border-radius: 3px;
+    text-decoration: none;
+    -webkit-box-shadow: 0 0 3px -1px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 0 0 3px -1px rgba(0, 0, 0, 0.38);
+    box-shadow: 0 0 3px -1px rgba(0, 0, 0, 0.38)
+}
+
+.el-license-container .el-green-btn:hover {
+    color: #fff;
+    background-color: #84bc6c
+}
+
+.el-license-container .el-blue-btn {
+    padding: 0 5px 2px;
+    color: #fff;
+    background-color: #20b1d2;
+    border-radius: 3px;
+    text-decoration: none;
+    -webkit-box-shadow: 0 0 3px -1px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 0 0 3px -1px rgba(0, 0, 0, 0.38);
+    box-shadow: 0 0 3px -1px rgba(0, 0, 0, 0.38)
+}
+
+.el-license-container .el-blue-btn:hover {
+    color: #fff;
+    background-color: #219dbf
+}
+
+.el-license-container .el-license-field label {
+    display: block;
+    margin-bottom: 5px
+}
+
+.el-license-container .el-license-active-btn {
+    margin-top: 25px
+}
+.main-menu ul.submenu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 250px;
+    z-index: 999;
+    text-align: left;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: rotateX(90deg);
+    transform: rotateX(90deg);
+    -webkit-transform-origin: top;
+    -ms-transform-origin: top;
+    transform-origin: top;
+    background-color: #ffffff;
+}
