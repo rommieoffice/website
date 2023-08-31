@@ -3,7 +3,7 @@
 Plugin Name: WPC Smart Quick View for WooCommerce
 Plugin URI: https://wpclever.net/
 Description: WPC Smart Quick View allows users to get a quick look of products without opening the product page.
-Version: 3.4.8
+Version: 3.4.9
 Author: WPClever
 Author URI: https://wpclever.net
 Text Domain: woo-smart-quick-view
@@ -18,7 +18,7 @@ use Automattic\WooCommerce\Utilities\FeaturesUtil;
 
 defined( 'ABSPATH' ) || exit;
 
-! defined( 'WOOSQ_VERSION' ) && define( 'WOOSQ_VERSION', '3.4.8' );
+! defined( 'WOOSQ_VERSION' ) && define( 'WOOSQ_VERSION', '3.4.9' );
 ! defined( 'WOOSQ_FILE' ) && define( 'WOOSQ_FILE', __FILE__ );
 ! defined( 'WOOSQ_URI' ) && define( 'WOOSQ_URI', plugin_dir_url( __FILE__ ) );
 ! defined( 'WOOSQ_DIR' ) && define( 'WOOSQ_DIR', plugin_dir_path( __FILE__ ) );
@@ -523,7 +523,7 @@ if ( ! function_exists( 'woosq_init' ) ) {
 					$active_tab = isset( $_GET['tab'] ) ? sanitize_key( $_GET['tab'] ) : 'settings';
 					?>
                     <div class="wpclever_settings_page wrap">
-                        <h1 class="wpclever_settings_page_title"><?php echo esc_html__( 'WPC Smart Quick View', 'woo-smart-quick-view' ) . ' ' . WOOSQ_VERSION; ?></h1>
+                        <h1 class="wpclever_settings_page_title"><?php echo esc_html__( 'WPC Smart Quick View', 'woo-smart-quick-view' ) . ' ' . WOOSQ_VERSION . ' ' . ( defined( 'WOOSQ_PREMIUM' ) ? '<span class="premium" style="display: none">' . esc_html__( 'Premium', 'woo-smart-quick-view' ) . '</span>' : '' ); ?></h1>
                         <div class="wpclever_settings_page_desc about-text">
                             <p>
 								<?php printf( esc_html__( 'Thank you for using our plugin! If you are satisfied, please reward it a full five-star %s rating.', 'woo-smart-quick-view' ), '<span style="color:#ffb900">&#9733;&#9733;&#9733;&#9733;&#9733;</span>' ); ?>
@@ -872,10 +872,10 @@ if ( ! function_exists( 'woosq_init' ) ) {
                                                         <label><input type="checkbox" name="woosq_settings[related_products][]" value="cross-sells" <?php echo esc_attr( in_array( 'cross-sells', $suggested ) ? 'checked' : '' ); ?>/> <?php esc_html_e( 'Cross-sells products', 'woo-smart-quick-view' ); ?>
                                                         </label></li>
                                                 </ul>
-                                                <p class="description">You can use
+                                                <span class="description">You can use
                                                     <a href="<?php echo esc_url( admin_url( 'plugin-install.php?tab=plugin-information&plugin=wpc-custom-related-products&TB_iframe=true&width=800&height=550' ) ); ?>" class="thickbox" title="WPC Custom Related Products">WPC Custom Related Products</a> or
                                                     <a href="<?php echo esc_url( admin_url( 'plugin-install.php?tab=plugin-information&plugin=wpc-smart-linked-products&TB_iframe=true&width=800&height=550' ) ); ?>" class="thickbox" title="WPC Smart Linked Products">WPC Smart Linked Products</a> plugin to configure related/upsells/cross-sells in bulk with smart conditions.
-                                                </p>
+                                                </span>
                                             </td>
                                         </tr>
                                         <tr>
@@ -887,10 +887,20 @@ if ( ! function_exists( 'woosq_init' ) ) {
                                                 </select>
                                             </td>
                                         </tr>
+                                        <tr class="heading">
+                                            <th colspan="2"><?php esc_html_e( 'Suggestion', 'woo-smart-quick-view' ); ?></th>
+                                        </tr>
                                         <tr>
                                             <td colspan="2">
                                                 To display custom engaging real-time messages on any wished positions, please install
-                                                <a href="https://wordpress.org/plugins/wpc-smart-messages/" target="_blank">WPC Smart Messages for WooCommerce</a> plugin. It's free!
+                                                <a href="https://wordpress.org/plugins/wpc-smart-messages/" target="_blank">WPC Smart Messages</a> plugin. It's free!
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                Wanna save your precious time working on variations? Try our brand-new free plugin
+                                                <a href="https://wordpress.org/plugins/wpc-variation-bulk-editor/" target="_blank">WPC Variation Bulk Editor</a> and
+                                                <a href="https://wordpress.org/plugins/wpc-variation-duplicator/" target="_blank">WPC Variation Duplicator</a>.
                                             </td>
                                         </tr>
                                         <tr class="submit">

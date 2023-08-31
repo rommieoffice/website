@@ -42,3 +42,8 @@ body.dark-theme { background: #030717; }
 
 
 #bnn-principal .th-hero-wrapper { background-position: bottom; }
+
+
+.service-counter-divider:after { left: -15px; }
+
+.service-wrap_text { font-size: 1.2rem; }

@@ -121,9 +121,35 @@
 
 /* Settings Page */
 
+@media only screen and (min-width: 1200px) {
+    .wpclever_settings_page {
+        width: 90%;
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 .wpclever_settings_page img {
     max-width: 100%;
     height: auto;
+}
+
+.wpclever_settings_page .wpclever_settings_page_title {
+    display: flex;
+    align-items: center;
+}
+
+.wpclever_settings_page .wpclever_settings_page_title .premium {
+    display: inline-block !important;
+    font-size: 10px;
+    line-height: 1;
+    background-color: #333;
+    color: #fff;
+    padding: 6px 10px;
+    margin-left: 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
 }
 
 .wpclever_settings_page .wpclever_settings_page_desc a {
@@ -165,6 +191,9 @@
 
 .wpclever_settings_page .wpclever_settings_page_content table {
     margin: 0;
+    padding: 0;
+    border-spacing: 0;
+    border-collapse: unset;
 }
 
 .wpclever_settings_page .wpclever_settings_page_content table tr.heading th, .wpclever_settings_page .wpclever_settings_page_content table tr.heading td, .wpclever_settings_page .wpclever_settings_page_content table tr.submit th, .wpclever_settings_page .wpclever_settings_page_content table tr.submit td {
@@ -179,8 +208,12 @@
 }
 
 .wpclever_settings_page .wpclever_settings_page_content table tr.heading {
-    border-bottom: 1px dashed #eee;
+    border-bottom: 1px dashed #eeeeee;
+}
+
+.wpclever_settings_page .wpclever_settings_page_content table tr.heading th {
     border-left: 4px solid #23282d;
+    padding-left: 16px;
 }
 
 .wpclever_settings_page .wpclever_settings_page_content .wpclever_settings_page_content_text {
@@ -199,6 +232,10 @@
 .wpclever_settings_page .wpclever_settings_page_content table tr th, .wpclever_settings_page .wpclever_settings_page_content table tr td {
     padding: 15px 20px;
     border-bottom: 1px dashed #eee;
+}
+
+.wpclever_settings_page .wpclever_settings_page_content table tr.submit th, .wpclever_settings_page .wpclever_settings_page_content table tr.submit td {
+    border-bottom: none;
 }
 
 .wpclever_plugins_order {
