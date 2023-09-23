@@ -74,8 +74,8 @@ export const useTelemetry = () => {
                     selectedPages: selectedPages?.map((p) => p.id),
                     selectedPagesSlugs: selectedPages?.map((p) => p.slug),
                     selectedPlugins: selectedPlugins?.map((p) => p.name),
-                    selectedSiteType: selectedSiteType?.recordId
-                        ? [selectedSiteType.recordId]
+                    selectedSiteType: selectedSiteType?.slug
+                        ? [selectedSiteType.slug]
                         : [],
                     selectedSiteTypeSlug: selectedSiteType?.slug,
                     selectedStyle: selectedStyle?.recordId
@@ -90,9 +90,7 @@ export const useTelemetry = () => {
                         .map((s) => s.slug)
                         .slice(1),
                     siteTypeSearch,
-                    perfStyles: getPerformance('style'),
-                    perfPages: getPerformance('page'),
-                    insightsId: window.extOnbData?.insightsId,
+                    insightsId: window.extOnbData?.siteId,
                     activeTests: JSON.stringify(window.extOnbData?.activeTests),
                     partnerName: window.extOnbData?.partnerName,
                     wpLanguage: window.extOnbData?.wpLanguage,
@@ -113,13 +111,4 @@ export const useTelemetry = () => {
         viewedStyles,
         siteTypeSearch,
     ])
-}
-
-const getPerformance = (type) => {
-    return performance
-        ?.getEntriesByType('measure')
-        ?.filter(
-            (m) => m?.detail?.extendify && m?.detail?.context?.type === type,
-        )
-        ?.map((m) => ({ [m.name]: m.duration }))
 }

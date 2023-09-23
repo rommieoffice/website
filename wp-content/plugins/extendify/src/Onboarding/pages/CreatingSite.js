@@ -29,7 +29,7 @@ export const CreatingSite = () => {
     const [confettiColors, setConfettiColors] = useState(['#ffffff'])
     const [warnOnLeaveReady, setWarnOnLeaveReady] = useState(true)
     const canLaunch = useUserSelectionStore((state) => state.canLaunch())
-    const { siteType, pages, style, plugins, goals } = useUserSelectionStore()
+    const { pages, style, plugins, goals } = useUserSelectionStore()
     const [info, setInfo] = useState([])
     const [infoDesc, setInfoDesc] = useState([])
     const inform = (msg) => setInfo((info) => [msg, ...info])
@@ -46,8 +46,8 @@ export const CreatingSite = () => {
                 window.jQuery('#collapse-button').trigger('click.collapse-menu')
             }
 
-            inform(__('Applying site styles', 'extendify'))
-            informDesc(__('A beautiful site in... 3, 2, 1', 'extendify'))
+            inform(__('Applying your website styles', 'extendify'))
+            informDesc(__('Creating a beautiful website', 'extendify'))
             await new Promise((resolve) => setTimeout(resolve, 1000))
 
             await waitFor200Response()
@@ -60,7 +60,7 @@ export const CreatingSite = () => {
             await updateTemplatePart('extendable/footer', style?.footerCode)
 
             if (plugins?.length) {
-                inform(__('Installing suggested plugins', 'extendify'))
+                inform(__('Installing necessary plugins', 'extendify'))
                 const pluginsGiveFirst = [...plugins].sort(
                     ({ wordpressSlug }) => (wordpressSlug === 'give' ? -1 : 1),
                 )
@@ -82,33 +82,36 @@ export const CreatingSite = () => {
                 }
 
                 inform(__('Populating data', 'extendify'))
-                informDesc(__('Personalizing your experience...', 'extendify'))
+                informDesc(__('Personalizing your experience', 'extendify'))
                 await prefetchAssistData()
                 await waitFor200Response()
             }
 
             let pageIds, navPages
-            inform(__('Generating page content', 'extendify'))
-            informDesc(__('Starting off with a full site...', 'extendify'))
+            inform(__('Adding page content', 'extendify'))
+            informDesc(__('Starting off with a full website', 'extendify'))
             await new Promise((resolve) => setTimeout(resolve, 1000))
             await waitFor200Response()
 
-            const blogPage = {
-                // slug is only used internally
-                slug: 'blog',
-                title: __('Blog', 'extendify'),
+            const homePage = {
+                slug: 'home',
+                name: __('Home', 'extendify'),
+                patterns: style.code.map((code) => ({ code })),
             }
-            const pagesWithBlog = [...pages, blogPage]
+            const blogPage = {
+                slug: 'blog',
+                name: __('Blog', 'extendify'),
+                patterns: [],
+            }
             await waitFor200Response()
-            pageIds = await createWordpressPages(pagesWithBlog, siteType, style)
+            pageIds = await createWordpressPages([...pages, blogPage, homePage])
             await waitFor200Response()
-            const addBlogPageToNav = goals.some((goal) => goal.slug === 'blog')
+            const addBlogPageToNav = goals?.some((goal) => goal.slug === 'blog')
 
-            navPages = [...pages]
-
-            navPages = addBlogPageToNav
-                ? [...navPages, blogPage]
-                : [...navPages]
+            navPages = [...pages, addBlogPageToNav ? blogPage : null, homePage]
+                .filter(Boolean)
+                // Sorted AZ by title in all languages
+                .sort((a, b) => a?.name?.localeCompare(b?.name))
 
             // Fetch active plugins after installing plugins
             let { data: activePlugins } = await getActivePlugins()
@@ -169,13 +172,13 @@ export const CreatingSite = () => {
             await waitFor200Response()
             await updateTemplatePart('extendable/header', updatedHeaderCode)
 
-            inform(__('Setting up your site assistant', 'extendify'))
-            informDesc(__('Helping your site to be successful...', 'extendify'))
+            inform(__('Setting up your Site Assistant', 'extendify'))
+            informDesc(__('Helping you to succeed', 'extendify'))
             await new Promise((resolve) => setTimeout(resolve, 1000))
             await waitFor200Response()
             await waitFor200Response()
             await updateOption('permalink_structure', '/%postname%/')
-            inform(__('Your site has been created!', 'extendify'))
+            inform(__('Your website has been created!', 'extendify'))
             informDesc(__('Redirecting in 3, 2, 1...', 'extendify'))
             // fire confetti here
             setConfettiReady(true)
@@ -204,7 +207,7 @@ export const CreatingSite = () => {
             await new Promise((resolve) => setTimeout(resolve, 2000))
             return doEverything()
         }
-    }, [goals, pages, plugins, siteType, style, canLaunch])
+    }, [pages, plugins, style, canLaunch, goals])
 
     useEffect(() => {
         doEverything().then(() => {
@@ -216,13 +219,10 @@ export const CreatingSite = () => {
     }, [doEverything])
 
     useEffect(() => {
-        const documentStyles = window.getComputedStyle(document.documentElement)
-        const partnerBg = documentStyles?.getPropertyValue(
-            '--ext-partner-theme-primary-bg',
-        )
-        const partnerText = documentStyles?.getPropertyValue(
-            '--ext-partner-theme-primary-text',
-        )
+        const documentStyles = window.getComputedStyle(document.body)
+        const partnerBg = documentStyles?.getPropertyValue('--ext-banner-main')
+        const partnerText =
+            documentStyles?.getPropertyValue('--ext-banner-text')
         if (partnerBg) {
             setConfettiColors([
                 colord(partnerBg).darken(0.3).toHex(),
@@ -251,7 +251,7 @@ export const CreatingSite = () => {
             enter="transition-all ease-in-out duration-500"
             enterFrom="md:w-40vw md:max-w-md"
             enterTo="md:w-full md:max-w-full"
-            className="bg-partner-primary-bg text-partner-primary-text py-12 px-10 md:h-screen flex flex-col justify-between md:w-40vw md:max-w-md flex-shrink-0">
+            className="bg-banner-main text-banner-text py-12 px-10 md:h-screen flex flex-col justify-between md:max-w-md flex-shrink-0">
             <div className="max-w-prose">
                 <div className="md:min-h-48">
                     {window.extOnbData?.partnerLogo ? (
@@ -263,7 +263,7 @@ export const CreatingSite = () => {
                             />
                         </div>
                     ) : (
-                        <Logo className="logo text-design-text w-32 sm:w-40 mb-8" />
+                        <Logo className="logo text-banner-text w-32 sm:w-40 mb-8" />
                     )}
                     <div>
                         {info.map((step, index) => {

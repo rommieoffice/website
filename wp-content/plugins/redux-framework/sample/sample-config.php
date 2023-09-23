@@ -18,7 +18,7 @@ $opt_name = 'redux_demo';  // YOU MUST CHANGE THIS.  DO NOT USE 'redux_demo' IN 
 // Uncomment to disable demo mode.
 /* Redux::disable_demo(); */  // phpcs:ignore Squiz.PHP.CommentedOutCode
 
-$dir = dirname( __FILE__ ) . DIRECTORY_SEPARATOR;
+$dir = __DIR__ . DIRECTORY_SEPARATOR;
 
 /*
  * --> Used within different fields. Simply examples. Search for ACTUAL DECLARATION for field examples
@@ -509,8 +509,7 @@ Redux::set_section(
 require_once Redux_Core::$dir . '../sample/sections/disabling/disable-field.php';
 require_once Redux_Core::$dir . '../sample/sections/disabling/disable-section.php';
 
-// -> START Pro Fields.
-
+// -> START Extensions.
 Redux::set_section(
 	$opt_name,
 	array(
@@ -532,12 +531,11 @@ require_once Redux_Core::$dir . '../sample/sections/extensions/search.php';
 require_once Redux_Core::$dir . '../sample/sections/extensions/shortcodes.php';
 require_once Redux_Core::$dir . '../sample/sections/extensions/social-profiles.php';
 require_once Redux_Core::$dir . '../sample/sections/extensions/widget-areas.php';
+require_once Redux_Core::$dir . '../sample/sections/extensions/taxonomy.php';
 require_once Redux_Core::$dir . '../sample/sections/extensions/users.php';
 
 if ( class_exists( 'Redux_Pro' ) ) {
 	require_once Redux_Core::$dir . '../sample/sections/extensions/color-scheme.php';
-	require_once Redux_Core::$dir . '../sample/sections/extensions/taxonomy.php';
-	require_once Redux_Core::$dir . '../sample/sections/extensions/users.php';
 }
 
 /**
@@ -557,7 +555,7 @@ if ( file_exists( $dir . '/../README.md' ) ) {
 				'id'           => 'opt-raw-documentation',
 				'type'         => 'raw',
 				'markdown'     => true,
-				'content_path' => dirname( __FILE__ ) . '/../README.md', // FULL PATH, not relative, please.
+				'content_path' => __DIR__ . '/../README.md', // FULL PATH, not relative, please.
 			),
 		),
 	);

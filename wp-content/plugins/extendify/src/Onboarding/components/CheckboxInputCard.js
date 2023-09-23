@@ -1,26 +1,18 @@
-export const CheckboxInputCard = ({
-    label,
-    slug,
-    description,
-    checked,
-    onChange,
-    Icon,
-}) => {
+export const CheckboxInputCard = (props) => {
+    const { label, description, Icon, ...rest } = props
     return (
         <label
             className="w-full flex items-center justify-between text-gray-900 font-semibold p-4 h-full"
-            htmlFor={slug}>
+            htmlFor={props.id}>
             <div className="flex items-center flex-auto">
                 <span className="w-5 h-5 relative inline-block mr-3 align-middle">
                     <input
-                        id={slug}
+                        {...rest}
                         className="h-5 w-5 rounded-sm m-0"
                         type="checkbox"
-                        onChange={onChange}
-                        defaultChecked={checked}
                     />
                     <svg
-                        className="absolute block h-5 inset-0 w-5 text-white"
+                        className="absolute block h-5 w-5 -mt-px inset-0 text-white"
                         viewBox="1 0 20 20"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -32,19 +24,17 @@ export const CheckboxInputCard = ({
                     </svg>
                 </span>
                 <span>
-                    <span className="text-base">{label}</span>
+                    <span className="text-sm font-medium">{label}</span>
                     {description ? (
                         <span className="block pt-1 text-gray-700 pr-4 font-normal">
                             {description}
                         </span>
                     ) : (
-                        <span></span>
+                        <span />
                     )}
                 </span>
             </div>
-            {Icon && (
-                <Icon className="flex-none text-partner-primary-bg h-6 w-6" />
-            )}
+            {Icon && <Icon className="flex-none text-design-main h-6 w-6" />}
         </label>
     )
 }

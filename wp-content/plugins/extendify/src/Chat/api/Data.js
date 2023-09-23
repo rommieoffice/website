@@ -29,3 +29,6 @@ export const rateAnswer = ({ answerId, rating }) =>
 export const getOptions = () => api.get('chat/options')
 
 export const updateOptions = (options) => api.post('chat/options', { options })
+
+export const updateUserMeta = (user, option, value) =>
+    api.post('draft/update-user-meta', { user, option, value })

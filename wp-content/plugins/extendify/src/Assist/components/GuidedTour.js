@@ -11,7 +11,6 @@ import { sprintf, __ } from '@wordpress/i18n'
 import { Icon, close } from '@wordpress/icons'
 import { Dialog } from '@headlessui/react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useDesignColors } from '@assist/hooks/useDesignColors'
 import { router } from '@assist/hooks/useRouter'
 import { useGlobalSyncStore } from '@assist/state/GlobalSync'
 import { useTasksStore } from '@assist/state/Tasks'
@@ -376,7 +375,6 @@ const BottomNav = ({ initialFocus }) => {
     const { options = {} } = getStepData(currentStep)
     const { hideBackButton = false } = options
     const { id, steps, settings } = currentTour || {}
-    const { mainColor } = useDesignColors()
     const { completeTask } = useTasksStore()
 
     return (
@@ -394,13 +392,7 @@ const BottomNav = ({ initialFocus }) => {
                                 onClick={prevStep}
                                 disabled={preparingStep > -1}>
                                 {preparingStep < currentStep && (
-                                    <Spinner
-                                        style={{
-                                            color: mainColor,
-                                            margin: 0,
-                                            height: '1em',
-                                        }}
-                                    />
+                                    <Spinner className="text-design-main m-0 h-4" />
                                 )}
                                 <span>{__('Back', 'extendify')}</span>
                             </button>
@@ -417,12 +409,6 @@ const BottomNav = ({ initialFocus }) => {
                     {steps.map((_step, index) => (
                         <div key={index}>
                             <button
-                                style={{
-                                    backgroundColor:
-                                        index === currentStep
-                                            ? mainColor
-                                            : undefined,
-                                }}
                                 aria-label={sprintf(
                                     __('%s of %s', 'extendify'),
                                     index + 1,
@@ -450,19 +436,10 @@ const BottomNav = ({ initialFocus }) => {
                         data-test="assist-tour-next-button"
                         onClick={nextStep}
                         disabled={preparingStep > -1}
-                        style={{
-                            backgroundColor: mainColor,
-                        }}
-                        className="flex gap-2 text-design-text focus:text-design-text disabled:opacity-60"
+                        className="flex gap-2 text-design-text bg-design-main focus:text-design-text disabled:opacity-60"
                         variant="primary">
                         {preparingStep > currentStep && (
-                            <Spinner
-                                style={{
-                                    color: mainColor,
-                                    margin: 0,
-                                    height: '1em',
-                                }}
-                            />
+                            <Spinner className="text-design-main m-0 h-4" />
                         )}
                         <span>{__('Next', 'extendify')}</span>
                     </Button>
@@ -474,9 +451,7 @@ const BottomNav = ({ initialFocus }) => {
                             completeTask(id)
                             completeCurrentTour()
                         }}
-                        style={{
-                            backgroundColor: mainColor,
-                        }}
+                        className="bg-design-main"
                         variant="primary">
                         {__('Done', 'extendify')}
                     </Button>

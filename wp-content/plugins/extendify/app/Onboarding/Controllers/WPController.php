@@ -15,25 +15,6 @@ if (!defined('ABSPATH')) {
 class WPController
 {
     /**
-     * Parse theme.json file.
-     *
-     * @param \WP_REST_Request $request - The request.
-     * @return \WP_REST_Response
-     */
-    public static function parseThemeJson($request)
-    {
-        if (!$request->get_param('themeJson')) {
-            return new \WP_Error('invalid_theme_json', __('Invalid Theme.json file', 'extendify'));
-        }
-
-        $themeJson = new \WP_Theme_JSON(json_decode($request->get_param('themeJson'), true), '');
-        return new \WP_REST_Response([
-            'success' => true,
-            'styles' => $themeJson->get_stylesheet(),
-        ]);
-    }
-
-    /**
      * Persist the data
      *
      * @param \WP_REST_Request $request - The request.

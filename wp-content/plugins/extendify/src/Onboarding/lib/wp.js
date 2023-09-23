@@ -1,40 +1,21 @@
-import { getTemplate } from '@onboarding/api/DataApi'
 import {
     updateOption,
     createPage,
     updateThemeVariation,
 } from '@onboarding/api/WPApi'
 
-export const createWordpressPages = async (pages, siteType, style) => {
+export const createWordpressPages = async (pages) => {
     const pageIds = {}
     for (const page of pages) {
-        const template = await getTemplate({
-            siteType: siteType.slug,
-            layoutType: page.slug,
-            baseLayout:
-                page.slug === 'home'
-                    ? siteType.slug.startsWith('blog')
-                        ? style?.blogBaseLayout
-                        : style?.homeBaseLayout
-                    : null,
-            kit: page.slug !== 'home' ? style?.kit : null,
-        })
-        let content = ''
-        if (template?.data) {
-            content = [template?.data?.code, template?.data?.code2]
-                .filter(Boolean)
-                .join('')
-        }
-
-        // Get content
         pageIds[page.slug] = await createPage({
-            title: page.title,
+            title: page.name,
             status: 'publish',
-            content: content,
+            content: page.patterns?.map(({ code }) => code)?.join(''),
             template: 'no-title',
             meta: { made_with_extendify_launch: true },
         })
     }
+
     // When we have home, set reading setting
     if (pageIds?.home) {
         await updateOption('show_on_front', 'page')

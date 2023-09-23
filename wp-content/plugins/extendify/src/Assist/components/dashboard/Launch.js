@@ -1,4 +1,4 @@
-import { Fragment } from '@wordpress/element'
+import { Fragment, useState, useEffect } from '@wordpress/element'
 import { __ } from '@wordpress/i18n'
 import classNames from 'classnames'
 
@@ -48,35 +48,30 @@ const launchSteps = {
         ),
         buttonText: __('Select Site Pages', 'extendify'),
     },
-    confirmation: {
-        step: __('Launch', 'extendify'),
-        title: __("Let's Launch Your Site", 'extendify'),
-        description: __(
-            "You're one step away from creating a super-fast, beautiful, and fully customized site in minutes with our Site Launcher.",
-            'extendify',
-        ),
-        buttonText: __('Launch The Site', 'extendify'),
-    },
+}
+
+const getCurrentLaunchStep = () => {
+    const pageData = JSON.parse(
+        localStorage.getItem(`extendify-pages-${window.extAssistData.siteId}`),
+    ) || { state: {} }
+    const currentPageSlug = pageData?.state?.currentPageSlug
+
+    // If their last step doesn't exist in our options, just use step 1
+    if (!Object.keys(launchSteps).includes(currentPageSlug)) {
+        return 'site-type'
+    }
+
+    return currentPageSlug
 }
 
 export const Launch = () => {
-    const getCurrentLaunchStep = () => {
-        const pageData = JSON.parse(
-            localStorage.getItem('extendify-pages') ?? null,
-        )
-        const currentPageSlug = pageData?.state?.currentPageSlug
-
-        // If their last step doesn't exist in our options, just use step 1
-        if (!Object.keys(launchSteps).includes(currentPageSlug)) {
-            return 'site-type'
-        }
-
-        return currentPageSlug
-    }
-
-    const currentStep = getCurrentLaunchStep()
-
+    const [currentStep, setCurrentStep] = useState()
     let reached = false
+
+    useEffect(() => {
+        if (currentStep) return
+        setCurrentStep(getCurrentLaunchStep())
+    }, [currentStep])
 
     return (
         <div className="w-full border border-gray-300 text-base bg-white relative mb-6 pt-8 rounded overflow-hidden">

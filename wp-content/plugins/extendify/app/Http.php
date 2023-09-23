@@ -5,6 +5,7 @@
 
 namespace Extendify;
 
+use Extendify\PartnerData;
 use Extendify\Config;
 use Extendify\User;
 
@@ -67,7 +68,7 @@ class Http
             'library_version' => Config::$version,
             'wp_active_plugins' => $request->get_method() === 'POST' ? \get_option('active_plugins') : [],
             'is_block_theme' => function_exists('wp_is_block_theme') ? wp_is_block_theme() : false,
-            'sdk_partner' => Config::$sdkPartner,
+            'sdk_partner' => PartnerData::$id,
         ];
 
         if ($request->get_header('x_extendify_dev_mode') === 'true') {

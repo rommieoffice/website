@@ -15,54 +15,63 @@ class Translations
      */
     public function __construct()
     {
-        $this->installLanguagePack('extendify', Config::$version, \get_locale());
-
+        $this->installLanguagePack(Config::$version, \get_locale());
         \load_plugin_textdomain('extendify');
     }
 
     /**
      * Install language pack
      *
-     * @param string $slug    The plugin slug.
      * @param string $version The plugin version.
      * @param string $locale  The locale.
      *
-     * @return void|false
+     * @return void
      */
-    public function installLanguagePack($slug, $version, $locale)
+    public function installLanguagePack($version, $locale)
     {
+        $key = $locale . '-' . $version;
+
+        // Check only once per language and version.
         $langsChecked = (array) get_option('extendify_language_file_preloaded', []);
-        if (in_array($locale, $langsChecked, true)) {
+        if (in_array($key, $langsChecked, true)) {
             return;
         }
 
-        // Check only once per language.
-        update_option('extendify_language_file_preloaded', array_merge($langsChecked, [$locale]));
+        // If the below code fails, retry every 1 hour (transient will expire).
+        $lastChecked = get_transient('extendify_language_files_last_checked', false);
+        if ($lastChecked) {
+            return;
+        }
+
+        set_transient('extendify_language_files_last_checked', true, HOUR_IN_SECONDS);
+
         include_once ABSPATH . 'wp-admin/includes/translation-install.php';
+        if (!wp_can_install_language_pack()) {
+            return;
+        }
 
         $translations = translations_api('plugins', [
             'slug' => 'extendify',
             'version' => $version,
         ]);
 
-        if (!$translations) {
-            return false;
+        if (!isset($translations['translations'])) {
+            return;
         }
 
-        $translations = $translations['translations'];
-
-        $data = array_values(array_filter($translations, function ($translation) use ($locale) {
+        $data = array_values(array_filter($translations['translations'], function ($translation) use ($locale) {
             return $translation['language'] === $locale;
         }));
 
-        if (! $data) {
-            return false;
+        // If no language is found, we should stop checking for this language.
+        if (!isset($data[0])) {
+            update_option('extendify_language_file_preloaded', array_merge($langsChecked, [$key]));
+            return;
         }
 
-        $translation = (object) $data[0];
-
-        $currentlyInstalledPacks = wp_get_installed_translations('plugins');
-        if (isset($currentlyInstalledPacks[$slug][$locale]) || !wp_can_install_language_pack()) {
+        // Since we use hashed file names, we need to wait for an exact match.
+        // There's sometimes a delay on w.org's side, so it could take an hour or two.
+        if ($data[0]['version'] !== $version) {
             return;
         }
 
@@ -70,10 +79,13 @@ class Translations
         $upgrader = new \WP_Upgrader($skin);
         $upgrader->generic_strings();
         $result = $upgrader->run([
-            'package' => $translation->package,
+            'package' => $data[0]['package'],
             'destination' => WP_LANG_DIR . '/plugins',
             'abort_if_destination_exists' => false,
         ]);
+
+        // Success. Add to checked list.
+        update_option('extendify_language_file_preloaded', array_merge($langsChecked, [$key]));
     }
 }
 

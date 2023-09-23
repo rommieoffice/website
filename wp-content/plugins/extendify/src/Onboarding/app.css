@@ -7,7 +7,7 @@
     --tw-ring-inset: var(--tw-empty, /*!*/ /*!*/);
     --tw-ring-offset-width: 0px;
     --tw-ring-offset-color: transparent;
-    --tw-ring-color: var(--ext-partner-theme-primary-bg, #2c39bd);
+    --tw-ring-color: var(--ext-design-main, #2c39bd);
 }
 
 .extendify-onboarding *,
@@ -22,17 +22,19 @@
 }
 
 .extendify-onboarding .button-focus {
-    @apply outline-none cursor-pointer rounded-lg text-center text-base no-underline ring-partner-primary-bg ring-offset-2 ring-offset-white focus:shadow-none focus:ring-wp;
+    @apply outline-none cursor-pointer rounded-lg text-center text-base no-underline ring-design-main ring-offset-2 ring-offset-white focus:shadow-none focus:ring-wp;
 }
+
 .extendify-onboarding .input-focus {
-    @apply outline-none rounded-lg text-base ring-partner-primary-bg ring-offset-2 ring-offset-white focus:shadow-none focus:ring-wp;
+    @apply outline-none rounded-lg text-base ring-design-main ring-offset-2 ring-offset-white focus:shadow-none focus:ring-wp;
 }
 
 .extendify-onboarding .button-card {
     @apply m-0 block flex-1 overflow-hidden border p-4;
 }
-.extendify-onboarding .preview-container .block-editor-block-preview__content {
-    max-height: none !important;
+
+.extendify-onboarding .block-editor-block-preview__container {
+    overflow: visible !important;
 }
 
 .extendify-onboarding .spin {
@@ -63,14 +65,14 @@
 }
 
 /* Checkbox styles for page selection step. */
-.extendify-onboarding input[type="checkbox"] {
+.extendify-onboarding input[type="checkbox"]:not(:checked) {
     @apply border border-gray-900;
 }
 .extendify-onboarding input[type="checkbox"]:focus {
-    @apply outline-none ring-wp ring-partner-primary-bg ring-offset-2 ring-offset-white;
+    @apply outline-none ring-wp ring-design-main ring-offset-2 ring-offset-white;
 }
 .extendify-onboarding input[type="checkbox"]:checked {
-    @apply bg-partner-primary-bg;
+    @apply bg-design-main;
 }
 .extendify-onboarding input[type="checkbox"]:checked::before {
     content: "";

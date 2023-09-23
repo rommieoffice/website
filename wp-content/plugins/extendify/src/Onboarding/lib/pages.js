@@ -1,9 +1,21 @@
 import {
     Goals,
-    fetcher as goalsFetcher,
-    fetchData as goalsData,
+    goalsFetcher,
+    goalsParams as goalsData,
     state as goalsState,
 } from '@onboarding/pages/Goals'
+import {
+    HomeSelect,
+    fetcher as homeSelectFetcher,
+    fetchData as homeSelectData,
+    state as homeSelectState,
+} from '@onboarding/pages/HomeSelect'
+import {
+    PagesSelect,
+    fetcher as pagesSelectFetcher,
+    fetchData as pagesSelectData,
+    state as pagesSelectState,
+} from '@onboarding/pages/PagesSelect'
 import {
     SiteInformation,
     fetcher as siteInfoFetcher,
@@ -11,25 +23,7 @@ import {
     state as siteInfoState,
 } from '@onboarding/pages/SiteInformation'
 import {
-    SiteLayout,
-    fetcher as siteLayoutFetcher,
-    fetchData as siteLayoutData,
-    state as siteLayoutState,
-} from '@onboarding/pages/SiteLayout'
-import {
-    SitePages,
-    fetcher as sitePagesFetcher,
-    fetchData as sitePagesData,
-    state as sitePagesState,
-} from '@onboarding/pages/SitePages'
-import {
-    SiteSummary,
-    state as confirmationState,
-} from '@onboarding/pages/SiteSummary'
-import {
     SiteTypeSelect,
-    fetcher as siteTypeFetcher,
-    fetchData as siteTypeData,
     state as siteTypeState,
 } from '@onboarding/pages/SiteTypeSelect'
 
@@ -39,8 +33,6 @@ const defaultPages = [
         'site-type',
         {
             component: SiteTypeSelect,
-            fetcher: siteTypeFetcher,
-            fetchData: siteTypeData,
             state: siteTypeState,
         },
     ],
@@ -65,22 +57,21 @@ const defaultPages = [
     [
         'layout',
         {
-            component: SiteLayout,
-            fetcher: siteLayoutFetcher,
-            fetchData: siteLayoutData,
-            state: siteLayoutState,
+            component: HomeSelect,
+            fetcher: homeSelectFetcher,
+            fetchData: homeSelectData,
+            state: homeSelectState,
         },
     ],
     [
         'pages',
         {
-            component: SitePages,
-            fetcher: sitePagesFetcher,
-            fetchData: sitePagesData,
-            state: sitePagesState,
+            component: PagesSelect,
+            fetcher: pagesSelectFetcher,
+            fetchData: pagesSelectData,
+            state: pagesSelectState,
         },
     ],
-    ['confirmation', { component: SiteSummary, state: confirmationState }],
 ]
 
 const pages = defaultPages?.filter(

@@ -5,6 +5,7 @@
 
 namespace Extendify\Library;
 
+use Extendify\PartnerData;
 use Extendify\Config;
 use Extendify\User;
 
@@ -148,7 +149,7 @@ class Admin
         $user = json_decode(User::data('extendifysdk_user_data'), true);
         $openOnNewPage = isset($user['state']['openOnNewPage']) ? $user['state']['openOnNewPage'] : Config::$launchCompleted;
         $version = Config::$environment === 'PRODUCTION' ? Config::$version : uniqid();
-        $scriptAssetPath = EXTENDIFY_PATH . 'public/build/extendify-asset.php';
+        $scriptAssetPath = EXTENDIFY_PATH . 'public/build/' . Config::$assetManifest['extendify.php'];
         $fallback = [
             'dependencies' => [],
             'version' => $version,
@@ -160,7 +161,7 @@ class Admin
 
         \wp_register_script(
             Config::$slug . '-scripts',
-            EXTENDIFY_BASE_URL . 'public/build/extendify.js',
+            EXTENDIFY_BASE_URL . 'public/build/' . Config::$assetManifest['extendify.js'],
             $scriptAsset['dependencies'],
             $scriptAsset['version'],
             true
@@ -172,16 +173,17 @@ class Admin
             array_merge([
                 'root' => \esc_url_raw(rest_url(Config::$slug . '/' . Config::$apiVersion)),
                 'nonce' => \wp_create_nonce('wp_rest'),
+                'partnerLogo' => PartnerData::$logo,
+                'partnerName' => PartnerData::$name,
                 'user' => $user,
                 'openOnNewPage' => $openOnNewPage,
                 'sitesettings' => json_decode(SiteSettings::data()),
-                'sdk_partner' => \esc_attr(Config::$sdkPartner),
+                'sdk_partner' => \esc_attr(PartnerData::$id),
                 'asset_path' => \esc_url(EXTENDIFY_URL . 'public/assets'),
-                'standalone' => \esc_attr(Config::$standalone),
                 'devbuild' => \esc_attr(Config::$environment === 'DEVELOPMENT'),
-                'insightsId' => \get_option('extendify_site_id', ''),
+                'siteId' => \get_option('extendify_site_id', ''),
                 'hasLegacyClasses' => (bool) \get_option('extendify_has_legacy_classes', false),
-            ], $this->getPartnerInformation())
+            ])
         );
 
         \wp_enqueue_script(Config::$slug . '-scripts');
@@ -190,11 +192,16 @@ class Admin
 
         // Inline the library styles to keep them out of the iframe live preview.
         // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-        $css = file_get_contents(EXTENDIFY_PATH . 'public/build/extendify.css');
-        \wp_register_style(Config::$slug, false, [], $version);
+        $css = file_get_contents(EXTENDIFY_PATH . 'public/build/' . Config::$assetManifest['extendify.css']);
+        \wp_register_style(Config::$slug, false, [], Config::$version);
         \wp_enqueue_style(Config::$slug);
         \wp_add_inline_style(Config::$slug, $css);
-        $this->registerPartnerStyle();
+
+        $cssColorVars = PartnerData::cssVariableMapping();
+        $cssString = implode('; ', array_map(function ($k, $v) {
+            return "$k: $v";
+        }, array_keys($cssColorVars), $cssColorVars));
+        wp_add_inline_style(Config::$slug, "body { $cssString; }");
     }
 
     /**
@@ -229,7 +236,7 @@ class Admin
         // phpcs:enable
 
         $version = Config::$environment === 'PRODUCTION' ? Config::$version : uniqid();
-        $scriptAssetPath = EXTENDIFY_PATH . 'public/build/extendify-deactivate.asset.php';
+        $scriptAssetPath = EXTENDIFY_PATH . 'public/build/' . Config::$assetManifest['extendify-deactivate.php'];
         $fallback = [
             'dependencies' => [],
             'version' => $version,
@@ -241,7 +248,7 @@ class Admin
 
         \wp_register_script(
             Config::$slug . '-deactivate-scripts',
-            EXTENDIFY_BASE_URL . 'public/build/extendify-deactivate.js',
+            EXTENDIFY_BASE_URL . 'public/build/' . Config::$assetManifest['extendify-deactivate.js'],
             $scriptAsset['dependencies'],
             $scriptAsset['version'],
             true
@@ -253,16 +260,17 @@ class Admin
             array_merge([
                 'root' => \esc_url_raw(rest_url(Config::$slug . '/' . Config::$apiVersion)),
                 'nonce' => \wp_create_nonce('wp_rest'),
+                'partnerLogo' => PartnerData::$logo,
+                'partnerName' => PartnerData::$name,
                 'adminUrl' => \esc_url_raw(\admin_url()),
-            ], $this->getPartnerInformation())
+            ])
         );
 
         \wp_enqueue_script(Config::$slug . '-deactivate-scripts');
 
         \wp_set_script_translations(Config::$slug . '-deactivate-scripts', 'extendify');
 
-        \wp_enqueue_style(Config::$slug, EXTENDIFY_BASE_URL . '/public/build/extendify.css', [], $version);
-        $this->registerPartnerStyle();
+        \wp_enqueue_style(Config::$slug, EXTENDIFY_BASE_URL . '/public/build/' . Config::$assetManifest['extendify.css'], [], Config::$version);
     }
 
     /**
@@ -288,72 +296,5 @@ class Admin
     {
         // TODO: For now just always show.
         return true;
-    }
-
-    /**
-     * Get the Partner information, if it is presented.
-     *
-     * @return array
-     */
-    protected function getPartnerInformation()
-    {
-        $partnerData = $this->checkPartnerDataSources();
-
-        $logo = isset($partnerData['logo']) ? $partnerData['logo'] : null;
-        $name = isset($partnerData['name']) ? $partnerData['name'] : \__('Partner logo', 'extendify');
-
-        return [
-            'partnerLogo' => $logo,
-            'partnerName' => $name,
-        ];
-    }
-
-    /**
-     * Register the Partner style, if it is presented.
-     *
-     * @return void
-     */
-    protected function registerPartnerStyle()
-    {
-        $partnerData = $this->checkPartnerDataSources();
-
-        if (isset($partnerData['bgColor']) && isset($partnerData['fgColor'])) {
-            \wp_add_inline_style(Config::$slug, ":root {
-                --ext-partner-library-theme-primary-bg: {$partnerData['bgColor']};
-                --ext-partner-library-theme-primary-text: {$partnerData['fgColor']};
-            }");
-        }
-    }
-
-    /**
-     * Check if partner data is available.
-     *
-     * @return array
-     */
-    public function checkPartnerDataSources()
-    {
-        $return = [];
-
-        try {
-            if (defined('EXTENDIFY_ONBOARDING_BG')) {
-                $return['bgColor'] = constant('EXTENDIFY_ONBOARDING_BG');
-                $return['fgColor'] = constant('EXTENDIFY_ONBOARDING_TXT');
-                $return['logo'] = constant('EXTENDIFY_PARTNER_LOGO');
-            }
-
-            $data = get_option('extendify_partner_data');
-            if ($data) {
-                $return['bgColor'] = $data['backgroundColor'];
-                $return['fgColor'] = $data['foregroundColor'];
-                // Need this check to avoid errors if no partner logo is set in Airtable.
-                $return['logo'] = $data['logo'] ? $data['logo'][0]['thumbnails']['large']['url'] : null;
-                $return['name'] = isset($data['name']) ? $data['name'] : '';
-            }
-        } catch (\Exception $e) {
-            // Do nothing here, set variables below. Coding Standards require something to be in the catch.
-            $e;
-        }//end try
-
-        return $return;
     }
 }

@@ -1,28 +1,14 @@
 import { pingServer } from '@onboarding/api/DataApi'
 
-/** Takes each possible code section and filters out undefined */
-export const findTheCode = (item) =>
-    [item?.template?.code, item?.template?.code2].filter(Boolean).join('')
-
 /** Removes any hash or qs values from URL - Airtable adds timestamps */
 export const stripUrlParams = (url) => url?.[0]?.url?.split(/[?#]/)?.[0]
 
-/** Lowers the quality of images */
 export const lowerImageQuality = (html) => {
-    return html.replace(/\w+:\/\/\S*(w=(\d*))&\w+\S*"/g, (url, w, width) =>
-        // Could lower the width here if needed
-        url.replace(
-            w,
-            'w=' +
-                Math.floor(Number(width)) +
-                '&q=10&auto=format,compress&fm=avif',
-        ),
+    return html.replace(
+        /(https?:\/\/\S+\?w=\d+)/gi,
+        '$1&q=10&auto=format,compress&fm=avif',
     )
 }
-
-/** Capitalize first letter of a string */
-export const capitalize = (str) =>
-    str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
 
 /**
  * Will ping every 1s until we get a 200 response from the server.

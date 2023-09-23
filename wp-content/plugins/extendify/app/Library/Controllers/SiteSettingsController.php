@@ -129,7 +129,7 @@ class SiteSettingsController
         }
 
         // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-        $content = file_get_contents(EXTENDIFY_PATH . 'public/build/utility-minimum.css');
+        $content = file_get_contents(EXTENDIFY_PATH . 'public/build/' . Config::$assetManifest['utility-minimum.css']);
 
         return $css .= "\n\n" . $content;
     }

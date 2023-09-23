@@ -1,6 +1,10 @@
 const defaultConfig = require('@wordpress/scripts/config/webpack.config')
 const { resolve } = require('path')
 const CopyPlugin = require('copy-webpack-plugin')
+const path = require('path')
+const WebpackAssetsManifest = require('webpack-assets-manifest')
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     ...defaultConfig,
@@ -10,6 +14,7 @@ module.exports = {
     },
     plugins: [
         ...defaultConfig.plugins,
+        new CleanWebpackPlugin(),
         new CopyPlugin({
             patterns: [
                 {
@@ -18,6 +23,12 @@ module.exports = {
                 },
             ],
         }),
+        new WebpackAssetsManifest({
+            output: path.resolve(process.cwd(), 'public/build/manifest.json'),
+            publicPath: true,
+            writeToDisk: true,
+        }),
+        new MiniCSSExtractPlugin({ filename: '[name]-[hash].css' }),
     ],
     resolve: {
         ...defaultConfig.resolve,
@@ -40,7 +51,7 @@ module.exports = {
         'extendify-deactivate': './src/Library/DeactivationPrompt.js',
     },
     output: {
-        filename: '[name].js',
+        filename: '[name]-[hash].js',
         path: resolve(process.cwd(), 'public/build'),
     },
 }

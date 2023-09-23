@@ -4,10 +4,10 @@ import { chevron, robot } from '@chat/svg'
 
 export const ChatButton = ({ showDialog, onClick }) => {
     return (
-        <div className="fixed bottom-6 right-6">
+        <div className="fixed bottom-6 right-6 rounded-full overflow-hidden">
             <button
                 type="button"
-                className="rounded-full outline-none border-none bg-design-main flex items-center p-3 cursor-pointer hover:bg-design-dark"
+                className="extendify-chat-button outline-none border-none bg-design-main flex items-center p-3 cursor-pointer"
                 aria-label={__('AI Chat', 'extendify')}
                 onClick={onClick}>
                 <Icon

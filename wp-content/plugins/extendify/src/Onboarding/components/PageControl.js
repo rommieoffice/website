@@ -1,23 +1,14 @@
 import { useEffect, useState } from '@wordpress/element'
 import { __ } from '@wordpress/i18n'
-import classNames from 'classnames'
+import { NavigationButton } from '@onboarding/components/NavigationButton'
 import { useGlobalStore } from '@onboarding/state/Global'
 import { usePagesStore } from '@onboarding/state/Pages'
 import { useUserSelectionStore } from '@onboarding/state/UserSelections'
-import { LeftArrowIcon, RightArrowIcon } from '@onboarding/svg'
+import { RightCaret, LeftCaret } from '@onboarding/svg'
 
 export const PageControl = () => {
-    const {
-        previousPage,
-        currentPageIndex,
-        pages,
-        setPage,
-        replaceHistory,
-        pushHistory,
-    } = usePagesStore()
-    const onFirstPage = currentPageIndex === 0
-    const pagesList = Array.from(pages.keys())
-    const currentPageKey = pagesList[currentPageIndex]
+    const { currentPageIndex, setPage, replaceHistory, pushHistory } =
+        usePagesStore()
 
     useEffect(() => {
         const replaceStateHistory = () => {
@@ -44,33 +35,89 @@ export const PageControl = () => {
     }, [setPage, replaceHistory, pushHistory, currentPageIndex])
 
     return (
-        <div className="flex items-center space-x-2">
-            <div
-                className={classNames('flex flex-1', {
-                    'justify-end': currentPageKey === 'welcome',
-                    'justify-between': currentPageKey !== 'welcome',
-                })}>
-                {onFirstPage || (
-                    <button
-                        className="flex items-center px-4 py-3 font-medium button-focus text-gray-900 bg-gray-100 hover:bg-gray-200 focus:bg-gray-200 bg-transparent"
-                        type="button"
-                        onClick={previousPage}
-                        data-test="back-button">
-                        <RightArrowIcon className="h-5 w-5" />
-                        {__('Back', 'extendify')}
-                    </button>
-                )}
-                {onFirstPage && (
-                    <a
-                        className="flex items-center px-4 py-3 font-medium button-focus text-gray-900 bg-gray-100 hover:bg-gray-200 focus:bg-gray-200 bg-transparent"
-                        href={`${window.extOnbData.adminUrl}admin.php?page=extendify-assist`}>
-                        <RightArrowIcon className="h-5 w-5" />
-                        {__('Exit Launch', 'extendify')}
-                    </a>
-                )}
+        <div className="flex justify-between">
+            <span className="flex-1 self-start">
+                <PrevButton />
+            </span>
+            <span className="flex-grow flex items-center justify-center">
+                <Steps />
+            </span>
+            <span className="flex-1 flex justify-end">
                 <NextButton />
-            </div>
+            </span>
         </div>
+    )
+}
+
+const Steps = () => {
+    const { currentPageIndex, pages } = usePagesStore()
+    const totalPages = usePagesStore((state) => state.count())
+    const pagesList = Array.from(pages.entries())
+
+    return (
+        <div
+            className="hidden md:flex"
+            role="progressbar"
+            aria-valuenow={currentPageIndex}
+            aria-valuemin="0"
+            aria-valuetext={
+                pagesList[currentPageIndex][1].state.getState().title
+            }
+            aria-valuemax={totalPages - 1}>
+            {pagesList.map(([page], index) => {
+                const bgColor =
+                    index < currentPageIndex ? 'bg-design-main' : 'bg-gray-200'
+                return (
+                    <div key={page} className="flex items-center">
+                        {index !== currentPageIndex && (
+                            <div
+                                className={`${bgColor} w-2.5 h-2.5 rounded-full`}
+                            />
+                        )}
+                        {index === currentPageIndex && (
+                            <div className="bg-design-main w-4 h-4 rounded-full flex items-center justify-center">
+                                <div className="bg-white bg-opacity-80 w-1.5 h-1.5 rounded-full" />
+                            </div>
+                        )}
+                        {index < totalPages - 1 && (
+                            <div className={`${bgColor} w-16 h-0.5`} />
+                        )}
+                    </div>
+                )
+            })}
+        </div>
+    )
+}
+
+const PrevButton = () => {
+    const { previousPage, currentPageIndex } = usePagesStore()
+    const onFirstPage = currentPageIndex === 0
+
+    if (onFirstPage) {
+        return (
+            <NavigationButton
+                onClick={() =>
+                    (window.location.href = `${window.extOnbData.adminUrl}admin.php?page=extendify-assist`)
+                }
+                className="bg-white text-design-main border-gray-200 hover:bg-gray-50 focus:bg-gray-50">
+                <>
+                    <LeftCaret className="h-5 w-5 mt-px" />
+                    {__('Exit Launch', 'extendify')}
+                </>
+            </NavigationButton>
+        )
+    }
+
+    return (
+        <NavigationButton
+            onClick={previousPage}
+            data-test="back-button"
+            className="bg-white text-design-main border-gray-200 hover:bg-gray-50 focus:bg-gray-50">
+            <>
+                <LeftCaret className="h-5 w-5 mt-px" />
+                {__('Back', 'extendify')}
+            </>
+        </NavigationButton>
     )
 }
 
@@ -83,39 +130,29 @@ const NextButton = () => {
     const pageState = pages.get(currentPageKey).state
     const [canProgress, setCanProgress] = useState(false)
 
+    const nextPageOrComplete = () => {
+        if (canLaunch && onLastPage) {
+            useGlobalStore.setState({ generating: true })
+        } else {
+            nextPage()
+        }
+    }
+
     useEffect(() => {
         setCanProgress(pageState?.getState()?.ready)
         return pageState.subscribe(({ ready }) => setCanProgress(ready))
     }, [pageState, currentPageIndex])
 
-    if (canLaunch && onLastPage) {
-        return (
-            <button
-                className="flex items-center px-4 py-3 font-bold bg-partner-primary-bg text-partner-primary-text button-focus"
-                onClick={() => {
-                    useGlobalStore.setState({ generating: true })
-                }}
-                type="button"
-                data-test="next-button">
-                {__('Launch site', 'extendify')}
-            </button>
-        )
-    }
-
     return (
-        <button
-            className={classNames(
-                'flex items-center px-4 py-3 font-bold bg-partner-primary-bg text-partner-primary-text button-focus',
-                {
-                    'opacity-50 cursor-not-allowed': !canProgress,
-                },
-            )}
-            onClick={nextPage}
+        <NavigationButton
+            onClick={nextPageOrComplete}
             disabled={!canProgress}
-            type="button"
+            className="bg-design-main text-design-text border-design-main"
             data-test="next-button">
-            {__('Next', 'extendify')}
-            <LeftArrowIcon className="h-5 w-5" />
-        </button>
+            <>
+                {__('Next', 'extendify')}
+                <RightCaret className="h-5 w-5 mt-px" />
+            </>
+        </NavigationButton>
     )
 }

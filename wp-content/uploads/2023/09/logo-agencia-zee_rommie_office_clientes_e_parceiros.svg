@@ -1,0 +1,11 @@
+<svg width="190" height="100" viewBox="0 0 190 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="logo-agencia-zee" style="mix-blend-mode:luminosity">
+<rect id="Logo-ZEE-light 1" x="46" y="26" width="97" height="49" fill="url(#pattern0)"/>
+</g>
+<defs>
+<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_10_48" transform="matrix(0.00505155 0 0 0.01 -0.00515464 0)"/>
+</pattern>
+<image id="image0_10_48" data-name="Logo-ZEE-light.png" width="200" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAABkCAYAAADDhn8LAAAACXBIWXMAAAsSAAALEgHS3X78AAADp0lEQVR4nO3d3XXTQBCG4bGP73EH0AHuAHcAHZAOMBXgVECoANIBVEBcAaQD3IFTgTki4kRx4vGfdr6x9D5XycnFKmt/jnYzsxqs12sD8Lwh8wJsR0AABwEBHAQEcBAQwDFq/GhiZlc9n6zfZjZrfN/nOZk2vr4RXofStBmQsZm96d8cuJiTe72dA26xAAcBARwEBHAQEMBBQAAHAQEcBARwEBDAQUAABwEBHAQEcBAQwEFAAAcBARwEBHAQkMf62hiELQjIg4WZzbNcDHIgIPfuzOwiw4Ugl2bL7R8zu0xwdVVP+IvgMS/q319haWbfRGNnkuG990S2o0erN+rX4DGvnb8e1cEFPwuPv9g4ICGjiDfJIOMvnukWS3GCyO3GKSbAI1kCMq5vMxS3VqvgMXFGsgSk2j16HTzmx/ocLGCrDAF5Z2YfgsdccEge9qEOyCvBDs5dHUpgJ3VAvrPuQGbKgCjWHV/qUAJ7UQWk2vf/FDwmW7o4mCIgY8GnOKUkOIoiIIp1x5wtXRxjFDxrM8FR+j+Sb+mORaUmq2QfGqpyG7fFIbIWqyol+RU1WG1Zj3vsrlVELZbKITVgXX5WuFsDFnWLpVh3GFu6OFVUQKp/Br4MfrUu6RDEqSICUn2Kvw1+pW7pDkQbSgdEUcJOKQlaUzIgyhJ2VXcgOqZkQK4EpSTXlJKgTaUCUt3ivA9+pZaUkqBtJQKiKGG3OpRs6aJVJQKiKCWhOxBFtB0QxbqD7kAU02ZApoLWWbZ0UVRbAaGUBJ3UVkAU6w66A1FcGwGZC0rY6Q5EiFMDMhG0ztIdiDCnBES17qA7EGFOCYiihD17dyA65tiAzAQl7EturRDtmJ70iajXoqtbuufw+IMInXj8gaqEne5ASBwaEEUpCd2BkDkkIIoSdkpJILVvQFQl7HQHQmrfgChKSegOhNw+AVGsO+gORAq7AqIoYTe6A5GFFxBVKQndgUjDC4hi3UF3IFLZFhBFCTtbukjnuYAonv5kdAcio82AjEX/76A7ECltFisqStj73h2oeoDOLtG1bynnoPkAnepN+ll7PSk0q2u7/ACdXZrVtV1+gI5n8P8Wa0I4gKeGwnUHkN5QVEoCnIWhoIQdOBuK56QDBAToAgICOAgI4CAggIOAAA4CAjgICOAgIICDgAAOAgI4CAjgICCAg4AADgICOEZ1DzYeNE91XDE///R2DpqHNgDYwC0W4CAggIOAAA4CAjgICOAgIMA2ZvYXk7KPRuW4hxYAAAAASUVORK5CYII="/>
+</defs>
+</svg>

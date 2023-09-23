@@ -51,7 +51,7 @@ export const WelcomeNotice = () => {
 
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
                 <div className="flex-1">
-                    <h3 className="text-2xl mt-0 mb-3 text-white">
+                    <h3 className="text-2xl mt-0 mb-3 text-design-text">
                         {__('Your site is ready!', 'extendify')}
                     </h3>
                     <p className="text-sm my-0">

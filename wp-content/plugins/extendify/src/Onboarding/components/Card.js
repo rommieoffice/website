@@ -40,7 +40,7 @@ export const Card = ({
                     )}
                 </div>
                 {(lock || selected) && (
-                    <Checkmark className="text-partner-primary-bg w-6" />
+                    <Checkmark className="text-design-main w-6" />
                 )}
             </div>
             <div className="flex flex-col">

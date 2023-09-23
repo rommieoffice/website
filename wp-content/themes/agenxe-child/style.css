@@ -14,6 +14,60 @@
 - - - - - - - - - - - - - - - - - - - - */ 
 
 
+/*  [ LOADER ]
+- - - - - - - - - - - - - - - - - - - - */
+.preloader-inner span {
+	width: 10vmin;
+    height: 10vmin;
+	border-radius: 0vmin;
+	border-top: 10vmin solid transparent;
+    border-bottom: 10vmin solid transparent;
+    border-left: 10vmin solid #FF8E00;
+}
+
+.preloader-inner span:nth-child(1) {
+	background: transparent;
+    border-left: 10vmin solid #FF8E00;
+	margin: 60px;
+}
+
+.preloader-inner span:nth-child(2) {
+	border: 0px;
+	background: transparent;
+    border-left: 10vmin solid #FBB360;
+	margin: 50px;
+}
+
+.preloader-inner span:nth-child(3) {
+	background: transparent;
+    border-left: 10vmin solid #FF8E00;
+	margin: 40px;
+}
+
+.preloader-inner span:nth-child(4) {
+	border: 0px;
+	background: transparent;
+    border-left: 10vmin solid #FBB360;
+	margin: 30px;
+}
+
+.preloader-inner span:nth-child(5) {
+	background: transparent;
+    border-left: 10vmin solid #FF8E00;
+	margin: 20px;
+}
+
+.preloader-inner span:nth-child(6) {
+	border: 0px;
+	background: transparent;
+    border-left: 10vmin solid #FBB360;
+	margin: 20px;
+}
+
+
+
+
+
 /*  [ GERAL ]
 - - - - - - - - - - - - - - - - - - - - */ 
 body { font-family: 'Red Hat Display', sans-serif; }
@@ -23,6 +77,26 @@ body.dark-theme { background: #030717; }
 
 .sub-title { color:#66A8FF; }
 
+#chaty-widget-0 .chaty-cta-button .chaty-svg ellipse,
+#chaty-widget-0 .chaty-cta-button .chaty-svg circle {
+	fill: rgb(255,142,10);
+}
+
+#chaty-widget-0 .chaty-tooltip:after,
+#chaty-widget-0 .on-hover-text {
+    background-color: #04050a !important;
+    color: #468bf8 !important;
+    border: 1px solid #468bf8 !important;
+}
+
+#chaty-widget-0 .chaty-tooltip.pos-right:before,
+#chaty-widget-0 .chaty-tooltip.pos-right .on-hover-text:before,
+#chaty-widget-0 .chaty-tooltip.pos-left .on-hover-text:before {
+    border-right-color: #468bf8 !important;
+	border-left-color: #468bf8 !important;
+}
+
+.scroll-top svg { background: #04050a !important; }
 
 /*  [ MENU ]
 - - - - - - - - - - - - - - - - - - - - */ 
@@ -44,6 +118,191 @@ body.dark-theme { background: #030717; }
 #bnn-principal .th-hero-wrapper { background-position: bottom; }
 
 
-.service-counter-divider:after { left: -15px; }
+#bnn-principal .thumb {
+    position: absolute;
+    margin-top: -50px;
+    z-index: -1;
+    -webkit-animation: movingX 22s linear infinite;
+    animation: movingX 22s linear infinite;
+}
 
-.service-wrap_text { font-size: 1.2rem; }
+#bnn-principal .hero-client-wrap .hero-client_title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 30px;
+    max-width: 223px;
+    margin-bottom: 70px;
+    line-height: 2.15rem;
+}
+
+#bnn-principal .hero-client-wrap .hero-client_title b {
+	color:#FBB360;
+	font-size: 1.85rem;
+}
+
+
+/*  [ HOME - SERVICOS ]
+- - - - - - - - - - - - - - - - - - - - */
+.home .service-counter-divider:after { left: -10px; }
+
+.home .service-wrap_text { font-size: 1.2rem; }
+
+.home .service-wrap_number:after {
+    margin: -50px 0px 0px 65px;
+    position: absolute;
+    font-size: 2rem;
+    font-weight: 100;
+    display: block;
+    letter-spacing: 1px;
+}
+
+.home .service-counter-divider:nth-child(1n) .service-wrap_number:after {
+	content: 'Tecnologia';
+}
+
+.home .service-counter-divider:nth-child(2n) .service-wrap_number:after {
+	content: 'Estratégia';
+}
+
+.home .service-counter-divider:nth-child(3n) .service-wrap_number:after {
+	content: 'Design';
+}
+
+.home .service-counter-divider h3:before {
+    content: '✦';
+    font-size: 1.15rem;
+    font-weight: 300;
+    margin-right: 10px;
+    color: #ff8e05;
+}
+
+.home .service-counter-divider h3:after {
+	font-size: 1rem;
+    display: flex;
+    font-weight: 400;
+    padding: 10px 0px 10px 25px;
+	color: #ff8e05;
+}
+
+.home .service-counter-divider:nth-child(1n) h3:after {
+    content: 'Gestão de Sites e Soluções Web';
+}
+
+.home .service-counter-divider:nth-child(2n) h3:after {
+    content: 'Consultoria e Planejamento Estratégico';
+}
+
+.home .service-counter-divider:nth-child(3n) h3:after {
+    content: 'Soluções Visuais, Funcionais e Eficazes';
+}
+
+.home .service-wrap_thumb {
+	top: -29%;
+    right: -12%;
+}
+
+.home .itens-servicos > div > div > div:nth-child(2n) .service-wrap_thumb {
+	top: -35%;
+	-webkit-transform: translateX(5px) translateY(5%) rotate(8deg);
+    -ms-transform: translateX(5px) translateY(5%) rotate(8deg);
+    transform: translateX(5px) translateY(5%) rotate(8deg);
+}
+
+.home .itens-servicos > div > div > div:nth-child(3n) .service-wrap_thumb {
+	top: -38.5%;
+	right: 0;
+	-webkit-transform: translateX(5px) translateY(5%) rotate(5deg);
+    -ms-transform: translateX(5px) translateY(5%) rotate(5deg);
+    transform: translateX(5px) translateY(5%) rotate(5deg);
+}
+
+.home .service-wrap.style4 .service-wrap_thumb .service-wrap_img {
+	border-radius: 0px !important;
+}
+
+.home #clientes .slick-initialized .slick-slide {
+	height: 100px;
+    display: flex !important;
+	justify-content: center;
+    align-items: center;
+}
+
+.home .testi-card_media .rating {
+	color: #FF8E05;
+}
+
+.home .feature-item .box-title a:hover {
+	color: #FBB360;
+}
+
+.home .th-video:before {
+	background: none;
+}
+
+.home .play-btn.style8 i {
+    background: rgbA(12, 20, 40, 90%);
+    color: #FBB360;
+}
+
+.home .testi-thumb2 .testi-client-wrap h6 span {
+  color: #FBB360;
+	font-weight: 900;
+}
+
+.elementor-738 .elementor-element.elementor-element-0435834 .elementor-social-icon:hover {
+	background-color: #468BF8 !important;
+    border-color: #468BF8 !important;
+}
+
+.scroll-top {
+	bottom: 90px;
+}
+
+
+.th-menu-wrapper .mobile-logo {
+	padding: 30px 40px;
+	background-color: #0D205E;
+}
+
+.th-menu-wrapper .th-menu-area {
+	background-color: #030717;
+}
+
+@media (max-width: 991px) {
+	
+	.header-logo .logo img {
+    	height: auto !important;
+    	width: 200px !important;
+		padding: 0 12px;
+	}
+	
+	.th-menu-toggle {
+    	width: 38px;
+		height: 38px;
+	}
+	
+	#bnn-principal .thumb,
+	#bnn-principal .hero-thumb3 {
+    	display:none;
+	}
+	
+	.sub-title {
+		font-size: 0.75rem;
+		letter-spacing: 0.25px;
+	}
+	
+	.sub-title img {
+    	margin: 0px 0px 3px 0;
+	}
+	
+	.home .service-counter-divider {
+		margin-bottom: 60px;
+	}
+	
+	#rodape .colunas > div > div,
+	#rodape .copyright-text  {
+		width: 100% !important;
+		margin-bottom: 100px;
+	}
+	
+}

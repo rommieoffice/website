@@ -197,6 +197,9 @@ trait WpContext {
 			$postId = $learnPressLesson;
 		}
 
+		// Allow other plugins to filter the post ID e.g. for a special archive page.
+		$postId = apply_filters( 'aioseo_get_post_id', $postId );
+
 		// We need to check these conditions and cannot always return get_post() because we'll return the first post on archive pages (dynamic homepage, term pages, etc.).
 		if (
 			$this->isScreenBase( 'post' ) ||
@@ -710,7 +713,8 @@ trait WpContext {
 	 * @return bool Login or register page.
 	 */
 	public function isWpLoginPage() {
-		$self = ! empty( $_SERVER['PHP_SELF'] ) ? wp_unslash( $_SERVER['PHP_SELF'] ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		// We can't sanitize the filename using sanitize_file_name() here because it will cause issues with custom login pages and certain plugins/themes where this function is not defined.
+		$self = ! empty( $_SERVER['PHP_SELF'] ) ? wp_unslash( $_SERVER['PHP_SELF'] ) : ''; // phpcs:ignore HM.Security.ValidatedSanitizedInput.InputNotSanitized
 		if ( preg_match( '/wp-login\.php$|wp-register\.php$/', $self ) ) {
 			return true;
 		}

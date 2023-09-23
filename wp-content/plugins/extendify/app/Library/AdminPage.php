@@ -5,6 +5,7 @@
 
 namespace Extendify\Library;
 
+use Extendify\PartnerData;
 use Extendify\Config;
 
 /**
@@ -48,7 +49,7 @@ class AdminPage
                         'extendify-welcome',
                         EXTENDIFY_URL . 'public/admin-page/welcome.css',
                         [],
-                        Config::$environment === 'PRODUCTION' ? Config::$version : uniqid()
+                        Config::$version
                     );
                 }
             }
@@ -67,7 +68,7 @@ class AdminPage
         ?>
         <div class="extendify-outer-container">
             <div class="wrap welcome-container">
-                <?php if (Config::$sdkPartner !== 'standalone') : ?>
+                <?php if (PartnerData::$id !== 'no-partner') : ?>
                     <ul class="extendify-welcome-tabs">
                         <li><a href="<?php echo \esc_url(\admin_url('admin.php?page=extendify-assist')); ?>">Assist</a></li>
                         <li class="active"><a href="<?php echo \esc_url(\admin_url('admin.php?page=extendify-welcome')); ?>">Library</a></li>

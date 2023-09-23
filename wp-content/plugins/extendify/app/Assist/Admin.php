@@ -13,6 +13,7 @@ use Extendify\Assist\Controllers\SupportArticlesController;
 use Extendify\Assist\Controllers\TasksController;
 use Extendify\Assist\Controllers\TourController;
 use Extendify\Assist\Controllers\UserSelectionController;
+use Extendify\PartnerData;
 use Extendify\Config;
 
 /**
@@ -40,7 +41,7 @@ class Admin
 
         self::$instance = $this;
 
-        if (Config::$sdkPartner === 'standalone' && Config::$environment === 'PRODUCTION') {
+        if (PartnerData::$id === 'no-partner' && Config::$environment === 'PRODUCTION') {
             return;
         }
 
@@ -76,15 +77,6 @@ class Admin
                     return;
                 }
 
-                $partnerData = $this->checkPartnerDataSources();
-
-                $logo = isset($partnerData['logo']) ? $partnerData['logo'] : null;
-                $name = isset($partnerData['name']) ? $partnerData['name'] : \__('Partner logo', 'extendify');
-
-                $partnerSettings = $this->fetchPartnerSettings();
-
-                $disableRecommendations = isset($partnerSettings['disableRecommendations']) ? $partnerSettings['disableRecommendations'] : false;
-
                 $version = Config::$environment === 'PRODUCTION' ? Config::$version : uniqid();
 
                 $siteInstalled = \get_users([
@@ -94,7 +86,25 @@ class Admin
                     'fields' => ['user_registered'],
                 ])[0]->user_registered;
 
-                $this->enqueueGutenbergAssets();
+                $version = Config::$environment === 'PRODUCTION' ? Config::$version : uniqid();
+                $scriptAssetPath = EXTENDIFY_PATH . 'public/build/' . Config::$assetManifest['extendify-assist.php'];
+                $fallback = [
+                    'dependencies' => [],
+                    'version' => $version,
+                ];
+                $scriptAsset = file_exists($scriptAssetPath) ? require $scriptAssetPath : $fallback;
+                wp_enqueue_media();
+                foreach ($scriptAsset['dependencies'] as $style) {
+                    wp_enqueue_style($style);
+                }
+
+                \wp_enqueue_script(
+                    Config::$slug . '-assist-scripts',
+                    EXTENDIFY_BASE_URL . 'public/build/' . Config::$assetManifest['extendify-assist.js'],
+                    $scriptAsset['dependencies'],
+                    $scriptAsset['version'],
+                    true
+                );
 
                 $assistState = get_option('extendify_assist_globals');
                 $dismissed = isset($assistState['state']['dismissedNotices']) ? $assistState['state']['dismissedNotices'] : [];
@@ -102,7 +112,7 @@ class Admin
                     Config::$slug . '-assist-scripts',
                     'window.extAssistData = ' . wp_json_encode([
                         'devbuild' => \esc_attr(Config::$environment === 'DEVELOPMENT'),
-                        'insightsId' => \get_option('extendify_site_id', ''),
+                        'siteId' => \get_option('extendify_site_id', ''),
                         // Only send insights if they have opted in explicitly.
                         'insightsEnabled' => defined('EXTENDIFY_INSIGHTS_URL'),
                         'root' => \esc_url_raw(\rest_url(Config::$slug . '/' . Config::$apiVersion)),
@@ -113,9 +123,9 @@ class Admin
                         'asset_path' => \esc_url(EXTENDIFY_URL . 'public/assets'),
                         'launchCompleted' => Config::$launchCompleted,
                         'dismissedNotices' => $dismissed,
-                        'partnerLogo' => $logo,
-                        'partnerName' => $name,
-                        'disableRecommendations' => $disableRecommendations,
+                        'partnerLogo' => PartnerData::$logo,
+                        'partnerName' => PartnerData::$name,
+                        'disableRecommendations' => PartnerData::$disableRecommendations,
                         'blockTheme' => wp_is_block_theme(),
                         'themeSlug' => get_option('stylesheet'),
                         'wpLanguage' => \get_locale(),
@@ -137,120 +147,18 @@ class Admin
 
                 \wp_enqueue_style(
                     Config::$slug . '-assist-styles',
-                    EXTENDIFY_BASE_URL . 'public/build/extendify-assist.css',
+                    EXTENDIFY_BASE_URL . 'public/build/' . Config::$assetManifest['extendify-assist.css'],
                     [],
-                    $version,
+                    Config::$version,
                     'all'
                 );
 
-                if (isset($partnerData['bgColor']) && isset($partnerData['fgColor'])) {
-                    \wp_add_inline_style(Config::$slug . '-assist-styles', ":root {
-                        --ext-partner-theme-primary-bg: {$partnerData['bgColor']};
-                        --ext-partner-theme-primary-text: {$partnerData['fgColor']};
-                    }");
-                }
+                $cssColorVars = PartnerData::cssVariableMapping();
+                $cssString = implode('; ', array_map(function ($k, $v) {
+                    return "$k: $v";
+                }, array_keys($cssColorVars), $cssColorVars));
+                wp_add_inline_style(Config::$slug . '-assist-styles', "body { $cssString; }");
             }
         );
-    }
-
-    /**
-     * Enqueues Gutenberg stuff on a non-Gutenberg page.
-     *
-     * @return void
-     */
-    public function enqueueGutenbergAssets()
-    {
-        $version = Config::$environment === 'PRODUCTION' ? Config::$version : uniqid();
-        $scriptAssetPath = EXTENDIFY_PATH . 'public/build/extendify-assist.asset.php';
-        $fallback = [
-            'dependencies' => [],
-            'version' => $version,
-        ];
-        $scriptAsset = file_exists($scriptAssetPath) ? require $scriptAssetPath : $fallback;
-        wp_enqueue_media();
-        foreach ($scriptAsset['dependencies'] as $style) {
-            wp_enqueue_style($style);
-        }
-
-        \wp_enqueue_script(
-            Config::$slug . '-assist-scripts',
-            EXTENDIFY_BASE_URL . 'public/build/extendify-assist.js',
-            $scriptAsset['dependencies'],
-            $scriptAsset['version'],
-            true
-        );
-    }
-
-    /**
-     * Check if partner data is available.
-     *
-     * @return array
-     */
-    public function checkPartnerDataSources()
-    {
-        $return = [];
-
-        try {
-            if (defined('EXTENDIFY_ONBOARDING_BG')) {
-                $return['bgColor'] = constant('EXTENDIFY_ONBOARDING_BG');
-                $return['fgColor'] = constant('EXTENDIFY_ONBOARDING_TXT');
-                $return['logo'] = constant('EXTENDIFY_PARTNER_LOGO');
-            }
-
-            $data = get_option('extendify_partner_data');
-            if ($data) {
-                $return['bgColor'] = $data['backgroundColor'];
-                $return['fgColor'] = $data['foregroundColor'];
-                // Need this check to avoid errors if no partner logo is set in Airtable.
-                $return['logo'] = $data['logo'] ? $data['logo'][0]['thumbnails']['large']['url'] : null;
-                $return['name'] = isset($data['name']) ? $data['name'] : '';
-            }
-        } catch (\Exception $e) {
-            // Do nothing here, set variables below. Coding Standards require something to be in the catch.
-            $e;
-        }//end try
-
-        return $return;
-    }
-
-    /**
-     * Fetch partner settings from Airtable.
-     *
-     * @return array
-     */
-    public function fetchPartnerSettings()
-    {
-        // If the transient hasn't expired, and the data exists, return it.
-        $partnerSettings = get_transient('extendify_partner_settings');
-        if ($partnerSettings) {
-            return $partnerSettings;
-        }
-
-        // Fetch the data from the API daily.
-        $apiUrl = Config::$config['api']['onboarding'];
-        $response = wp_remote_get(
-            add_query_arg(
-                ['partner' => Config::$sdkPartner],
-                "$apiUrl/partner-data/"
-            ),
-            ['headers' => ['Accept' => 'application/json']]
-        );
-
-        if (is_wp_error($response)) {
-            // Set one hour transient to avoid constant retrying.
-            set_transient('extendify_partner_settings', [], HOUR_IN_SECONDS);
-            return get_option('extendify_partner_settings', []);
-        }
-
-        $result = json_decode(wp_remote_retrieve_body($response), true);
-        $data = isset($result['data']) ? $result['data'] : [];
-        if (isset($result['data'])) {
-            update_option('extendify_partner_settings', $data);
-        }
-
-        // Store the data into the transient and an option explicitly
-        // So if the network request fails we still have data to work with.
-        set_transient('extendify_partner_settings', $data, DAY_IN_SECONDS);
-        return get_option('extendify_partner_settings');
     }
 }

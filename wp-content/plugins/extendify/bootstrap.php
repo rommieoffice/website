@@ -3,6 +3,7 @@
  * Bootstrap the application
  */
 
+use Extendify\PartnerData;
 use Extendify\Config;
 use Extendify\Insights;
 use Extendify\Onboarding\Admin as OnboardingAdmin;
@@ -35,6 +36,7 @@ if (is_readable(EXTENDIFY_PATH . 'vendor/autoload.php')) {
     require EXTENDIFY_PATH . 'vendor/autoload.php';
 }
 
+new PartnerData();
 new Config();
 new Insights();
 new OnboardingAdmin();

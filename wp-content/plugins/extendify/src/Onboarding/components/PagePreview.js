@@ -1,147 +1,132 @@
-import { useMemo } from '@wordpress/element'
-import { __, sprintf } from '@wordpress/i18n'
+import { BlockPreview, transformStyles } from '@wordpress/block-editor'
+import { rawHandler } from '@wordpress/blocks'
+import { Spinner } from '@wordpress/components'
+import {
+    useRef,
+    useMemo,
+    useState,
+    useEffect,
+    useCallback,
+} from '@wordpress/element'
+import { forwardRef } from '@wordpress/element'
 import classNames from 'classnames'
-import { getTemplate } from '@onboarding/api/DataApi'
-import { StylePreview } from '@onboarding/components/StyledPreview'
-import { useFetch } from '@onboarding/hooks/useFetch'
-import { findTheCode } from '@onboarding/lib/util'
-import { useUserSelectionStore } from '@onboarding/state/UserSelections'
-import { Checkmark } from '@onboarding/svg'
+import { AnimatePresence, motion } from 'framer-motion'
+import { usePreviewIframe } from '@onboarding/hooks/usePreviewIframe'
+import { lowerImageQuality } from '@onboarding/lib/util'
+import themeJSON from '../_data/theme-processed.json'
 
-export const fetcher = (data) => getTemplate(data)
-export const PagePreview = ({
-    page,
-    blockHeight,
-    required = false,
-    displayOnly = false,
-    title = '',
-}) => {
-    const { siteType, style, toggle, has } = useUserSelectionStore()
-    const isHome = page?.slug === 'home'
-    const { data: pageData } = useFetch(
-        {
-            siteType: siteType.slug,
-            layoutType: page.slug,
-            baseLayout: isHome
-                ? siteType.slug.startsWith('blog')
-                    ? style?.blogBaseLayout
-                    : style?.homeBaseLayout
+export const PagePreview = forwardRef(({ style }, ref) => {
+    const previewContainer = useRef(null)
+    const blockRef = useRef(null)
+    const [ready, setReady] = useState(false)
+    const transformedStyles = useMemo(
+        () =>
+            themeJSON?.[style?.variation?.title]
+                ? transformStyles(
+                      [{ css: themeJSON[style?.variation?.title] }],
+                      'html body.editor-styles-wrapper',
+                  )
                 : null,
-            kit: page.slug !== 'home' ? style?.kit : null,
-        },
-        fetcher,
+        [style?.variation],
     )
-    if (displayOnly) {
-        return (
-            <div
-                className="text-base p-2 bg-transparent overflow-hidden rounded-lg border border-gray-100"
-                style={{ height: blockHeight }}>
-                {title && (
-                    <div className="p-3 pb-0 bg-white text-left">{title}</div>
-                )}
-                <StylePreviewWrapper
-                    key={style?.recordId}
-                    page={page}
-                    measure={false}
-                    blockHeight={blockHeight}
-                    style={{
-                        ...style,
-                        code: findTheCode({ template: pageData }),
-                    }}
-                />
-            </div>
-        )
-    }
 
-    return (
-        <div
-            data-test="page-preview"
-            role="button"
-            tabIndex={0}
-            aria-label={__('Press to select', 'extendify')}
-            disabled={required}
-            className="text-base p-0 bg-transparent overflow-hidden rounded-lg border border-gray-100 button-focus"
-            onClick={() => required || toggle('pages', page)}
-            title={
-                required && title
-                    ? sprintf(
-                          // translators: %s is the name of a page (e.g. Home, Blog, About)
-                          __('%s page is required', 'extendify'),
-                          title,
-                      )
-                    : sprintf(
-                          // translators: %s is the name of a page (e.g. Home, Blog, About)
-                          __('Toggle %s page', 'extendify'),
-                          title,
-                      )
+    const onLoad = useCallback(
+        (frame) => {
+            // Remove load-styles in case WP laods them
+            frame.contentDocument.querySelector('[href*=load-styles]')?.remove()
+
+            // Add variation styles
+            const style = `<style id="ext-tj">
+                html body.editor-styles-wrapper { background-color: var(--wp--preset--color--background) }
+                ${transformedStyles}
+            </style>`
+            if (!frame.contentDocument?.getElementById('ext-tj')) {
+                frame.contentDocument?.body?.insertAdjacentHTML(
+                    'beforeend',
+                    style,
+                )
             }
-            onKeyDown={(e) => {
-                if (['Enter', 'Space', ' '].includes(e.key)) {
-                    if (!required) toggle('pages', page)
-                }
-            }}>
-            <div className="border-gray-100 border-b-0 min-w-sm z-30 relative bg-white pt-3 px-3 pb-1.5 flex justify-between items-center">
-                {title && (
-                    <div
-                        className={classNames('flex items-center', {
-                            'text-gray-700': !has('pages', page),
-                        })}>
-                        <span className="text-left">{title}</span>
-                        {required && (
-                            <span className="w-4 h-4 text-base leading-none pl-2 mr-6 dashicons dashicons-lock"></span>
-                        )}
-                    </div>
-                )}
-                {has('pages', page) ? (
-                    <div
-                        className={classNames('w-5 h-5 rounded-sm', {
-                            'bg-gray-700': required,
-                            'bg-partner-primary-bg': !required,
-                        })}>
-                        <Checkmark className="text-white w-5" />
-                    </div>
-                ) : (
-                    <div
-                        className={classNames('border w-5 h-5 rounded-sm', {
-                            'border-gray-700': required,
-                            'border-partner-primary-bg': !required,
-                        })}></div>
-                )}
-            </div>
-            <div className="p-2 relative" style={{ height: blockHeight - 44 }}>
-                <StylePreviewWrapper
-                    key={style?.recordId}
-                    page={page}
-                    blockHeight={blockHeight}
-                    style={{
-                        ...style,
-                        code: findTheCode({ template: pageData }),
-                    }}
-                />
-            </div>
-        </div>
+        },
+        [transformedStyles],
     )
-}
 
-const StylePreviewWrapper = ({
-    page,
-    style,
-    measure = true,
-    blockHeight = false,
-}) => {
-    const context = useMemo(
-        () => ({
-            type: 'page',
-            detail: page.slug,
-            measure,
-        }),
-        [page, measure],
-    )
+    const { ready: show } = usePreviewIframe({
+        container: ref.current,
+        ready,
+        onLoad,
+        loadDelay: 400,
+    })
+
+    const blocks = useMemo(() => {
+        const code = [style?.headerCode, style?.code, style?.footerCode]
+            .filter(Boolean)
+            .join('')
+            .replace(
+                // <!-- wp:navigation --> <!-- /wp:navigation -->
+                /<!-- wp:navigation[.\S\s]*?\/wp:navigation -->/g,
+                '<!-- wp:paragraph {"className":"tmp-nav"} --><p class="tmp-nav">Link | Link | Link</p ><!-- /wp:paragraph -->',
+            )
+            .replace(
+                // <!-- wp:navigation /-->
+                /<!-- wp:navigation.*\/-->/g,
+                '<!-- wp:paragraph {"className":"tmp-nav"} --><p class="tmp-nav">Link | Link | Link</p ><!-- /wp:paragraph -->',
+            )
+            .replace(
+                /<!-- wp:site-logo.*\/-->/g,
+                '<!-- wp:paragraph {"className":"custom-logo"} --><img class="custom-logo" style="height: 40px;" src="https://assets.extendify.com/demo-content/logos/extendify-demo-logo.png"><!-- /wp:paragraph -->',
+            )
+        return rawHandler({ HTML: lowerImageQuality(code) })
+    }, [style])
+
+    useEffect(() => {
+        setReady(false)
+        const timer = setTimeout(() => setReady(true), 0)
+        return () => clearTimeout(timer)
+    }, [blocks])
+
     return (
-        <StylePreview
-            style={style}
-            context={context}
-            blockHeight={blockHeight}
-        />
+        <>
+            <AnimatePresence>
+                {show || (
+                    <motion.div
+                        initial={{ opacity: 0.7 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="absolute inset-0 z-30 pointer-events-none"
+                        style={{
+                            backgroundColor: 'rgba(204, 204, 204, 0.25)',
+                            backgroundImage:
+                                'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%)',
+                            backgroundSize: '600% 600%',
+                            animation:
+                                'extendify-loading-skeleton 10s ease-in-out infinite',
+                        }}>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <Spinner className="w-10 h-10 text-design-main" />
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+            <div
+                data-test="layout-preview"
+                ref={blockRef}
+                className={classNames('group w-full bg-transparent z-10', {
+                    'opacity-0': !show,
+                })}>
+                <div ref={previewContainer} className="relative rounded-lg">
+                    <BlockPreview
+                        blocks={blocks}
+                        viewportWidth={1400}
+                        additionalStyles={[
+                            // TODO { css: themeJSON[style?.variation?.title] },
+                            {
+                                css: '.rich-text [data-rich-text-placeholder]:after { content: "" }',
+                            },
+                        ]}
+                    />
+                </div>
+            </div>
+        </>
     )
-}
+})

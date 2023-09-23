@@ -25,6 +25,13 @@ class Config
     public static $slug = '';
 
     /**
+     * The JS/CSS asset manifest (with hashes)
+     *
+     * @var array
+     */
+    public static $assetManifest = [];
+
+    /**
      * Plugin version
      *
      * @var string
@@ -39,13 +46,6 @@ class Config
     public static $apiVersion = 'v1';
 
     /**
-     * Whether this is the standalone plugin
-     *
-     * @var boolean
-     */
-    public static $standalone;
-
-    /**
      * Whether to load Launch
      *
      * @var boolean
@@ -58,13 +58,6 @@ class Config
      * @var string
      */
     public static $environment = '';
-
-    /**
-     * The partner plugin/theme
-     *
-     * @var string
-     */
-    public static $sdkPartner = 'standalone';
 
     /**
      * Host plugin
@@ -94,32 +87,17 @@ class Config
      */
     public function __construct()
     {
-        if (isset($GLOBALS['extendify_sdk_partner']) && $GLOBALS['extendify_sdk_partner']) {
-            self::$sdkPartner = $GLOBALS['extendify_sdk_partner'];
-        }
-
-        // Set up whether this is the standalone plugin instead of integrated.
-        self::$standalone = self::$sdkPartner === 'standalone';
-
-        // TODO: Previous way to set the partner name - can remove in future.
-        if (defined('EXTENDIFY_PARTNER_NAME')) {
-            self::$sdkPartner = constant('EXTENDIFY_PARTNER_NAME');
-        }
-
-        // Always use the partner ID if set as a constant.
-        if (defined('EXTENDIFY_PARTNER_ID')) {
-            self::$sdkPartner = constant('EXTENDIFY_PARTNER_ID');
-        }
-
         // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
         $readme = file_get_contents(EXTENDIFY_PATH . 'readme.txt');
+
+        preg_match('/Stable tag: ([0-9.:]+)/', $readme, $matches);
+        self::$version = $matches[1];
+
+        self::$assetManifest = wp_json_file_decode(EXTENDIFY_PATH . 'public/build/manifest.json', ['associative' => true]);
 
         preg_match('/=== (.+) ===/', $readme, $matches);
         self::$name = $matches[1];
         self::$slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', self::$name), '-'));
-
-        preg_match('/Stable tag: ([0-9.:]+)/', $readme, $matches);
-        self::$version = $matches[1];
 
         if (!get_option('extendify_first_installed_version')) {
             update_option('extendify_first_installed_version', self::$version);
@@ -129,7 +107,7 @@ class Config
         $isDev = is_readable(EXTENDIFY_PATH . '.devbuild');
 
         self::$environment = $isDev ? 'DEVELOPMENT' : 'PRODUCTION';
-        self::$launchCompleted = (bool) get_option('extendify_onboarding_completed') || $isDev;
+        self::$launchCompleted = (bool) get_option('extendify_onboarding_completed', false) || $isDev;
         self::$showOnboarding = $this->showOnboarding();
 
         // Add the config.

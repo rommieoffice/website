@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { devtools, persist, createJSONStorage } from 'zustand/middleware'
 import { getUserSelectionData, saveUserSelectionData } from '@assist/api/Data'
 
-const key = 'extendify-site-selection'
+const key = `extendify-site-selection-${window.extAssistData.siteId}`
 const startingState = {
     siteType: {},
     siteInformation: {

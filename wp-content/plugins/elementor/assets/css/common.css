@@ -1,4 +1,4 @@
-/*! elementor - v3.15.0 - 20-08-2023 */
+/*! elementor - v3.16.0 - 20-09-2023 */
 .dialog-widget-content {
   background-color: var(--e-a-bg-default);
   position: absolute;
@@ -63,16 +63,11 @@
 .dialog-type-alert .dialog-header:after {
   content: "";
   display: block;
-  -webkit-border-after: var(--e-a-border);
-          border-block-end: var(--e-a-border);
-  -webkit-padding-after: 10px;
-          padding-block-end: 10px;
-  -webkit-margin-after: 10px;
-          margin-block-end: 10px;
-  -webkit-margin-start: -20px;
-          margin-inline-start: -20px;
-  -webkit-margin-end: -20px;
-          margin-inline-end: -20px;
+  border-block-end: var(--e-a-border);
+  padding-block-end: 10px;
+  margin-block-end: 10px;
+  margin-inline-start: -20px;
+  margin-inline-end: -20px;
 }
 .dialog-type-confirm .dialog-message,
 .dialog-type-alert .dialog-message {
@@ -80,8 +75,7 @@
 }
 .dialog-type-confirm .dialog-buttons-wrapper,
 .dialog-type-alert .dialog-buttons-wrapper {
-  -webkit-padding-before: 10px;
-          padding-block-start: 10px;
+  padding-block-start: 10px;
   display: flex;
   justify-content: flex-end;
   gap: 15px;
@@ -243,8 +237,7 @@
 }
 .dialog-type-confirm .dialog-buttons-wrapper .dialog-button i,
 .dialog-type-alert .dialog-buttons-wrapper .dialog-button i {
-  -webkit-margin-end: 5px;
-          margin-inline-end: 5px;
+  margin-inline-end: 5px;
 }
 .dialog-type-confirm .dialog-buttons-wrapper .dialog-button:hover, .dialog-type-confirm .dialog-buttons-wrapper .dialog-button:focus, .dialog-type-confirm .dialog-buttons-wrapper .dialog-button:visited,
 .dialog-type-alert .dialog-buttons-wrapper .dialog-button:hover,
@@ -315,8 +308,7 @@
   cursor: pointer;
 }
 #elementor-change-exit-preference-dialog .dialog-message > div {
-  -webkit-margin-after: 10px;
-          margin-block-end: 10px;
+  margin-block-end: 10px;
 }
 
 #e-experiments-messages-dialog .dialog-confirm-header {
@@ -328,8 +320,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  -webkit-margin-before: 20px;
-          margin-block-start: 20px;
+  margin-block-start: 20px;
 }
 
 @media (min-width: 1024px) {
@@ -359,14 +350,12 @@
   }
 }
 .elementor-templates-modal .dialog-header {
-  -webkit-border-after: var(--e-a-border);
-          border-block-end: var(--e-a-border);
+  border-block-end: var(--e-a-border);
   padding: 0;
   z-index: 1;
 }
 .elementor-templates-modal .dialog-buttons-wrapper {
-  -webkit-border-before: var(--e-a-border);
-          border-block-start: var(--e-a-border);
+  border-block-start: var(--e-a-border);
   padding: 10px;
   display: flex;
   justify-content: flex-end;
@@ -399,22 +388,19 @@
 }
 .elementor-templates-modal__header__logo-area {
   text-align: start;
-  -webkit-padding-start: 15px;
-          padding-inline-start: 15px;
+  padding-inline-start: 15px;
 }
 .elementor-templates-modal__header__logo-area > * {
   display: flex;
   align-items: center;
 }
 .elementor-templates-modal__header__logo__icon-wrapper {
-  -webkit-margin-end: 10px;
-          margin-inline-end: 10px;
+  margin-inline-end: 10px;
   font-size: 12px;
 }
 .elementor-templates-modal__header__logo__title {
   color: var(--e-a-color-txt-active);
-  -webkit-padding-before: 2px;
-          padding-block-start: 2px;
+  padding-block-start: 2px;
 }
 .elementor-templates-modal__header__items-area {
   display: flex;
@@ -437,18 +423,15 @@
 }
 .elementor-templates-modal__header__close--normal {
   width: 47px;
-  -webkit-border-start: var(--e-a-border);
-          border-inline-start: var(--e-a-border);
+  border-inline-start: var(--e-a-border);
 }
 .elementor-templates-modal__header__close--normal i {
   font-size: 18px;
 }
 .elementor-templates-modal__header__close--skip {
   padding: 10px;
-  -webkit-padding-start: 20px;
-          padding-inline-start: 20px;
-  -webkit-margin-end: 10px;
-          margin-inline-end: 10px;
+  padding-inline-start: 20px;
+  margin-inline-end: 10px;
   font-size: 11px;
   font-weight: normal;
   line-height: 1;
@@ -457,12 +440,9 @@
 }
 .elementor-templates-modal__header__close--skip > i {
   font-size: inherit;
-  -webkit-padding-start: 10px;
-          padding-inline-start: 10px;
-  -webkit-margin-start: 15px;
-          margin-inline-start: 15px;
-  -webkit-border-start: 1px solid;
-          border-inline-start: 1px solid;
+  padding-inline-start: 10px;
+  margin-inline-start: 15px;
+  border-inline-start: 1px solid;
 }
 .elementor-templates-modal__header__close--skip > i:not(:hover) {
   color: var(--e-a-color-white);
@@ -470,8 +450,7 @@
 .elementor-templates-modal__sidebar {
   flex-shrink: 0;
   width: 25%;
-  -webkit-border-end: var(--e-a-border);
-          border-inline-end: var(--e-a-border);
+  border-inline-end: var(--e-a-border);
 }
 .elementor-templates-modal__content {
   flex-grow: 1;
@@ -520,10 +499,8 @@
 
 /* Will select next element after last '.elementor-general-section' */
 #wpadminbar #wp-admin-bar-elementor_edit_page .elementor-general-section + .elementor-second-section {
-  -webkit-border-before: 1px solid #464b50;
-          border-block-start: 1px solid #464b50;
-  -webkit-margin-before: 6px;
-          margin-block-start: 6px;
+  border-block-start: 1px solid #464b50;
+  margin-block-start: 6px;
 }
 
 .e-logo-wrapper {
@@ -563,8 +540,7 @@
 }
 #elementor-finder__search i {
   font-size: 16px;
-  -webkit-margin-end: 15px;
-          margin-inline-end: 15px;
+  margin-inline-end: 15px;
 }
 #elementor-finder__search__input {
   border: none;
@@ -646,8 +622,7 @@
   font-size: 13px;
 }
 .elementor-finder__results__item__description {
-  -webkit-margin-start: 5px;
-          margin-inline-start: 5px;
+  margin-inline-start: 5px;
   font-style: italic;
 }
 .elementor-finder__results__item__badge {

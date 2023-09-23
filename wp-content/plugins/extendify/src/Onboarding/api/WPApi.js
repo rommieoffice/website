@@ -1,9 +1,6 @@
 import { __, sprintf } from '@wordpress/i18n'
 import { Axios as api } from './axios'
 
-export const parseThemeJson = (themeJson) =>
-    api.post('onboarding/parse-theme-json', { themeJson })
-
 export const updateOption = (option, value) =>
     api.post('onboarding/options', { option, value })
 
@@ -90,7 +87,8 @@ export const getThemeVariations = async () => {
     if (!Array.isArray(variations)) {
         throw new Error('Could not get theme variations')
     }
-    return { data: variations }
+    // Randomize
+    return [...variations].sort(() => Math.random() - 0.5)
 }
 
 export const updateThemeVariation = (id, variation) =>
@@ -109,6 +107,7 @@ export const addLaunchPagesToNav = (
     if (!replace)
         replace =
             /(<!--\s*wp:navigation\b[^>]*>)([^]*?)(<!--\s*\/wp:navigation\s*-->)/gi
+
     const pageListItems = pages
         .filter((page) => Boolean(pageIds[page.slug]?.id))
         .filter(({ slug }) => slug !== 'home')

@@ -35,6 +35,8 @@ use Extendify\Assist\Controllers\RecommendationsBannerController;
 
 use Extendify\Chat\Controllers\ChatController;
 
+use Extendify\Draft\Controllers\DraftController;
+
 \add_action(
     'rest_api_init',
     function () {
@@ -66,16 +68,10 @@ use Extendify\Chat\Controllers\ChatController;
         // Onboarding.
         ApiRouter::post('/onboarding/options', [WPController::class, 'updateOption']);
         ApiRouter::get('/onboarding/options', [WPController::class, 'getOption']);
-        ApiRouter::post('/onboarding/parse-theme-json', [WPController::class, 'parseThemeJson']);
         ApiRouter::get('/onboarding/active-plugins', [WPController::class, 'getActivePlugins']);
 
-        ApiRouter::get('/onboarding/site-types', [DataController::class, 'getSiteTypes']);
-        ApiRouter::get('/onboarding/styles-list', [DataController::class, 'getStylesList']);
-        ApiRouter::get('/onboarding/styles', [DataController::class, 'getStyles']);
-        ApiRouter::get('/onboarding/layout-types', [DataController::class, 'getLayoutTypes']);
         ApiRouter::get('/onboarding/goals', [DataController::class, 'getGoals']);
         ApiRouter::get('/onboarding/suggested-plugins', [DataController::class, 'getSuggestedPlugins']);
-        ApiRouter::get('/onboarding/template', [DataController::class, 'getTemplate']);
         ApiRouter::get('/onboarding/ping', [DataController::class, 'ping']);
         ApiRouter::get('/onboarding/user-selection-data', [UserSelectionController::class, 'get']);
         ApiRouter::post('/onboarding/user-selection-data', [UserSelectionController::class, 'store']);
@@ -116,5 +112,9 @@ use Extendify\Chat\Controllers\ChatController;
         ApiRouter::get('/chat/options/', [ChatController::class, 'getOptions']);
         ApiRouter::post('/chat/options/', [ChatController::class, 'updateOptions']);
         ApiRouter::post('/chat/rate-answer', [ChatController::class, 'rateAnswer']);
+        ApiRouter::post('/chat/update-user-meta/', [ChatController::class, 'updateUserMeta']);
+
+        // Draft.
+        ApiRouter::post('/draft/update-user-meta/', [DraftController::class, 'updateUserMeta']);
     }
 );

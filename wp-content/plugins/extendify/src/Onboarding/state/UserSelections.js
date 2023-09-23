@@ -5,17 +5,19 @@ import {
     saveUserSelectionData,
 } from '@onboarding/api/DataApi'
 
-const key = 'extendify-site-selection'
+const key = `extendify-site-selection-${window.extOnbData.siteId}`
 const initialState = {
     siteType: {},
     siteInformation: {
         title: undefined,
     },
     siteTypeSearch: [],
+    // for somewhat legacy reasons, this includes the home page, header,
+    // and footer code + the style (variation)
     style: null,
-    pages: [],
-    plugins: [],
-    goals: [],
+    pages: undefined,
+    plugins: undefined,
+    goals: undefined,
     ...(JSON.parse(localStorage.getItem(key) || '{}')?.state ?? {}),
 }
 
@@ -24,20 +26,40 @@ const state = (set, get) => ({
     setSiteType(siteType) {
         set({ siteType })
     },
+    setSiteTypeSearch(search) {
+        set((state) => ({
+            // only keep last 10 searches
+            siteTypeSearch: [...state.siteTypeSearch, search].slice(-10),
+        }))
+    },
     setSiteInformation(name, value) {
         const siteInformation = { ...get().siteInformation, [name]: value }
         set({ siteInformation })
     },
     has(type, item) {
         if (!item?.id) return false
-        return get()[type].some((t) => t.id === item.id)
+        return (get()?.[type] ?? [])?.some((t) => t.id === item.id)
     },
     add(type, item) {
         if (get().has(type, item)) return
-        set({ [type]: [...get()[type], item] })
+        set({ [type]: [...(get()?.[type] ?? []), item] })
+    },
+    addMany(type, items, options = {}) {
+        if (options.clearExisting) {
+            set({ [type]: items })
+            return
+        }
+        set({ [type]: [...(get()?.[type] ?? []), ...items] })
     },
     remove(type, item) {
-        set({ [type]: get()[type]?.filter((t) => t.id !== item.id) })
+        set({ [type]: get()?.[type]?.filter((t) => t.id !== item.id) })
+    },
+    removeMany(type, items) {
+        set({
+            [type]: get()?.[type]?.filter(
+                (t) => !items.some((i) => i.id === t.id),
+            ),
+        })
     },
     reset(type) {
         set({ [type]: [] })
@@ -56,8 +78,7 @@ const state = (set, get) => ({
         // The user can launch if they have a complete selection
         return (
             Object.keys(get()?.siteType ?? {})?.length > 0 &&
-            Object.keys(get()?.style ?? {})?.length > 0 &&
-            get()?.pages?.length > 0
+            Object.keys(get()?.style ?? {})?.length > 0
         )
     },
     resetState() {
@@ -68,9 +89,9 @@ const state = (set, get) => ({
 const storage = {
     getItem: async () => JSON.stringify(await getUserSelectionData()),
     setItem: async (k, value) => {
+        localStorage.setItem(k, value)
         // Stash here so we can use it on reload optimistically
         await saveUserSelectionData(value)
-        localStorage.setItem(k, value)
     },
     removeItem: () => undefined,
 }

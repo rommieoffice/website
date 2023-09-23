@@ -1,25 +1,25 @@
-import { useEffect, useRef } from '@wordpress/element'
+import { useEffect, useRef, useState } from '@wordpress/element'
 import { __ } from '@wordpress/i18n'
 import { getOption, updateOption } from '@onboarding/api/WPApi'
+import { LoadingIndicator } from '@onboarding/components/LoadingIndicator'
+import { Title } from '@onboarding/components/Title'
 import { useFetch } from '@onboarding/hooks/useFetch'
 import { PageLayout } from '@onboarding/layouts/PageLayout'
 import { usePagesStore } from '@onboarding/state/Pages'
 import { useUserSelectionStore } from '@onboarding/state/UserSelections'
 import { pageState } from '@onboarding/state/factory'
 
-export const fetcher = async () => ({
-    data: { title: await getOption('blogname') },
-})
+export const fetcher = async () => ({ title: await getOption('blogname') })
 export const fetchData = () => ({ key: 'site-info' })
 export const state = pageState('Site Title', () => ({
     title: __('Site Title', 'extendify'),
     default: undefined,
     showInSidebar: true,
     ready: false,
-    isDefault: () => undefined,
 }))
+
 export const SiteInformation = () => {
-    const { data: siteInfoFromDb, loading } = useFetch(fetchData, fetcher)
+    const { loading } = useFetch(fetchData, fetcher)
 
     useEffect(() => {
         state.setState({ ready: !loading })
@@ -27,60 +27,60 @@ export const SiteInformation = () => {
 
     return (
         <PageLayout>
-            <div>
-                <h1
-                    className="text-3xl text-partner-primary-text mb-4 mt-0"
-                    data-test="site-title-heading">
-                    {__("What's the name of your new site?", 'extendify')}
-                </h1>
-                <p className="text-base opacity-70 mb-0">
-                    {__('You can change this later.', 'extendify')}
-                </p>
-            </div>
-            <div className="w-full max-w-onboarding-sm mx-auto">
-                {loading ? null : <Info defaultInfo={siteInfoFromDb} />}
+            <div className="flex-grow px-6 py-8 md:py-16 md:px-32 overflow-y-scroll">
+                <Title
+                    title={__("What's the name of your new site?", 'extendify')}
+                    description={__('You can change this later.', 'extendify')}
+                />
+                <div className="w-full relative max-w-xl mx-auto">
+                    {loading ? <LoadingIndicator /> : <Info />}
+                </div>
             </div>
         </PageLayout>
     )
 }
 
-const Info = ({ defaultInfo }) => {
-    const initialFocus = useRef(null)
-    const nextPage = usePagesStore((state) => state.nextPage)
+const Info = () => {
     const { siteInformation, setSiteInformation } = useUserSelectionStore()
+    const nextPage = usePagesStore((state) => state.nextPage)
+    const { data: siteInfoFromDb } = useFetch(fetchData, fetcher)
+    const initialFocus = useRef(null)
+    const [title, setTitle] = useState(siteInformation?.title)
 
     useEffect(() => {
-        if (siteInformation.title === undefined) {
-            setSiteInformation('title', defaultInfo?.title ?? '')
-            return
-        }
+        if (siteInformation.title !== undefined) return
+        setTitle(siteInfoFromDb?.title ?? '')
+    }, [siteInfoFromDb.title, siteInformation.title])
+
+    useEffect(() => {
+        if (title === undefined) return
         state.setState({ ready: false })
         const id = setTimeout(() => {
-            updateOption('blogname', siteInformation.title)
+            updateOption('blogname', title)
+            setSiteInformation('title', title)
             state.setState({ ready: true })
-        }, 300)
+        }, 750)
         return () => clearTimeout(id)
-    }, [defaultInfo.title, setSiteInformation, siteInformation.title])
+    }, [setSiteInformation, title])
 
     useEffect(() => {
-        const raf = requestAnimationFrame(() => initialFocus.current.focus())
+        const raf = requestAnimationFrame(() => initialFocus.current?.focus())
         return () => cancelAnimationFrame(raf)
     }, [])
 
     if (siteInformation?.title === undefined) {
-        return __('Loading...', 'extendify')
+        return <LoadingIndicator />
     }
 
     return (
         <form
             onSubmit={(e) => {
                 e.preventDefault()
+                if (!state.getState().ready) return
                 nextPage()
             }}>
-            <label
-                htmlFor="extendify-site-title-input"
-                className="block text-lg m-0 mb-4 font-semibold text-gray-900">
-                {__("What's the name of your site?", 'extendify')}
+            <label htmlFor="extendify-site-title-input" className="sr-only">
+                {__("What's the name of your website?", 'extendify')}
             </label>
             <div className="mb-8">
                 <input
@@ -90,15 +90,10 @@ const Info = ({ defaultInfo }) => {
                     type="text"
                     name="site-title-input"
                     id="extendify-site-title-input"
-                    className="w-96 max-w-full border h-12 input-focus"
-                    value={siteInformation.title}
-                    onChange={(e) => {
-                        setSiteInformation('title', e.target.value)
-                    }}
-                    placeholder={__(
-                        'Enter your preferred site title...',
-                        'extendify',
-                    )}
+                    className="w-full rounded border border-gray-200 h-12 py-6 px-4 input-focus ring-offset-0"
+                    value={title ?? ''}
+                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder={__('Enter your website name', 'extendify')}
                 />
             </div>
         </form>

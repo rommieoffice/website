@@ -4,7 +4,7 @@ Tags: admin, admin interface, options, theme options, plugin options, options fr
 Requires at least: 5.0
 Requires PHP: 7.1
 Tested up to: 6.3
-Stable tag: 4.4.5
+Stable tag: 4.4.7
 License: GPL-3.0+
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -116,6 +116,20 @@ NOTE: Redux is not intended to be used on its own. It requires a config file pro
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
 == Changelog ==
+= 4.4.7 =
+* Removed: CDN vendor support for `ace_editor`. Devs won't update their code, leaving us no choice. Use the `redux/<opt_name>/fields/ace/script` filter to enqueue a local ACE Editor script if needed.
+* Fixed: Redux template PHP not autoloading.
+
+= 4.4.6 =
+* New: Global arg `fontawesome_frontend` to enqueue the internal Font Awesome CSS on the front end.
+* New: Taxonomy Metaboxes Extension [https://devs.redux.io/core-extensions/taxonomy.html](https://devs.redux.io/core-extensions/taxonomy.html)
+* Fixed: Font Awesome not enqueueing on the frontend for `social_profiles` field.
+* Fixed: HTML Output for User Profile Metaboxes.
+* Fixed: Admin panel CSS.
+* Fixed: Adjusted translation for Google Font update message.
+* Fixed: Continuing effort to combat old CDN code because some devs aren't updating their code.
+* Fixed: REDUX_PLUGIN_FILE failed with embedded installed.  WE NO LONGER SUPPORT EMBEDDED. IT'S FOR LEGACY INSTALLS ONLY.
+
 = 4.4.5 =
 * Fixed: Redux catches error when Google Fonts JSON cannot be read/written due to server misconfiguration.
 * Fixed: Output HTML in the admin panel now complies with W3C standards.

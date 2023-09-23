@@ -1,13 +1,11 @@
 import { registerCoreBlocks } from '@wordpress/block-library'
-import { useSelect } from '@wordpress/data'
-import { useDispatch } from '@wordpress/data'
+import { useSelect, useDispatch } from '@wordpress/data'
 import { useEffect, useState } from '@wordpress/element'
 import { SWRConfig, useSWRConfig } from 'swr'
 import { RetryNotice } from '@onboarding/components/RetryNotice'
 import { CreatingSite } from '@onboarding/pages/CreatingSite'
 import { useGlobalStore } from '@onboarding/state/Global'
 import { usePagesStore } from '@onboarding/state/Pages'
-import { useDesignColors } from '@assist/hooks/useDesignColors'
 import { updateOption } from './api/WPApi'
 import { useTelemetry } from './hooks/useTelemetry'
 import { NeedsTheme } from './pages/NeedsTheme'
@@ -31,7 +29,6 @@ export const Onboarding = () => {
     const [needsTheme, setNeedsTheme] = useState(false)
     const theme = useSelect((select) => select('core').getCurrentTheme())
     useTelemetry()
-    useDesignColors()
 
     const page = () => {
         if (needsTheme) return <NeedsTheme />

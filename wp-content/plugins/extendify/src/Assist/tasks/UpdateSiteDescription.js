@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from '@wordpress/element'
 import { __ } from '@wordpress/i18n'
 import classNames from 'classnames'
 import { getOption, updateOption } from '@assist/api/WPApi'
-import { useDesignColors } from '@assist/hooks/useDesignColors'
 import { useTasksStore } from '@assist/state/Tasks'
 
 export const UpdateSiteDescription = ({ popModal, setModalTitle }) => {
@@ -10,7 +9,6 @@ export const UpdateSiteDescription = ({ popModal, setModalTitle }) => {
     const [initialValue, setInitialValue] = useState(undefined)
     const inputRef = useRef()
     const { completeTask } = useTasksStore()
-    const { mainColor } = useDesignColors()
 
     useEffect(() => {
         setModalTitle(__('Add site description', 'extendify'))
@@ -58,13 +56,12 @@ export const UpdateSiteDescription = ({ popModal, setModalTitle }) => {
                 <button
                     disabled={siteDescription === initialValue}
                     className={classNames(
-                        'px-4 py-3 text-white button-focus border-0 rounded relative cursor-pointer w-1/5',
+                        'px-4 py-3 text-white bg-design-main button-focus border-0 rounded relative cursor-pointer w-1/5',
                         {
                             'opacity-50 cursor-default':
                                 siteDescription === initialValue,
                         },
                     )}
-                    style={{ backgroundColor: mainColor }}
                     onClick={async () => {
                         await updateOption('blogdescription', siteDescription)
                         completeTask('site-description')

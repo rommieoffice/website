@@ -5,6 +5,7 @@
 
 namespace Extendify\Draft;
 
+use Extendify\PartnerData;
 use Extendify\Config;
 
 /**
@@ -77,15 +78,21 @@ class Admin
                     return;
                 }
 
-                add_action( 'enqueue_block_editor_assets', [$this, 'enqueueGutenbergAssets'] );
+                add_action('enqueue_block_editor_assets', [$this, 'enqueueGutenbergAssets']);
 
                 $version = Config::$environment === 'PRODUCTION' ? Config::$version : uniqid();
 
+                $cssColorVars = PartnerData::cssVariableMapping();
+                $cssString = implode('; ', array_map(function ($k, $v) {
+                    return "$k: $v";
+                }, array_keys($cssColorVars), $cssColorVars));
+                wp_add_inline_style(Config::$slug . '-draft-styles', "body { $cssString; }");
+
                 \wp_enqueue_style(
                     Config::$slug . '-draft-styles',
-                    EXTENDIFY_BASE_URL . 'public/build/extendify-draft.css',
+                    EXTENDIFY_BASE_URL . 'public/build/' . Config::$assetManifest['extendify-draft.css'],
                     [],
-                    $version,
+                    Config::$version,
                     'all'
                 );
             }
@@ -128,6 +135,8 @@ class Admin
 
         $draftData = [
             'showDraft' => isset($data['showDraft']) ? $data['showDraft'] : false,
+            'showAIConsent' => isset($data['showAIConsent']) ? $data['showAIConsent'] : false,
+            'consentTermsUrl' => isset($data['consentTermsUrl']) ? $data['consentTermsUrl'] : '',
         ];
 
         if (Config::$environment === 'DEVELOPMENT') {
@@ -152,7 +161,7 @@ class Admin
         }
 
         $version = Config::$environment === 'PRODUCTION' ? Config::$version : uniqid();
-        $scriptAssetPath = EXTENDIFY_PATH . 'public/build/extendify-draft.asset.php';
+        $scriptAssetPath = EXTENDIFY_PATH . 'public/build/' . Config::$assetManifest['extendify-draft.php'];
         $fallback = [
             'dependencies' => [],
             'version' => $version,
@@ -166,10 +175,26 @@ class Admin
 
         \wp_enqueue_script(
             Config::$slug . '-draft-scripts',
-            EXTENDIFY_BASE_URL . 'public/build/extendify-draft.js',
+            EXTENDIFY_BASE_URL . 'public/build/' . Config::$assetManifest['extendify-draft.js'],
             $draftDependencies['dependencies'],
             $draftDependencies['version'],
             true
+        );
+
+        $userConsent = get_user_meta(get_current_user_id(), 'extendify_ai_consent', true);
+        $userGaveConsent = $userConsent ? $userConsent : false;
+
+        \wp_localize_script(
+            Config::$slug . '-draft-scripts',
+            'extDraftData',
+            array_merge([
+                'root' => \esc_url_raw(\rest_url(Config::$slug . '/' . Config::$apiVersion)),
+                'nonce' => \wp_create_nonce('wp_rest'),
+                'showAIConsent' => isset($data['showAIConsent']) ? $data['showAIConsent'] : false,
+                'consentTermsUrl' => isset($data['consentTermsUrl']) ? $data['consentTermsUrl'] : '',
+                'userId' => get_current_user_id(),
+                'userGaveConsent' => $userGaveConsent,
+            ], $this->fetchDraftData())
         );
 
         \wp_set_script_translations(Config::$slug . '-draft-scripts', 'extendify');

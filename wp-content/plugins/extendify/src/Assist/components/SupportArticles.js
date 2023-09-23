@@ -45,7 +45,7 @@ export const SupportArticles = () => {
                         onClick={reset}
                         title={__('Back to Knowledge Base home', 'extendify')}
                         type="button"
-                        className="text-partner-primary-text text-xl cursor-pointer font-normal focus:outline-none bg-transparent p-0 m-0">
+                        className="text-design-text text-xl cursor-pointer font-normal focus:outline-none bg-transparent p-0 m-0">
                         {__('Knowledge Base', 'extendify')}
                     </button>
                 </h2>
@@ -135,7 +135,7 @@ const ArticlesList = () => {
                                     'mt-0 mb-4 text-base font-semibold no-underline bg-transparent p-0',
                                     {
                                         'hover:underline': !activeCategory,
-                                        'hover:text-partner-primary-bg':
+                                        'hover:text-design-main':
                                             !activeCategory,
                                         'cursor-pointer': !activeCategory,
                                     },
@@ -157,7 +157,7 @@ const ArticlesList = () => {
                                         aria-label={extendifyTitle}
                                         key={slug}
                                         type="button"
-                                        className="flex items-center gap-2 no-underline hover:underline hover:text-partner-primary-bg bg-transparent mb-3 p-0 w-full cursor-pointer"
+                                        className="flex items-center gap-2 no-underline hover:underline hover:text-design-main bg-transparent mb-3 p-0 w-full cursor-pointer"
                                         onClick={() => {
                                             setActiveCategory(category)
                                             pushArticle({
@@ -179,7 +179,7 @@ const ArticlesList = () => {
                                     <button
                                         aria-label={__('Show all', 'extendify')}
                                         type="button"
-                                        className="text-left no-underline hover:underline hover:text-partner-primary-bg bg-transparent mb-3 mt-4 p-0 w-full cursor-pointer font-semibold text-design-main flex items-center"
+                                        className="text-left no-underline hover:underline hover:text-design-main bg-transparent mb-3 mt-4 p-0 w-full cursor-pointer font-semibold text-design-main flex items-center"
                                         onClick={() => {
                                             setActiveCategory({
                                                 title: category.title,

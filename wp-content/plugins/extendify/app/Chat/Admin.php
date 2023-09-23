@@ -5,6 +5,7 @@
 
 namespace Extendify\Chat;
 
+use Extendify\PartnerData;
 use Extendify\Config;
 
 /**
@@ -76,9 +77,15 @@ class Admin
     public function loadScripts()
     {
         \add_action(
-            'admin_init',
+            'admin_enqueue_scripts',
             function () {
                 if (!current_user_can(Config::$requiredCapability)) {
+                    return;
+                }
+
+                // Don't load on the update page (update-core is ok).
+                $currentScreen = get_current_screen();
+                if ($currentScreen && $currentScreen->id === 'update') {
                     return;
                 }
 
@@ -96,11 +103,17 @@ class Admin
 
                 $version = Config::$environment === 'PRODUCTION' ? Config::$version : uniqid();
 
+                $cssColorVars = PartnerData::cssVariableMapping();
+                $cssString = implode('; ', array_map(function ($k, $v) {
+                    return "$k: $v";
+                }, array_keys($cssColorVars), $cssColorVars));
+                wp_add_inline_style(Config::$slug . '-chat-styles', "body { $cssString; }");
+
                 \wp_enqueue_style(
                     Config::$slug . '-chat-styles',
-                    EXTENDIFY_BASE_URL . 'public/build/extendify-chat.css',
+                    EXTENDIFY_BASE_URL . 'public/build/' . Config::$assetManifest['extendify-chat.css'],
                     [],
-                    $version,
+                    Config::$version,
                     'all'
                 );
             }
@@ -144,6 +157,9 @@ class Admin
         $chatData = [
             'showChat' => isset($data['showChat']) ? $data['showChat'] : false,
             'supportUrl' => isset($data['supportUrl']) ? $data['supportUrl'] : '',
+            'showAIConsent' => isset($data['showAIConsent']) ? $data['showAIConsent'] : false,
+            'consentTermsUrl' => isset($data['consentTermsUrl']) ? $data['consentTermsUrl'] : '',
+            'data' => $data,
         ];
 
         if (Config::$environment === 'DEVELOPMENT') {
@@ -186,7 +202,7 @@ class Admin
         wp_enqueue_media();
 
         $version = Config::$environment === 'PRODUCTION' ? Config::$version : uniqid();
-        $scriptAssetPath = EXTENDIFY_PATH . 'public/build/extendify-chat.asset.php';
+        $scriptAssetPath = EXTENDIFY_PATH . 'public/build/' . Config::$assetManifest['extendify-chat.php'];
         $fallback = [
             'dependencies' => [],
             'version' => $version,
@@ -200,7 +216,7 @@ class Admin
 
         \wp_enqueue_script(
             Config::$slug . '-chat-scripts',
-            EXTENDIFY_BASE_URL . 'public/build/extendify-chat.js',
+            EXTENDIFY_BASE_URL . 'public/build/' . Config::$assetManifest['extendify-chat.js'],
             $chatDependencies['dependencies'],
             $chatDependencies['version'],
             true
@@ -210,12 +226,16 @@ class Admin
 
         $chatOptions = $this->getOptions();
 
+        $chatData = $this->fetchChatData();
+        $userConsent = get_user_meta(get_current_user_id(), 'extendify_ai_consent', true);
+        $userGaveConsent = $userConsent ? $userConsent : false;
+
         \wp_add_inline_script(
             Config::$slug . '-chat-scripts',
             'window.extChatData = ' . wp_json_encode([
                 'nonce' => \wp_create_nonce('wp_rest'),
                 'root' => \esc_url_raw(\rest_url(Config::$slug . '/' . Config::$apiVersion)),
-                'showChat' => isset( $chatOptions['showChat'] ) ? $chatOptions['showChat'] : false,
+                'showChat' => isset($chatOptions['showChat']) ? $chatOptions['showChat'] : false,
                 'api' => \esc_url_raw(Config::$config['api']['chat']),
                 'devbuild' => \esc_attr(Config::$environment === 'DEVELOPMENT'),
                 'partnerId' => \esc_attr(EXTENDIFY_PARTNER_ID),
@@ -223,7 +243,12 @@ class Admin
                 'wpVersion' => \get_bloginfo('version'),
                 'isBlockTheme' => function_exists('wp_is_block_theme') ? wp_is_block_theme() : false,
                 'supportUrl' => $this->supportUrl,
-                'experienceLevel' => isset( $chatOptions['experienceLevel'] ) ? $chatOptions['experienceLevel'] : 'beginner',
+                'experienceLevel' => isset($chatOptions['experienceLevel']) ? $chatOptions['experienceLevel'] : 'beginner',
+                'showAIConsent' => isset($chatData['showAIConsent']) ? $chatData['showAIConsent'] : false,
+                'consentTermsUrl' => isset($chatData['consentTermsUrl']) ? $chatData['consentTermsUrl'] : '',
+                'userId' => get_current_user_id(),
+                'userGaveConsent' => $userGaveConsent,
+                'data' => $chatData,
             ]),
             'before'
         );

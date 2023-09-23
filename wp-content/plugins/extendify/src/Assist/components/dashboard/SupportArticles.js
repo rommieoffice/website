@@ -50,7 +50,7 @@ export const SupportArticles = () => {
                             pushArticle({ slug, title: extendifyTitle })
                             navigateTo('knowledge-base')
                         }}
-                        className="flex items-center gap-2 no-underline hover:underline hover:text-partner-primary-bg bg-transparent p-0 w-full cursor-pointer">
+                        className="flex items-center gap-2 no-underline hover:underline hover:text-design-main bg-transparent p-0 w-full cursor-pointer">
                         <Icon
                             icon={arrowTurnRight}
                             className="text-gray-600 fill-current"

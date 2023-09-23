@@ -2,6 +2,7 @@ import { BaseControl, Panel, PanelBody } from '@wordpress/components'
 import { useSelect } from '@wordpress/data'
 import { useEffect, useState } from '@wordpress/element'
 import { __ } from '@wordpress/i18n'
+import { updateUserMeta } from '@draft/api/WPApi'
 import { Completion } from '@draft/components/Completion'
 import { DraftMenu } from '@draft/components/DraftMenu'
 import { EditMenu } from '@draft/components/EditMenu'
@@ -27,6 +28,17 @@ export const Draft = () => {
         [],
     )
     const { getBlock } = useSelect((select) => select('core/block-editor'), [])
+    const showAIConsent = window.extDraftData?.showAIConsent
+    const consentTermsUrl = window.extDraftData?.consentTermsUrl
+    const userId = window.extDraftData?.userId
+    const [userGaveConsent, setUserGaveConsent] = useState(
+        window.extDraftData?.userGaveConsent,
+    )
+
+    const userAcceptsTerms = () => {
+        updateUserMeta(userId, 'extendify_ai_consent', true)
+        setUserGaveConsent(true)
+    }
 
     // Reset input text when an error occurs
     useEffect(() => {
@@ -102,6 +114,36 @@ export const Draft = () => {
                                 setReady={setReady}
                             />
                         </BaseControl>
+                    )}
+                    {showAIConsent && !userGaveConsent && (
+                        <div className="bg-black bg-opacity-75 rounded w-full h-full p-6 absolute inset-0 items-center justify-center">
+                            <div className="bg-white p-4 rounded">
+                                <h2 className="text-lg mt-0 mb-2">
+                                    {__('Terms of Use', 'extendify')}
+                                </h2>
+                                <p className="m-0">
+                                    {
+                                        // translators: at the end of the sentence, there is a link to the terms of use
+                                        __(
+                                            'In order to use the AI-powered content drafting tool, you must agree to the terms of use. For more information, click on this link:',
+                                            'extendify',
+                                        )
+                                    }{' '}
+                                    <a
+                                        href={consentTermsUrl}
+                                        target="_blank"
+                                        rel="noreferrer">
+                                        {__('Terms of Use', 'extendify')}
+                                    </a>
+                                </p>
+                                <button
+                                    className="mt-4 bg-wp-theme-500 text-white rounded px-4 py-2 border-0 text-center w-full cursor-pointer"
+                                    type="button"
+                                    onClick={() => userAcceptsTerms()}>
+                                    {__('Accept', 'extendify')}
+                                </button>
+                            </div>
+                        </div>
                     )}
                 </PanelBody>
             </Panel>

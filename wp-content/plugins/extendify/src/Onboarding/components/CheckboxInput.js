@@ -1,21 +1,32 @@
+import classNames from 'classnames'
+
 export const CheckboxInput = ({
     label,
     slug,
     description,
     checked,
     onChange,
+    locked = false,
 }) => {
     return (
         <label
-            className="flex items-baseline hover:text-partner-primary-bg focus-within:text-partner-primary-bg"
+            className={classNames('flex items-center py-3.5 px-4', {
+                'cursor-not-allowed': locked,
+                'hover:text-design-main focus-within:text-design-mains':
+                    !locked,
+            })}
             htmlFor={slug}>
             <span className="w-5 h-5 relative inline-block mr-3 align-middle">
                 <input
                     id={slug}
                     className="h-5 w-5 rounded-sm m-0"
+                    style={{
+                        '--ext-design-main': locked ? '#BBBBBB' : undefined,
+                    }}
+                    disabled={locked}
                     type="checkbox"
-                    onChange={onChange}
-                    defaultChecked={checked}
+                    onChange={locked ? undefined : onChange}
+                    checked={locked ? true : checked}
                 />
                 <svg
                     className="absolute block h-5 inset-0 w-5 text-white"
@@ -29,12 +40,14 @@ export const CheckboxInput = ({
                     />
                 </svg>
             </span>
-            <span>
-                <span className="text-base">{label}</span>
+            <span className="flex flex-col flex-grow overflow-hidden">
+                <span className="text-base font-medium leading-tight truncate">
+                    {label}
+                </span>
                 {description ? (
                     <span className="block pt-1">{description}</span>
                 ) : (
-                    <span></span>
+                    <span />
                 )}
             </span>
         </label>

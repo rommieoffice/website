@@ -37,7 +37,7 @@ export const Sidebar = memo(function Sidebar() {
     return (
         <>
             {window.extendifyData?.partnerLogo && (
-                <div className="-ml-1.5 hidden py-3 px-5 text-extendify-black sm:flex items-center justify-center bg-design-main">
+                <div className="-ml-1.5 hidden py-3 px-5 text-extendify-black sm:flex items-center justify-center bg-banner-main">
                     <div className="w-40 h-16 flex items-center justify-center">
                         <img
                             className="max-h-full max-w-full"

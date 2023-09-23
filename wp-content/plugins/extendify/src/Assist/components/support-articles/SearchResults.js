@@ -50,7 +50,7 @@ export const SearchResults = ({ searchResponse }) => {
             <div className="flex items-center justify-between  max-w-4xl w-full">
                 {offset > 0 ? (
                     <button
-                        className="flex justify-start items-center no-underline hover:underline hover:text-partner-primary-bg bg-transparent mb-3 mt-2 p-0 w-full cursor-pointer font-semibold text-design-main"
+                        className="flex justify-start items-center no-underline hover:underline hover:text-design-main bg-transparent mb-3 mt-2 p-0 w-full cursor-pointer font-semibold text-design-main"
                         onClick={() => changeOffset('remove')}>
                         <Icon
                             icon={chevronLeftSmall}
@@ -64,7 +64,7 @@ export const SearchResults = ({ searchResponse }) => {
 
                 {results.length ? (
                     <button
-                        className="flex justify-end items-center no-underline hover:underline hover:text-partner-primary-bg bg-transparent mb-3 mt-2 p-0 w-full cursor-pointer font-semibold text-design-main"
+                        className="flex justify-end items-center no-underline hover:underline hover:text-design-main bg-transparent mb-3 mt-2 p-0 w-full cursor-pointer font-semibold text-design-main"
                         onClick={() => changeOffset('add')}>
                         {__('Next', 'extendify')}
                         <Icon

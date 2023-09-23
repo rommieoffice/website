@@ -1,132 +1,93 @@
 import { BlockPreview, transformStyles } from '@wordpress/block-editor'
 import { rawHandler } from '@wordpress/blocks'
-import { useState, useRef, useEffect, useMemo } from '@wordpress/element'
+import {
+    useState,
+    useRef,
+    useCallback,
+    useEffect,
+    useMemo,
+} from '@wordpress/element'
 import { __ } from '@wordpress/i18n'
+import classNames from 'classnames'
 import { colord } from 'colord'
 import { AnimatePresence, motion } from 'framer-motion'
-import { parseThemeJson } from '@onboarding/api/WPApi'
-import { useFetch } from '@onboarding/hooks/useFetch'
-import { useIsMounted } from '@onboarding/hooks/useIsMounted'
+import { usePreviewIframe } from '@onboarding/hooks/usePreviewIframe'
 import { lowerImageQuality } from '@onboarding/lib/util'
-import { useUserSelectionStore } from '@onboarding/state/UserSelections'
-
-const fetcher = async (themeJson) => {
-    if (!themeJson) return '{}'
-    const res = await parseThemeJson(JSON.stringify(themeJson))
-    if (!res?.styles) {
-        throw new Error('Invalid theme json')
-    }
-    return { data: res.styles }
-}
-
-const styleOverrides = `
-.wp-block-cover {
-    min-height: 100% !important;
-    height: calc(100vh - 0px);
-    max-height: 905px;
-}
-`
+import themeJSON from '../_data/theme-processed.json'
 
 export const SmallPreview = ({ style, onSelect }) => {
-    const { siteType } = useUserSelectionStore()
-    const isMounted = useIsMounted()
-    const [code, setCode] = useState('')
-    const [loaded, setLoaded] = useState(false)
-    const [waitForIframe, setWaitForIframe] = useState(0)
-    const [iFrame, setIFrame] = useState(null)
-    const [inView, setInView] = useState(false)
     const previewContainer = useRef(null)
     const blockRef = useRef(null)
     const observer = useRef(null)
+    const [ready, setReady] = useState(false)
     const variation = style?.variation
-    const { data: themeJson } = useFetch(
-        inView && variation ? variation : null,
-        fetcher,
-    )
     const theme = variation?.settings?.color?.palette?.theme
-
-    const blocks = useMemo(
-        () => rawHandler({ HTML: lowerImageQuality(code) }),
-        [code],
-    )
     const transformedStyles = useMemo(
         () =>
-            themeJson
+            themeJSON?.[style?.variation?.title]
                 ? transformStyles(
-                      [{ css: themeJson }],
-                      '.editor-styles-wrapper',
+                      [{ css: themeJSON[style?.variation?.title] }],
+                      'html body.editor-styles-wrapper',
                   )
                 : null,
-        [themeJson],
+        [style?.variation],
     )
 
-    useEffect(() => {
-        if (iFrame || !inView) return
-        // continuously check for iframe
-        const interval = setTimeout(() => {
-            const container = previewContainer.current
-            const frame = container?.querySelector('iframe[title]')
-            if (!frame) return setWaitForIframe((prev) => prev + 1)
-            setIFrame(frame)
-        }, 100)
-        return () => clearTimeout(interval)
-    }, [iFrame, inView, waitForIframe])
+    const onLoad = useCallback(
+        (frame) => {
+            // Remove load-styles in case WP laods them
+            frame.contentDocument.querySelector('[href*=load-styles]')?.remove()
 
-    useEffect(() => {
-        if (!themeJson || !style?.code) return
+            // Add variation styles
+            const style = `<style id="ext-tj">
+                html body.editor-styles-wrapper { background-color: var(--wp--preset--color--background) }
+                ${transformedStyles}
+            </style>`
+            if (!frame.contentDocument?.getElementById('ext-tj')) {
+                frame.contentDocument?.body?.insertAdjacentHTML(
+                    'beforeend',
+                    style,
+                )
+            }
+        },
+        [transformedStyles],
+    )
 
-        const code = [style?.headerCode, style?.code, style?.footerCode]
+    const { loading, ready: show } = usePreviewIframe({
+        container: blockRef.current,
+        ready,
+        onLoad,
+        loadDelay: 2000,
+    })
+    const blocks = useMemo(() => {
+        const code = [
+            style?.headerCode,
+            style?.code.slice(0, 3).join('\n'),
+            style?.footerCode,
+        ]
             .filter(Boolean)
             .join('')
             .replace(
                 // <!-- wp:navigation --> <!-- /wp:navigation -->
                 /<!-- wp:navigation[.\S\s]*?\/wp:navigation -->/g,
-                '<!-- wp:paragraph {"className":"tmp-nav"} --><p class="tmp-nav">Home | About | Contact</p ><!-- /wp:paragraph -->',
+                '<!-- wp:paragraph {"className":"tmp-nav"} --><p class="tmp-nav">Link | Link | Link</p ><!-- /wp:paragraph -->',
             )
             .replace(
                 // <!-- wp:navigation /-->
                 /<!-- wp:navigation.*\/-->/g,
-                '<!-- wp:paragraph {"className":"tmp-nav"} --><p class="tmp-nav">Home | About | Contact</p ><!-- /wp:paragraph -->',
+                '<!-- wp:paragraph {"className":"tmp-nav"} --><p class="tmp-nav">Link | Link | Link</p ><!-- /wp:paragraph -->',
             )
             .replace(
                 /<!-- wp:site-logo.*\/-->/g,
                 '<!-- wp:paragraph {"className":"custom-logo"} --><img class="custom-logo" style="height: 40px;" src="https://assets.extendify.com/demo-content/logos/extendify-demo-logo.png"><!-- /wp:paragraph -->',
             )
-
-        setCode(code)
-    }, [siteType?.slug, themeJson, style])
-
-    useEffect(() => {
-        if (!blocks?.length || !iFrame) return
-        let timer, timer2
-
-        // Inserts theme styles after iframe is loaded
-        const load = () => {
-            const doc = iFrame.contentDocument
-
-            // Remove load-styles in case WP laods them
-            doc?.querySelector('[href*=load-styles]')?.remove()
-
-            const style = `<style id="ext-tj">${transformedStyles}${styleOverrides}</style>`
-            if (!doc?.getElementById('ext-tj')) {
-                doc?.body?.insertAdjacentHTML('beforeend', style)
-            }
-            timer2 = setTimeout(() => isMounted.current && setLoaded(true), 100)
-            clearTimeout(timer)
-        }
-        iFrame.addEventListener('load', load)
-        // In some cases, the load event doesn't fire.
-        timer = setTimeout(load, 2000)
-        return () => {
-            iFrame?.removeEventListener('load', load)
-            ;[(timer, timer2)].forEach((t) => clearTimeout(t))
-        }
-    }, [blocks, transformedStyles, isMounted, inView, iFrame])
+        return rawHandler({ HTML: lowerImageQuality(code) })
+    }, [style])
 
     useEffect(() => {
         if (observer.current) return
         observer.current = new IntersectionObserver((entries) => {
-            entries[0].isIntersecting && setInView(true)
+            entries[0].isIntersecting && setReady(true)
         })
         observer.current.observe(blockRef.current)
         return () => observer.current.disconnect()
@@ -153,17 +114,28 @@ export const SmallPreview = ({ style, onSelect }) => {
                         ? () => onSelect({ ...style, variation })
                         : () => {}
                 }>
-                {inView ? (
+                {ready ? (
                     <motion.div
                         ref={previewContainer}
-                        className="absolute inset-0 z-20"
+                        className={classNames('absolute inset-0 z-20', {
+                            'opacity-0': !show,
+                        })}
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: loaded ? 1 : 0 }}>
-                        <BlockPreview blocks={blocks} viewportWidth={1400} />
+                        animate={{ opacity: loading ? 0 : 1 }}>
+                        <BlockPreview
+                            blocks={blocks}
+                            viewportWidth={1400}
+                            additionalStyles={[
+                                // TODO: { css: themeJSON[style.variation.title] },
+                                {
+                                    css: '.rich-text [data-rich-text-placeholder]:after { content: "" }',
+                                },
+                            ]}
+                        />
                     </motion.div>
                 ) : null}
                 <AnimatePresence>
-                    {loaded || (
+                    {show || (
                         <motion.div
                             initial={{ opacity: 0.7 }}
                             animate={{ opacity: 1 }}

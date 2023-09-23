@@ -1,6 +1,5 @@
 import { useEffect, useCallback } from '@wordpress/element'
 import { General as GeneralApi } from '@library/api/General'
-import { useDesignColors } from '@library/hooks/useDesignColors.js'
 import MainWindow from '@library/pages/MainWindow'
 import { useGlobalStore } from '@library/state/GlobalState'
 import { useTemplatesStore } from '@library/state/Templates'
@@ -71,8 +70,6 @@ export default function ExtendifyLibrary({ show = false }) {
             window.removeEventListener('extendify::close-library', hideLibrary)
         }
     }, [hideLibrary, showLibrary])
-
-    useDesignColors()
 
     return <MainWindow />
 }

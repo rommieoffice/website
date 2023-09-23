@@ -5,7 +5,7 @@
 
 namespace Extendify;
 
-use Extendify\Config;
+use Extendify\PartnerData;
 
 /**
  * Helper class for interacting with the user
@@ -113,7 +113,7 @@ class User
         }
 
         if (!isset($userData['state']['sdkPartner']) || !$userData['state']['sdkPartner']) {
-            $userData['state']['sdkPartner'] = Config::$sdkPartner;
+            $userData['state']['sdkPartner'] = PartnerData::$id;
         }
 
         $userData['state']['uuid'] = self::data('uuid');

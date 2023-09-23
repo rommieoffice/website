@@ -2,6 +2,7 @@ import { useState } from '@wordpress/element'
 import { __ } from '@wordpress/i18n'
 import { Icon } from '@wordpress/icons'
 import { getAnswer } from '@chat/api/Data'
+import { updateUserMeta } from '@chat/api/Data'
 import { Answer } from '@chat/components/dialog/Answer'
 import { Header } from '@chat/components/dialog/Header'
 import { History } from '@chat/components/dialog/History'
@@ -20,6 +21,18 @@ export const ChatDialog = ({ setShowChat }) => {
     )
     const [showHistory, setShowHistory] = useState(false)
     const { hasHistory } = useHistoryStore()
+
+    const showAIConsent = window.extChatData?.showAIConsent
+    const consentTermsUrl = window.extChatData?.consentTermsUrl
+    const userId = window.extChatData?.userId
+    const [userGaveConsent, setUserGaveConsent] = useState(
+        window.extChatData?.userGaveConsent,
+    )
+
+    const userAcceptsTerms = () => {
+        updateUserMeta(userId, 'extendify_ai_consent', true)
+        setUserGaveConsent(true)
+    }
 
     const reset = () => {
         setQuestion(undefined)
@@ -113,6 +126,37 @@ export const ChatDialog = ({ setShowChat }) => {
                         <span className="group-hover:text-design-main">
                             {__('Recent History', 'extendify')}
                         </span>
+                    </div>
+                </div>
+            )}
+
+            {showAIConsent && !userGaveConsent && (
+                <div className="bg-black bg-opacity-75 rounded p-6 absolute inset-0 flex items-center justify-center">
+                    <div className="bg-white p-4 rounded">
+                        <h2 className="text-lg mt-0 mb-2">
+                            {__('Terms of Use', 'extendify')}
+                        </h2>
+                        <p className="m-0">
+                            {
+                                // translators: at the end of the sentence, there is a link to the terms of use
+                                __(
+                                    'In order to use the AI-powered chatbot to answer your WordPress questions, you must agree to the terms of use. For more information, click on this link:',
+                                    'extendify',
+                                )
+                            }{' '}
+                            <a
+                                href={consentTermsUrl}
+                                target="_blank"
+                                rel="noreferrer">
+                                {__('Terms of Use', 'extendify')}
+                            </a>
+                        </p>
+                        <button
+                            className="mt-4 bg-wp-theme-500 text-white rounded px-4 py-2 border-0 text-center w-full cursor-pointer"
+                            type="button"
+                            onClick={() => userAcceptsTerms()}>
+                            {__('Accept', 'extendify')}
+                        </button>
                     </div>
                 </div>
             )}

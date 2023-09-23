@@ -5,6 +5,7 @@
 
 namespace Extendify\Onboarding;
 
+use Extendify\PartnerData;
 use Extendify\Config;
 
 /**
@@ -125,51 +126,14 @@ class Admin
     }
 
     /**
-     * Check if partner data is available.
-     *
-     * @return array
-     */
-    public function checkPartnerDataSources()
-    {
-        $return = [];
-
-        try {
-            if (defined('EXTENDIFY_ONBOARDING_BG')) {
-                $return['bgColor'] = constant('EXTENDIFY_ONBOARDING_BG');
-                $return['fgColor'] = constant('EXTENDIFY_ONBOARDING_TXT');
-                $return['logo'] = constant('EXTENDIFY_PARTNER_LOGO');
-            }
-
-            $data = get_option('extendify_partner_data');
-            if ($data) {
-                $return['bgColor'] = $data['backgroundColor'];
-                $return['fgColor'] = $data['foregroundColor'];
-                // Need this check to avoid errors if no partner logo is set in Airtable.
-                $return['logo'] = $data['logo'] ? $data['logo'][0]['thumbnails']['large']['url'] : null;
-            }
-        } catch (\Exception $e) {
-            // Do nothing here, set variables below. Coding Standards require something to be in the catch.
-            $e;
-        }//end try
-
-        return $return;
-    }
-
-    /**
      * Adds various JS scripts
      *
      * @return void
      */
     public function addScopedScriptsAndStyles()
     {
-        $partnerData = $this->checkPartnerDataSources();
-
-        $bgColor = isset($partnerData['bgColor']) ? $partnerData['bgColor'] : '#2c39bd';
-        $fgColor = isset($partnerData['fgColor']) ? $partnerData['fgColor'] : '#ffffff';
-        $logo = isset($partnerData['logo']) ? $partnerData['logo'] : null;
-
         $version = Config::$environment === 'PRODUCTION' ? Config::$version : uniqid();
-        $scriptAssetPath = EXTENDIFY_PATH . 'public/build/extendify-onboarding.asset.php';
+        $scriptAssetPath = EXTENDIFY_PATH . 'public/build/' . Config::$assetManifest['extendify-onboarding.php'];
         $fallback = [
             'dependencies' => [],
             'version' => $version,
@@ -181,15 +145,30 @@ class Admin
 
         \wp_enqueue_script(
             Config::$slug . '-onboarding-scripts',
-            EXTENDIFY_BASE_URL . 'public/build/extendify-onboarding.js',
+            EXTENDIFY_BASE_URL . 'public/build/' . Config::$assetManifest['extendify-onboarding.js'],
             $scriptAsset['dependencies'],
             $scriptAsset['version'],
             true
         );
+
+        $globalStylesId = \WP_Theme_JSON_Resolver::get_user_global_styles_post_id();
+        if (Config::$environment === 'DEVELOPMENT') {
+            // In dev, reset the variaton to the default.
+            wp_update_post([
+                'ID' => $globalStylesId,
+                'post_content' => wp_json_encode([
+                    'styles' => [],
+                    'settings' => [],
+                    'isGlobalStylesUserThemeJSON' => true,
+                    'version' => 2,
+                ]),
+            ]);
+        }
+
         \wp_add_inline_script(
             Config::$slug . '-onboarding-scripts',
             'window.extOnbData = ' . \wp_json_encode([
-                'globalStylesPostID' => \WP_Theme_JSON_Resolver::get_user_global_styles_post_id(),
+                'globalStylesPostID' => $globalStylesId,
                 'editorStyles' => \get_block_editor_settings([], null),
                 'site' => \esc_url_raw(\get_site_url()),
                 'adminUrl' => \esc_url_raw(\admin_url()),
@@ -199,16 +178,17 @@ class Admin
                 'config' => Config::$config,
                 'wpRoot' => \esc_url_raw(\rest_url()),
                 'nonce' => \wp_create_nonce('wp_rest'),
-                'partnerLogo' => $logo,
-                'partnerName' => \esc_attr(Config::$sdkPartner),
+                'partnerLogo' => PartnerData::$logo,
+                'partnerName' => \esc_attr(PartnerData::$name),
                 'partnerSkipSteps' => defined('EXTENDIFY_SKIP_STEPS') ? constant('EXTENDIFY_SKIP_STEPS') : [],
                 'devbuild' => \esc_attr(Config::$environment === 'DEVELOPMENT'),
                 'version' => Config::$version,
-                'insightsId' => \get_option('extendify_site_id', ''),
+                'siteId' => \get_option('extendify_site_id', ''),
                 // Only send insights if they have opted in explicitly.
                 'insightsEnabled' => defined('EXTENDIFY_INSIGHTS_URL'),
                 'activeTests' => \get_option('extendify_active_tests', []),
                 'wpLanguage' => \get_locale(),
+                'wpVersion' => \get_bloginfo('version'),
                 'siteCreatedAt' => get_user_option('user_registered', 1),
             ]),
             'before'
@@ -218,14 +198,15 @@ class Admin
 
         \wp_enqueue_style(
             Config::$slug . '-onboarding-styles',
-            EXTENDIFY_BASE_URL . 'public/build/extendify-onboarding.css',
+            EXTENDIFY_BASE_URL . 'public/build/' . Config::$assetManifest['extendify-onboarding.css'],
             [],
-            $version
+            Config::$version
         );
 
-        \wp_add_inline_style(Config::$slug . '-onboarding-styles', ":root {
-            --ext-partner-theme-primary-bg: {$bgColor};
-            --ext-partner-theme-primary-text: {$fgColor};
-        }");
+        $cssColorVars = PartnerData::cssVariableMapping();
+        $cssString = implode('; ', array_map(function ($k, $v) {
+            return "$k: $v";
+        }, array_keys($cssColorVars), $cssColorVars));
+        wp_add_inline_style(Config::$slug . '-onboarding-styles', "body { $cssString; }");
     }
 }

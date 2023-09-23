@@ -333,8 +333,8 @@
 }
 
 .extendify-outer-container .extendify-welcome-tabs li.cta-button a {
-    background: var(--ext-partner-theme-primary-bg, #2c39bd);
-    color: var(--ext-partner-theme-primary-text, #ffffff);
+    background: var(--ext-design-main, #2c39bd);
+    color: var(--ext-design-text, #ffffff);
     border-radius: 0.25rem;
     margin: 5px;
     padding: 10px 30px;

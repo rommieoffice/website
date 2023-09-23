@@ -49,7 +49,7 @@ class Blocks {
 		}
 
 		if ( ! $this->isBlockEditorActive() ) {
-			return;
+			return false;
 		}
 
 		// Check if the block requires a minimum WP version.
@@ -100,6 +100,7 @@ class Blocks {
 		aioseo()->core->assets->loadCss( 'src/vue/standalone/blocks/main.js' );
 
 		$dependencies = [
+			'wp-annotations',
 			'wp-blocks',
 			'wp-components',
 			'wp-element',
